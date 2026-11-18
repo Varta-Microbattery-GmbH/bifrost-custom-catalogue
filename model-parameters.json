@@ -1268049,7 +1268049,7 @@
     "base_model": "rerank-2",
     "max_input_tokens": 16000,
     "max_output_tokens": 16000,
-    "provider": "voyage",
+    "provider": "mongodb-voyage",
     "max_query_tokens": 16000,
     "max_tokens": 16000,
     "model_parameters": [
@@ -1268258,7 +1268258,7 @@
     "base_model": "rerank-2-lite",
     "max_input_tokens": 8000,
     "max_output_tokens": 8000,
-    "provider": "voyage",
+    "provider": "mongodb-voyage",
     "max_query_tokens": 8000,
     "max_tokens": 8000,
     "model_parameters": [
@@ -1268467,7 +1268467,7 @@
     "base_model": "rerank-2.5",
     "max_input_tokens": 32000,
     "max_output_tokens": 32000,
-    "provider": "voyage",
+    "provider": "mongodb-voyage",
     "max_query_tokens": 32000,
     "max_tokens": 32000,
     "model_parameters": [
@@ -1268676,7 +1268676,7 @@
     "base_model": "rerank-2.5-lite",
     "max_input_tokens": 32000,
     "max_output_tokens": 32000,
-    "provider": "voyage",
+    "provider": "mongodb-voyage",
     "max_query_tokens": 32000,
     "max_tokens": 32000,
     "model_parameters": [
@@ -1268884,98 +1268884,98 @@
     "mode": "embedding",
     "base_model": "voyage-2",
     "max_input_tokens": 4000,
-    "provider": "voyage",
+    "provider": "mongodb-voyage",
     "max_tokens": 4000
   },
   "mongodb-voyage/voyage-3": {
     "mode": "embedding",
     "base_model": "voyage-3",
     "max_input_tokens": 32000,
-    "provider": "voyage",
+    "provider": "mongodb-voyage",
     "max_tokens": 32000
   },
   "mongodb-voyage/voyage-3-large": {
     "mode": "embedding",
     "base_model": "voyage-3-large",
     "max_input_tokens": 32000,
-    "provider": "voyage",
+    "provider": "mongodb-voyage",
     "max_tokens": 32000
   },
   "mongodb-voyage/voyage-3-lite": {
     "mode": "embedding",
     "base_model": "voyage-3-lite",
     "max_input_tokens": 32000,
-    "provider": "voyage",
+    "provider": "mongodb-voyage",
     "max_tokens": 32000
   },
   "mongodb-voyage/voyage-3.5": {
     "mode": "embedding",
     "base_model": "voyage-3.5",
     "max_input_tokens": 32000,
-    "provider": "voyage",
+    "provider": "mongodb-voyage",
     "max_tokens": 32000
   },
   "mongodb-voyage/voyage-3.5-lite": {
     "mode": "embedding",
     "base_model": "voyage-3.5-lite",
     "max_input_tokens": 32000,
-    "provider": "voyage",
+    "provider": "mongodb-voyage",
     "max_tokens": 32000
   },
   "mongodb-voyage/voyage-code-2": {
     "mode": "embedding",
     "base_model": "voyage-code-2",
     "max_input_tokens": 16000,
-    "provider": "voyage",
+    "provider": "mongodb-voyage",
     "max_tokens": 16000
   },
   "mongodb-voyage/voyage-code-3": {
     "mode": "embedding",
     "base_model": "voyage-code-3",
     "max_input_tokens": 32000,
-    "provider": "voyage",
+    "provider": "mongodb-voyage",
     "max_tokens": 32000
   },
   "mongodb-voyage/voyage-context-3": {
     "mode": "embedding",
     "base_model": "voyage-context-3",
     "max_input_tokens": 120000,
-    "provider": "voyage",
+    "provider": "mongodb-voyage",
     "max_tokens": 120000
   },
   "mongodb-voyage/voyage-finance-2": {
     "mode": "embedding",
     "base_model": "voyage-finance-2",
     "max_input_tokens": 32000,
-    "provider": "voyage",
+    "provider": "mongodb-voyage",
     "max_tokens": 32000
   },
   "mongodb-voyage/voyage-large-2": {
     "mode": "embedding",
     "base_model": "voyage-large-2",
     "max_input_tokens": 16000,
-    "provider": "voyage",
+    "provider": "mongodb-voyage",
     "max_tokens": 16000
   },
   "mongodb-voyage/voyage-law-2": {
     "mode": "embedding",
     "base_model": "voyage-law-2",
     "max_input_tokens": 16000,
-    "provider": "voyage",
+    "provider": "mongodb-voyage",
     "max_tokens": 16000
   },
   "mongodb-voyage/voyage-lite-01": {
     "mode": "embedding",
     "base_model": "voyage-lite-01",
     "max_input_tokens": 4096,
-    "provider": "voyage",
+    "provider": "mongodb-voyage",
     "max_tokens": 4096
   },
   "mongodb-voyage/voyage-lite-02-instruct": {
     "mode": "embedding",
     "base_model": "voyage-lite-02-instruct",
     "max_input_tokens": 4000,
-    "provider": "voyage",
+    "provider": "mongodb-voyage",
     "max_tokens": 4000
   },
   "mongodb-voyage/voyage-multimodal-3": {
@@ -1268983,7 +1268983,7 @@
     "base_model": "voyage-multimodal-3",
     "max_input_tokens": 32000,
     "supports_embedding_image_input": true,
-    "provider": "voyage",
+    "provider": "mongodb-voyage",
     "max_tokens": 32000
   },
   "mongodb-voyage/voyage-4": {
@@ -1268992,7 +1268992,7 @@
     "max_input_tokens": 32000,
     "output_vector_size": 1024,
     "source": "https://docs.voyageai.com/docs/pricing",
-    "provider": "voyage",
+    "provider": "mongodb-voyage",
     "max_tokens": 32000
   },
   "mongodb-voyage/voyage-4-large": {
@@ -1269001,7 +1269001,7 @@
     "max_input_tokens": 32000,
     "output_vector_size": 1024,
     "source": "https://docs.voyageai.com/docs/pricing",
-    "provider": "voyage",
+    "provider": "mongodb-voyage",
     "max_tokens": 32000
   },
   "mongodb-voyage/voyage-4-lite": {
@@ -1269010,7 +1269010,7 @@
     "max_input_tokens": 32000,
     "output_vector_size": 1024,
     "source": "https://docs.voyageai.com/docs/pricing",
-    "provider": "voyage",
+    "provider": "mongodb-voyage",
     "max_tokens": 32000
   },
   "mongodb-voyage/voyage-code-4": {
@@ -1269019,7 +1269019,7 @@
     "max_input_tokens": 32000,
     "output_vector_size": 1024,
     "source": "https://docs.voyageai.com/docs/pricing",
-    "provider": "voyage",
+    "provider": "mongodb-voyage",
     "max_tokens": 32000
   },
   "mongodb-voyage/voyage-context-4": {
@@ -1269028,7 +1269028,7 @@
     "max_input_tokens": 120000,
     "output_vector_size": 1024,
     "source": "https://docs.voyageai.com/docs/pricing",
-    "provider": "voyage",
+    "provider": "mongodb-voyage",
     "max_tokens": 120000
   },
   "mongodb-voyage/voyage-multilingual-2": {
@@ -1269037,7 +1269037,7 @@
     "max_input_tokens": 32000,
     "output_vector_size": 1024,
     "source": "https://docs.voyageai.com/docs/pricing",
-    "provider": "voyage",
+    "provider": "mongodb-voyage",
     "max_tokens": 32000
   },
   "mongodb-voyage/voyage-multimodal-3.5": {
@@ -1269047,7 +1269047,7 @@
     "output_vector_size": 1024,
     "source": "https://docs.voyageai.com/docs/pricing",
     "supports_embedding_image_input": true,
-    "provider": "voyage",
+    "provider": "mongodb-voyage",
     "max_tokens": 32000
   },
   "mongodb-voyage/rerank-1": {
@@ -1269055,7 +1269055,7 @@
     "max_output_tokens": 8000,
     "mode": "rerank",
     "source": "https://docs.voyageai.com/docs/pricing",
-    "provider": "voyage",
+    "provider": "mongodb-voyage",
     "base_model": "rerank-1"
   },
   "mongodb-voyage/rerank-lite-1": {
@@ -1269063,7 +1269063,7 @@
     "max_output_tokens": 4000,
     "mode": "rerank",
     "source": "https://docs.voyageai.com/docs/pricing",
-    "provider": "voyage",
+    "provider": "mongodb-voyage",
     "base_model": "rerank-lite-1"
   },
   "mongodb-voyage/rerank-3": {
@@ -1269071,7 +1269071,7 @@
     "max_output_tokens": 32000,
     "mode": "rerank",
     "source": "https://docs.voyageai.com/docs/pricing",
-    "provider": "voyage",
+    "provider": "mongodb-voyage",
     "base_model": "rerank-3"
   },
   "mongodb-voyage/rerank-3-lite": {
@@ -1269079,7 +1269079,7 @@
     "max_output_tokens": 32000,
     "mode": "rerank",
     "source": "https://docs.voyageai.com/docs/pricing",
-    "provider": "voyage",
+    "provider": "mongodb-voyage",
     "base_model": "rerank-3-lite"
   },
   "mongodb-voyage/voyage-large-2-instruct": {
@@ -1269087,7 +1269087,7 @@
     "mode": "embedding",
     "output_vector_size": 1024,
     "source": "https://docs.voyageai.com/docs/pricing",
-    "provider": "voyage",
+    "provider": "mongodb-voyage",
     "base_model": "voyage-large-2-instruct"
   }
 }
