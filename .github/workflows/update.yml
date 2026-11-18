@@ -20,8 +20,8 @@ jobs:
 
       - name: Fetch and patch Bifrost datasheets
         run: |
-          curl -sL https://getbifrost.ai -o raw_pricing.json
-          curl -sL https://getbifrost.ai/model-parameters -o raw_params.json
+          curl -sL https://getbifrost.ai/datasheet -o raw_pricing.json
+          curl -sL https://getbifrost.ai/datasheet/model-parameters -o raw_params.json
 
           # Alle "voyage/"-Einträge klonen, Präfix & Provider-Feld umschreiben und mergen
           jq --arg cp "$CUSTOM_PROVIDER" '
