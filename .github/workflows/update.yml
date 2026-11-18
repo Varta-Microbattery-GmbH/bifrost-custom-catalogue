@@ -1,0 +1,53 @@
+name: Update Bifrost Custom Catalog
+
+on:
+  schedule:
+    - cron: '0 3 * * *' # Läuft täglich um 03:00 Uhr UTC
+  workflow_dispatch:      # Ermöglicht manuellen Start per Klick im GitHub-UI
+
+env:
+  CUSTOM_PROVIDER: mongodb-voyage
+
+permissions:
+  contents: write
+
+jobs:
+  build-catalog:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Fetch and patch Bifrost datasheets
+        run: |
+          curl -sL https://getbifrost.ai -o raw_pricing.json
+          curl -sL https://getbifrost.ai/model-parameters -o raw_params.json
+
+          # Alle "voyage/"-Einträge klonen, Präfix & Provider-Feld umschreiben und mergen
+          jq --arg cp "$CUSTOM_PROVIDER" '
+            . + (
+              with_entries(select(.key | startswith("voyage/")))
+              | with_entries(
+                  .key |= sub("^voyage/"; ($cp + "/"))
+                  | .value.provider = $cp
+                )
+            )
+          ' raw_pricing.json > pricing.json
+
+          jq --arg cp "$CUSTOM_PROVIDER" '
+            . + (
+              with_entries(select(.key | startswith("voyage/")))
+
+              | with_entries(.key |= sub("^voyage/"; ($cp + "/")))
+            )
+          ' raw_params.json > model-parameters.json
+
+          rm raw_pricing.json raw_params.json
+
+      - name: Commit and push if changed
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@://github.com"
+          git add pricing.json model-parameters.json
+          git diff --staged --quiet || git commit -m "chore: update bifrost catalog for $CUSTOM_PROVIDER"
+          git push
