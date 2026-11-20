@@ -32087,7 +32087,8 @@
     "successor_model": "friendliai/zai-org/GLM-5.3",
     "deprecation_date": "2026-11-20",
     "provider": "friendliai",
-    "base_model": "glm-5.1"
+    "base_model": "glm-5.1",
+    "is_deprecated": true
   },
   "ft:babbage-002": {
     "deprecation_date": "2026-09-28",
@@ -67652,7 +67653,7 @@
       "search_context_size_low": 0.012,
       "search_context_size_medium": 0.012
     },
-    "source": "https://docs.aws.amazon.com/bedrock/latest/userguide/model-card-openai-gpt-56-cyber.html",
+    "source": "https://aws.amazon.com/bedrock/pricing/",
     "use_openai_responses_path": true,
     "supported_endpoints": [
       "/v1/chat/completions",
@@ -67676,7 +67677,45 @@
     "supports_vision": true,
     "supports_web_search": true,
     "provider": "bedrock_mantle",
-    "base_model": "gpt-5.6-cyber"
+    "base_model": "gpt-5.6-cyber",
+    "supports_audio_input": false,
+    "supports_audio_output": false,
+    "supported_regions": [
+      "us-east-2",
+      "us-gov-east-1",
+      "us-east-1",
+      "us-west-1",
+      "us-west-2",
+      "ca-central-1",
+      "ca-west-1",
+      "eu-central-1",
+      "eu-central-2",
+      "eu-north-1",
+      "eu-south-1",
+      "eu-south-2",
+      "eu-west-1",
+      "eu-west-2",
+      "eu-west-3",
+      "ap-east-2",
+      "ap-northeast-1",
+      "ap-northeast-2",
+      "ap-northeast-3",
+      "ap-south-1",
+      "ap-south-2",
+      "ap-southeast-1",
+      "ap-southeast-2",
+      "ap-southeast-3",
+      "ap-southeast-4",
+      "ap-southeast-5",
+      "ap-southeast-6",
+      "ap-southeast-7",
+      "il-central-1",
+      "me-central-1",
+      "me-south-1",
+      "af-south-1",
+      "sa-east-1"
+    ],
+    "max_tokens": 1050000
   },
   "bedrock_mantle/openai.gpt-daybreak-blue-5.6-sol": {
     "input_cost_per_token": 0.0000044,
@@ -67715,10 +67754,47 @@
     "supports_tool_choice": true,
     "supports_xhigh_reasoning_effort": true,
     "supports_vision": true,
-    "source": "https://docs.aws.amazon.com/bedrock/latest/userguide/model-card-openai-gpt-daybreak-blue-56-sol.html",
+    "source": "https://aws.amazon.com/bedrock/pricing/",
     "supports_web_search": true,
     "provider": "bedrock_mantle",
     "base_model": "gpt-daybreak-blue-5.6-sol",
+    "supports_audio_input": false,
+    "supports_audio_output": false,
+    "supported_regions": [
+      "us-east-2",
+      "us-east-1",
+      "us-west-1",
+      "us-west-2",
+      "ca-central-1",
+      "ca-west-1",
+      "eu-central-1",
+      "eu-central-2",
+      "eu-north-1",
+      "eu-south-1",
+      "eu-south-2",
+      "eu-west-1",
+      "eu-west-2",
+      "eu-west-3",
+      "ap-east-2",
+      "ap-northeast-1",
+      "ap-northeast-2",
+      "ap-northeast-3",
+      "ap-south-1",
+      "ap-south-2",
+      "ap-southeast-1",
+      "ap-southeast-2",
+      "ap-southeast-3",
+      "ap-southeast-4",
+      "ap-southeast-5",
+      "ap-southeast-6",
+      "ap-southeast-7",
+      "il-central-1",
+      "me-central-1",
+      "me-south-1",
+      "af-south-1",
+      "sa-east-1"
+    ],
+    "max_tokens": 1050000,
     "bedrock_mantle_base_path": "openai/v1"
   },
   "bedrock_mantle/openai.gpt-5.6-luna": {
@@ -67968,7 +68044,7 @@
     "max_input_tokens": 922000,
     "max_output_tokens": 128000,
     "mode": "chat",
-    "source": "https://docs.aws.amazon.com/bedrock/latest/userguide/model-card-openai-gpt-daybreak-blue-56-sol.html",
+    "source": "https://aws.amazon.com/bedrock/pricing/",
     "supported_modalities": [
       "text",
       "image"
@@ -67976,9 +68052,9 @@
     "supported_output_modalities": [
       "text"
     ],
-    "supports_function_calling": true,
+    "supports_function_calling": false,
     "supports_minimal_reasoning_effort": false,
-    "supports_tool_choice": true,
+    "supports_tool_choice": false,
     "supports_reasoning": true,
     "supports_xhigh_reasoning_effort": true,
     "supports_vision": true,
@@ -67988,7 +68064,45 @@
       "/v1/responses"
     ],
     "provider": "bedrock",
-    "base_model": "gpt-daybreak-blue-5.6-sol"
+    "base_model": "gpt-daybreak-blue-5.6-sol",
+    "supports_prompt_caching": true,
+    "supports_audio_input": false,
+    "supports_audio_output": false,
+    "supported_regions": [
+      "us-east-2",
+      "us-east-1",
+      "us-west-1",
+      "us-west-2",
+      "ca-central-1",
+      "ca-west-1",
+      "eu-central-1",
+      "eu-central-2",
+      "eu-north-1",
+      "eu-south-1",
+      "eu-south-2",
+      "eu-west-1",
+      "eu-west-2",
+      "eu-west-3",
+      "ap-east-2",
+      "ap-northeast-1",
+      "ap-northeast-2",
+      "ap-northeast-3",
+      "ap-south-1",
+      "ap-south-2",
+      "ap-southeast-1",
+      "ap-southeast-2",
+      "ap-southeast-3",
+      "ap-southeast-4",
+      "ap-southeast-5",
+      "ap-southeast-6",
+      "ap-southeast-7",
+      "il-central-1",
+      "me-central-1",
+      "me-south-1",
+      "af-south-1",
+      "sa-east-1"
+    ],
+    "max_tokens": 1050000
   },
   "global.openai.gpt-daybreak-blue-5.6-sol": {
     "supports_bedrock_runtime_chat_completions_response_format": true,
@@ -68004,7 +68118,7 @@
     "max_input_tokens": 922000,
     "max_output_tokens": 128000,
     "mode": "chat",
-    "source": "https://docs.aws.amazon.com/bedrock/latest/userguide/model-card-openai-gpt-daybreak-blue-56-sol.html",
+    "source": "https://aws.amazon.com/bedrock/pricing/",
     "supported_modalities": [
       "text",
       "image"
@@ -68012,9 +68126,9 @@
     "supported_output_modalities": [
       "text"
     ],
-    "supports_function_calling": true,
+    "supports_function_calling": false,
     "supports_minimal_reasoning_effort": false,
-    "supports_tool_choice": true,
+    "supports_tool_choice": false,
     "supports_reasoning": true,
     "supports_xhigh_reasoning_effort": true,
     "supports_vision": true,
@@ -68024,7 +68138,45 @@
       "/v1/responses"
     ],
     "provider": "bedrock",
-    "base_model": "gpt-daybreak-blue-5.6-sol"
+    "base_model": "gpt-daybreak-blue-5.6-sol",
+    "supports_prompt_caching": true,
+    "supports_audio_input": false,
+    "supports_audio_output": false,
+    "supported_regions": [
+      "us-east-2",
+      "us-east-1",
+      "us-west-1",
+      "us-west-2",
+      "ca-central-1",
+      "ca-west-1",
+      "eu-central-1",
+      "eu-central-2",
+      "eu-north-1",
+      "eu-south-1",
+      "eu-south-2",
+      "eu-west-1",
+      "eu-west-2",
+      "eu-west-3",
+      "ap-east-2",
+      "ap-northeast-1",
+      "ap-northeast-2",
+      "ap-northeast-3",
+      "ap-south-1",
+      "ap-south-2",
+      "ap-southeast-1",
+      "ap-southeast-2",
+      "ap-southeast-3",
+      "ap-southeast-4",
+      "ap-southeast-5",
+      "ap-southeast-6",
+      "ap-southeast-7",
+      "il-central-1",
+      "me-central-1",
+      "me-south-1",
+      "af-south-1",
+      "sa-east-1"
+    ],
+    "max_tokens": 1050000
   },
   "us.openai.gpt-5.6-cyber": {
     "supports_bedrock_runtime_chat_completions_response_format": true,
@@ -68036,7 +68188,7 @@
     "max_input_tokens": 922000,
     "max_output_tokens": 128000,
     "mode": "chat",
-    "source": "https://docs.aws.amazon.com/bedrock/latest/userguide/model-card-openai-gpt-56-cyber.html",
+    "source": "https://aws.amazon.com/bedrock/pricing/",
     "supported_modalities": [
       "text",
       "image"
@@ -68044,9 +68196,9 @@
     "supported_output_modalities": [
       "text"
     ],
-    "supports_function_calling": true,
+    "supports_function_calling": false,
     "supports_minimal_reasoning_effort": false,
-    "supports_tool_choice": true,
+    "supports_tool_choice": false,
     "supports_reasoning": true,
     "supports_xhigh_reasoning_effort": true,
     "supports_vision": true,
@@ -68056,7 +68208,46 @@
       "/v1/responses"
     ],
     "provider": "bedrock",
-    "base_model": "gpt-5.6-cyber"
+    "base_model": "gpt-5.6-cyber",
+    "supports_prompt_caching": true,
+    "supports_audio_input": false,
+    "supports_audio_output": false,
+    "supported_regions": [
+      "us-east-2",
+      "us-gov-east-1",
+      "us-east-1",
+      "us-west-1",
+      "us-west-2",
+      "ca-central-1",
+      "ca-west-1",
+      "eu-central-1",
+      "eu-central-2",
+      "eu-north-1",
+      "eu-south-1",
+      "eu-south-2",
+      "eu-west-1",
+      "eu-west-2",
+      "eu-west-3",
+      "ap-east-2",
+      "ap-northeast-1",
+      "ap-northeast-2",
+      "ap-northeast-3",
+      "ap-south-1",
+      "ap-south-2",
+      "ap-southeast-1",
+      "ap-southeast-2",
+      "ap-southeast-3",
+      "ap-southeast-4",
+      "ap-southeast-5",
+      "ap-southeast-6",
+      "ap-southeast-7",
+      "il-central-1",
+      "me-central-1",
+      "me-south-1",
+      "af-south-1",
+      "sa-east-1"
+    ],
+    "max_tokens": 1050000
   },
   "global.openai.gpt-5.6-cyber": {
     "supports_bedrock_runtime_chat_completions_response_format": true,
@@ -68068,7 +68259,7 @@
     "max_input_tokens": 922000,
     "max_output_tokens": 128000,
     "mode": "chat",
-    "source": "https://docs.aws.amazon.com/bedrock/latest/userguide/model-card-openai-gpt-56-cyber.html",
+    "source": "https://aws.amazon.com/bedrock/pricing/",
     "supported_modalities": [
       "text",
       "image"
@@ -68076,9 +68267,9 @@
     "supported_output_modalities": [
       "text"
     ],
-    "supports_function_calling": true,
+    "supports_function_calling": false,
     "supports_minimal_reasoning_effort": false,
-    "supports_tool_choice": true,
+    "supports_tool_choice": false,
     "supports_reasoning": true,
     "supports_xhigh_reasoning_effort": true,
     "supports_vision": true,
@@ -68088,7 +68279,46 @@
       "/v1/responses"
     ],
     "provider": "bedrock",
-    "base_model": "gpt-5.6-cyber"
+    "base_model": "gpt-5.6-cyber",
+    "supports_prompt_caching": true,
+    "supports_audio_input": false,
+    "supports_audio_output": false,
+    "supported_regions": [
+      "us-east-2",
+      "us-gov-east-1",
+      "us-east-1",
+      "us-west-1",
+      "us-west-2",
+      "ca-central-1",
+      "ca-west-1",
+      "eu-central-1",
+      "eu-central-2",
+      "eu-north-1",
+      "eu-south-1",
+      "eu-south-2",
+      "eu-west-1",
+      "eu-west-2",
+      "eu-west-3",
+      "ap-east-2",
+      "ap-northeast-1",
+      "ap-northeast-2",
+      "ap-northeast-3",
+      "ap-south-1",
+      "ap-south-2",
+      "ap-southeast-1",
+      "ap-southeast-2",
+      "ap-southeast-3",
+      "ap-southeast-4",
+      "ap-southeast-5",
+      "ap-southeast-6",
+      "ap-southeast-7",
+      "il-central-1",
+      "me-central-1",
+      "me-south-1",
+      "af-south-1",
+      "sa-east-1"
+    ],
+    "max_tokens": 1050000
   },
   "us.openai.gpt-5.6-terra": {
     "supports_bedrock_runtime_chat_completions_response_format": true,
@@ -93645,6 +93875,44 @@
     "use_openai_responses_path": true,
     "provider": "bedrock_mantle",
     "base_model": "gpt-6.2-sol",
+    "supports_audio_input": false,
+    "supports_audio_output": false,
+    "supported_regions": [
+      "us-east-1",
+      "us-east-2",
+      "us-west-2",
+      "us-gov-west-1",
+      "us-gov-east-1",
+      "us-west-1",
+      "ca-central-1",
+      "ca-west-1",
+      "eu-central-1",
+      "eu-central-2",
+      "eu-north-1",
+      "eu-south-1",
+      "eu-south-2",
+      "eu-west-1",
+      "eu-west-2",
+      "eu-west-3",
+      "ap-east-2",
+      "ap-northeast-1",
+      "ap-northeast-2",
+      "ap-northeast-3",
+      "ap-south-1",
+      "ap-south-2",
+      "ap-southeast-1",
+      "ap-southeast-2",
+      "ap-southeast-3",
+      "ap-southeast-4",
+      "ap-southeast-5",
+      "ap-southeast-6",
+      "ap-southeast-7",
+      "il-central-1",
+      "mx-central-1",
+      "me-south-1",
+      "af-south-1",
+      "sa-east-1"
+    ],
     "always_reasoning": true,
     "default_reasoning_effort": "medium",
     "is_reasoning_model": true,
@@ -93748,13 +94016,51 @@
     "use_openai_responses_path": true,
     "provider": "bedrock_mantle",
     "base_model": "gpt-6.2-astra",
+    "supports_audio_input": false,
+    "supports_audio_output": false,
+    "supported_regions": [
+      "us-east-1",
+      "us-east-2",
+      "us-west-2",
+      "us-gov-west-1",
+      "us-gov-east-1",
+      "us-west-1",
+      "ca-central-1",
+      "ca-west-1",
+      "eu-central-1",
+      "eu-central-2",
+      "eu-north-1",
+      "eu-south-1",
+      "eu-south-2",
+      "eu-west-1",
+      "eu-west-2",
+      "eu-west-3",
+      "ap-east-2",
+      "ap-northeast-1",
+      "ap-northeast-2",
+      "ap-northeast-3",
+      "ap-south-1",
+      "ap-south-2",
+      "ap-southeast-1",
+      "ap-southeast-2",
+      "ap-southeast-3",
+      "ap-southeast-4",
+      "ap-southeast-5",
+      "ap-southeast-6",
+      "ap-southeast-7",
+      "il-central-1",
+      "mx-central-1",
+      "me-south-1",
+      "af-south-1",
+      "sa-east-1"
+    ],
+    "max_tokens": 128000,
     "always_reasoning": true,
     "cache_creation_input_token_cost_ultrafast_above_272k_tokens": 0.000066,
     "cache_read_input_token_cost_ultrafast_above_272k_tokens": 0.00000264,
     "default_reasoning_effort": "medium",
     "input_cost_per_token_ultrafast_above_272k_tokens": 0.0000528,
     "is_reasoning_model": true,
-    "max_tokens": 128000,
     "min_output_tokens": 16,
     "output_cost_per_token_ultrafast_above_272k_tokens": 0.000198,
     "prompt_cache_min_tokens": 1024,
@@ -120811,12 +121117,13 @@
     "base_model": "gpt-6.2-sol"
   },
   "together_ai/Qwen/Qwen4-Max": {
-    "cache_read_input_token_cost": 7.125E-8,
-    "input_cost_per_token": 0.000001425,
+    "cache_read_input_token_cost": 5.25E-8,
+    "comment": "These are Together's promotional rates, valid until 2026-11-23. Update on 2026-11-24 when the promotion ends. List rates per 1M tokens on https://www.together.ai/pricing are $1.50 input, $0.075 cached input and $4.50 output.",
+    "input_cost_per_token": 0.00000105,
     "max_input_tokens": 1000000,
     "max_output_tokens": 1000000,
     "mode": "chat",
-    "output_cost_per_token": 0.000004275,
+    "output_cost_per_token": 0.00000315,
     "source": "https://api.together.ai/v1/models",
     "supports_function_calling": true,
     "supports_prompt_caching": true,
@@ -146609,9 +146916,9 @@
     "provider": "openrouter",
     "base_model": "deepseek-v4.1-flash-1017",
     "mode": "chat",
-    "input_cost_per_token": 3E-7,
-    "output_cost_per_token": 0.0000012,
-    "cache_read_input_token_cost": 6E-9,
+    "input_cost_per_token": 1.5E-7,
+    "output_cost_per_token": 6E-7,
+    "cache_read_input_token_cost": 3E-9,
     "max_input_tokens": 1048576,
     "max_output_tokens": 393216,
     "max_tokens": 393216,
@@ -150481,12 +150788,12 @@
     "provider": "openrouter",
     "base_model": "deepseek-v4-flash-latest",
     "mode": "chat",
-    "input_cost_per_token": 5.5E-8,
-    "output_cost_per_token": 3E-7,
-    "cache_read_input_token_cost": 3.5E-8,
+    "input_cost_per_token": 6E-8,
+    "output_cost_per_token": 1.8E-7,
+    "cache_read_input_token_cost": 1.5E-8,
     "max_input_tokens": 1048576,
-    "max_output_tokens": 943718,
-    "max_tokens": 943718,
+    "max_output_tokens": 384000,
+    "max_tokens": 384000,
     "supports_function_calling": true,
     "supports_tool_choice": true,
     "supports_reasoning": true,
@@ -150497,7 +150804,7 @@
     "provider": "openrouter",
     "base_model": "deepseek-v4-flash-0731",
     "mode": "chat",
-    "input_cost_per_token": 5.5E-8,
+    "input_cost_per_token": 6.2E-8,
     "output_cost_per_token": 3E-7,
     "cache_read_input_token_cost": 3.5E-8,
     "max_input_tokens": 1048576,
@@ -151580,9 +151887,9 @@
     "provider": "openrouter",
     "base_model": "glm-5.2",
     "mode": "chat",
-    "input_cost_per_token": 7E-9,
-    "output_cost_per_token": 0.0000068,
-    "cache_read_input_token_cost": 6E-9,
+    "input_cost_per_token": 6.2E-7,
+    "output_cost_per_token": 0.00000242,
+    "cache_read_input_token_cost": 1.4E-7,
     "max_input_tokens": 1048576,
     "max_output_tokens": 943718,
     "max_tokens": 943718,
@@ -153394,9 +153701,9 @@
     "provider": "openrouter",
     "base_model": "qwen3.5-9b",
     "mode": "chat",
-    "input_cost_per_token": 1.7E-7,
-    "output_cost_per_token": 2.5E-7,
-    "cache_read_input_token_cost": 1.53E-7,
+    "input_cost_per_token": 1.42E-7,
+    "output_cost_per_token": 2.08E-7,
+    "cache_read_input_token_cost": 1.27E-7,
     "max_input_tokens": 262144,
     "max_output_tokens": 40960,
     "max_tokens": 40960,
@@ -167574,17 +167881,17 @@
     "supports_reasoning": false,
     "provider": "workers-ai"
   },
-  "cloudflare/workers-ai/@cf/deepseek-ai/deepseek-v4.1-flash-1017": {
+  "cloudflare/workers-ai/@cf/qwen/qwen3.8-27b": {
     "base_model": "cloudflare/workers-ai/",
     "mode": "chat",
-    "input_cost_per_token": 3E-7,
-    "output_cost_per_token": 0.0000012,
+    "input_cost_per_token": 4.5E-7,
+    "output_cost_per_token": 0.0000032,
     "source": "https://models.dev/api.json",
-    "cache_read_input_token_cost": 6E-9,
+    "cache_read_input_token_cost": 5E-8,
     "supports_prompt_caching": true,
-    "max_input_tokens": 1048576,
-    "max_output_tokens": 1048576,
-    "max_tokens": 1048576,
+    "max_input_tokens": 262144,
+    "max_output_tokens": 262144,
+    "max_tokens": 262144,
     "supported_modalities": [
       "text",
       "image"
@@ -167597,24 +167904,23 @@
     "supports_response_schema": true,
     "supports_reasoning": true,
     "reasoning_effort_levels": [
-      "none",
       "low",
-      "high",
-      "max"
+      "medium",
+      "xhigh"
     ],
     "provider": "cloudflare"
   },
-  "workers-ai/workers-ai/@cf/deepseek-ai/deepseek-v4.1-flash-1017": {
+  "workers-ai/workers-ai/@cf/qwen/qwen3.8-27b": {
     "base_model": "cloudflare/workers-ai/",
     "mode": "chat",
-    "input_cost_per_token": 3E-7,
-    "output_cost_per_token": 0.0000012,
+    "input_cost_per_token": 4.5E-7,
+    "output_cost_per_token": 0.0000032,
     "source": "https://models.dev/api.json",
-    "cache_read_input_token_cost": 6E-9,
+    "cache_read_input_token_cost": 5E-8,
     "supports_prompt_caching": true,
-    "max_input_tokens": 1048576,
-    "max_output_tokens": 1048576,
-    "max_tokens": 1048576,
+    "max_input_tokens": 262144,
+    "max_output_tokens": 262144,
+    "max_tokens": 262144,
     "supported_modalities": [
       "text",
       "image"
@@ -167627,64 +167933,61 @@
     "supports_response_schema": true,
     "supports_reasoning": true,
     "reasoning_effort_levels": [
-      "none",
       "low",
-      "high",
-      "max"
+      "medium",
+      "xhigh"
     ],
     "provider": "workers-ai"
   },
-  "cloudflare/workers-ai/@cf/meta/llama-3.2-11b-vision-instruct": {
+  "cloudflare/workers-ai/@cf/qwen/qwen2.5-coder-32b-instruct": {
     "base_model": "cloudflare/workers-ai/",
     "mode": "chat",
-    "input_cost_per_token": 4.85E-8,
-    "output_cost_per_token": 6.76E-7,
+    "input_cost_per_token": 6.6E-7,
+    "output_cost_per_token": 0.000001,
     "source": "https://models.dev/api.json",
-    "max_input_tokens": 128000,
-    "max_output_tokens": 128000,
-    "max_tokens": 128000,
+    "max_input_tokens": 32768,
+    "max_output_tokens": 32768,
+    "max_tokens": 32768,
     "supported_modalities": [
-      "text",
-      "image"
+      "text"
     ],
     "supported_output_modalities": [
       "text"
     ],
-    "supports_vision": true,
     "supports_function_calling": false,
     "supports_response_schema": false,
     "supports_reasoning": false,
     "provider": "cloudflare"
   },
-  "workers-ai/workers-ai/@cf/meta/llama-3.2-11b-vision-instruct": {
+  "workers-ai/workers-ai/@cf/qwen/qwen2.5-coder-32b-instruct": {
     "base_model": "cloudflare/workers-ai/",
     "mode": "chat",
-    "input_cost_per_token": 4.85E-8,
-    "output_cost_per_token": 6.76E-7,
+    "input_cost_per_token": 6.6E-7,
+    "output_cost_per_token": 0.000001,
     "source": "https://models.dev/api.json",
-    "max_input_tokens": 128000,
-    "max_output_tokens": 128000,
-    "max_tokens": 128000,
+    "max_input_tokens": 32768,
+    "max_output_tokens": 32768,
+    "max_tokens": 32768,
     "supported_modalities": [
-      "text",
-      "image"
+      "text"
     ],
     "supported_output_modalities": [
       "text"
     ],
-    "supports_vision": true,
     "supports_function_calling": false,
     "supports_response_schema": false,
     "supports_reasoning": false,
     "provider": "workers-ai"
   },
-  "cloudflare/workers-ai/@cf/meta/llama-4-scout-17b-16e-instruct": {
+  "cloudflare/workers-ai/@cf/google/gemma-4-26b-a4b-it": {
     "base_model": "cloudflare/workers-ai/",
     "mode": "chat",
-    "input_cost_per_token": 2.7E-7,
-    "output_cost_per_token": 8.5E-7,
+    "input_cost_per_token": 1E-7,
+    "output_cost_per_token": 3E-7,
     "source": "https://models.dev/api.json",
-    "max_input_tokens": 131000,
+    "cache_read_input_token_cost": 5E-8,
+    "supports_prompt_caching": true,
+    "max_input_tokens": 256000,
     "max_output_tokens": 16384,
     "max_tokens": 16384,
     "supported_modalities": [
@@ -167696,17 +167999,19 @@
     ],
     "supports_vision": true,
     "supports_function_calling": true,
-    "supports_response_schema": false,
-    "supports_reasoning": false,
+    "supports_response_schema": true,
+    "supports_reasoning": true,
     "provider": "cloudflare"
   },
-  "workers-ai/workers-ai/@cf/meta/llama-4-scout-17b-16e-instruct": {
+  "workers-ai/workers-ai/@cf/google/gemma-4-26b-a4b-it": {
     "base_model": "cloudflare/workers-ai/",
     "mode": "chat",
-    "input_cost_per_token": 2.7E-7,
-    "output_cost_per_token": 8.5E-7,
+    "input_cost_per_token": 1E-7,
+    "output_cost_per_token": 3E-7,
     "source": "https://models.dev/api.json",
-    "max_input_tokens": 131000,
+    "cache_read_input_token_cost": 5E-8,
+    "supports_prompt_caching": true,
+    "max_input_tokens": 256000,
     "max_output_tokens": 16384,
     "max_tokens": 16384,
     "supported_modalities": [
@@ -167717,180 +168022,6 @@
       "text"
     ],
     "supports_vision": true,
-    "supports_function_calling": true,
-    "supports_response_schema": false,
-    "supports_reasoning": false,
-    "provider": "workers-ai"
-  },
-  "cloudflare/workers-ai/@cf/meta/llama-guard-3-8b": {
-    "base_model": "cloudflare/workers-ai/",
-    "mode": "chat",
-    "input_cost_per_token": 4.84E-7,
-    "output_cost_per_token": 3E-8,
-    "source": "https://models.dev/api.json",
-    "max_input_tokens": 131072,
-    "max_output_tokens": 131072,
-    "max_tokens": 131072,
-    "supported_modalities": [
-      "text"
-    ],
-    "supported_output_modalities": [
-      "text"
-    ],
-    "supports_function_calling": false,
-    "supports_response_schema": false,
-    "supports_reasoning": false,
-    "provider": "cloudflare"
-  },
-  "workers-ai/workers-ai/@cf/meta/llama-guard-3-8b": {
-    "base_model": "cloudflare/workers-ai/",
-    "mode": "chat",
-    "input_cost_per_token": 4.84E-7,
-    "output_cost_per_token": 3E-8,
-    "source": "https://models.dev/api.json",
-    "max_input_tokens": 131072,
-    "max_output_tokens": 131072,
-    "max_tokens": 131072,
-    "supported_modalities": [
-      "text"
-    ],
-    "supported_output_modalities": [
-      "text"
-    ],
-    "supports_function_calling": false,
-    "supports_response_schema": false,
-    "supports_reasoning": false,
-    "provider": "workers-ai"
-  },
-  "cloudflare/workers-ai/@cf/meta/llama-3.3-70b-instruct-fp8-fast": {
-    "base_model": "cloudflare/workers-ai/",
-    "mode": "chat",
-    "input_cost_per_token": 2.93E-7,
-    "output_cost_per_token": 0.000002253,
-    "source": "https://models.dev/api.json",
-    "max_input_tokens": 24000,
-    "max_output_tokens": 24000,
-    "max_tokens": 24000,
-    "supported_modalities": [
-      "text"
-    ],
-    "supported_output_modalities": [
-      "text"
-    ],
-    "supports_function_calling": true,
-    "supports_response_schema": false,
-    "supports_reasoning": false,
-    "provider": "cloudflare"
-  },
-  "workers-ai/workers-ai/@cf/meta/llama-3.3-70b-instruct-fp8-fast": {
-    "base_model": "cloudflare/workers-ai/",
-    "mode": "chat",
-    "input_cost_per_token": 2.93E-7,
-    "output_cost_per_token": 0.000002253,
-    "source": "https://models.dev/api.json",
-    "max_input_tokens": 24000,
-    "max_output_tokens": 24000,
-    "max_tokens": 24000,
-    "supported_modalities": [
-      "text"
-    ],
-    "supported_output_modalities": [
-      "text"
-    ],
-    "supports_function_calling": true,
-    "supports_response_schema": false,
-    "supports_reasoning": false,
-    "provider": "workers-ai"
-  },
-  "cloudflare/workers-ai/@cf/zai-org/glm-5.3": {
-    "base_model": "cloudflare/workers-ai/",
-    "mode": "chat",
-    "input_cost_per_token": 0.0000014,
-    "output_cost_per_token": 0.0000044,
-    "source": "https://models.dev/api.json",
-    "cache_read_input_token_cost": 2.6E-7,
-    "supports_prompt_caching": true,
-    "max_input_tokens": 1048576,
-    "max_output_tokens": 1048576,
-    "max_tokens": 1048576,
-    "supported_modalities": [
-      "text"
-    ],
-    "supported_output_modalities": [
-      "text"
-    ],
-    "supports_function_calling": true,
-    "supports_response_schema": true,
-    "supports_reasoning": true,
-    "reasoning_effort_levels": [
-      "low",
-      "high",
-      "max"
-    ],
-    "provider": "cloudflare"
-  },
-  "workers-ai/workers-ai/@cf/zai-org/glm-5.3": {
-    "base_model": "cloudflare/workers-ai/",
-    "mode": "chat",
-    "input_cost_per_token": 0.0000014,
-    "output_cost_per_token": 0.0000044,
-    "source": "https://models.dev/api.json",
-    "cache_read_input_token_cost": 2.6E-7,
-    "supports_prompt_caching": true,
-    "max_input_tokens": 1048576,
-    "max_output_tokens": 1048576,
-    "max_tokens": 1048576,
-    "supported_modalities": [
-      "text"
-    ],
-    "supported_output_modalities": [
-      "text"
-    ],
-    "supports_function_calling": true,
-    "supports_response_schema": true,
-    "supports_reasoning": true,
-    "reasoning_effort_levels": [
-      "low",
-      "high",
-      "max"
-    ],
-    "provider": "workers-ai"
-  },
-  "cloudflare/workers-ai/@cf/zai-org/glm-4.7-flash": {
-    "base_model": "cloudflare/workers-ai/",
-    "mode": "chat",
-    "input_cost_per_token": 6.05E-8,
-    "output_cost_per_token": 4E-7,
-    "source": "https://models.dev/api.json",
-    "max_input_tokens": 131072,
-    "max_output_tokens": 131072,
-    "max_tokens": 131072,
-    "supported_modalities": [
-      "text"
-    ],
-    "supported_output_modalities": [
-      "text"
-    ],
-    "supports_function_calling": true,
-    "supports_response_schema": true,
-    "supports_reasoning": true,
-    "provider": "cloudflare"
-  },
-  "workers-ai/workers-ai/@cf/zai-org/glm-4.7-flash": {
-    "base_model": "cloudflare/workers-ai/",
-    "mode": "chat",
-    "input_cost_per_token": 6.05E-8,
-    "output_cost_per_token": 4E-7,
-    "source": "https://models.dev/api.json",
-    "max_input_tokens": 131072,
-    "max_output_tokens": 131072,
-    "max_tokens": 131072,
-    "supported_modalities": [
-      "text"
-    ],
-    "supported_output_modalities": [
-      "text"
-    ],
     "supports_function_calling": true,
     "supports_response_schema": true,
     "supports_reasoning": true,
@@ -168000,130 +168131,109 @@
     ],
     "provider": "workers-ai"
   },
-  "cloudflare/workers-ai/@cf/mistralai/mistral-small-3.1-24b-instruct": {
+  "cloudflare/workers-ai/@cf/zai-org/glm-4.7-flash": {
     "base_model": "cloudflare/workers-ai/",
     "mode": "chat",
-    "input_cost_per_token": 3.51E-7,
-    "output_cost_per_token": 5.55E-7,
+    "input_cost_per_token": 6.05E-8,
+    "output_cost_per_token": 4E-7,
     "source": "https://models.dev/api.json",
-    "max_input_tokens": 128000,
-    "max_output_tokens": 128000,
-    "max_tokens": 128000,
+    "max_input_tokens": 131072,
+    "max_output_tokens": 131072,
+    "max_tokens": 131072,
     "supported_modalities": [
-      "text",
-      "image"
+      "text"
     ],
     "supported_output_modalities": [
       "text"
     ],
-    "supports_vision": true,
     "supports_function_calling": true,
-    "supports_response_schema": false,
-    "supports_reasoning": false,
+    "supports_response_schema": true,
+    "supports_reasoning": true,
     "provider": "cloudflare"
   },
-  "workers-ai/workers-ai/@cf/mistralai/mistral-small-3.1-24b-instruct": {
+  "workers-ai/workers-ai/@cf/zai-org/glm-4.7-flash": {
     "base_model": "cloudflare/workers-ai/",
     "mode": "chat",
-    "input_cost_per_token": 3.51E-7,
-    "output_cost_per_token": 5.55E-7,
+    "input_cost_per_token": 6.05E-8,
+    "output_cost_per_token": 4E-7,
     "source": "https://models.dev/api.json",
-    "max_input_tokens": 128000,
-    "max_output_tokens": 128000,
-    "max_tokens": 128000,
+    "max_input_tokens": 131072,
+    "max_output_tokens": 131072,
+    "max_tokens": 131072,
     "supported_modalities": [
-      "text",
-      "image"
+      "text"
     ],
     "supported_output_modalities": [
       "text"
     ],
-    "supports_vision": true,
     "supports_function_calling": true,
-    "supports_response_schema": false,
-    "supports_reasoning": false,
+    "supports_response_schema": true,
+    "supports_reasoning": true,
     "provider": "workers-ai"
   },
-  "cloudflare/workers-ai/@cf/qwen/qwen2.5-coder-32b-instruct": {
+  "cloudflare/workers-ai/@cf/zai-org/glm-5.3": {
     "base_model": "cloudflare/workers-ai/",
     "mode": "chat",
-    "input_cost_per_token": 6.6E-7,
-    "output_cost_per_token": 0.000001,
+    "input_cost_per_token": 0.0000014,
+    "output_cost_per_token": 0.0000044,
     "source": "https://models.dev/api.json",
-    "max_input_tokens": 32768,
-    "max_output_tokens": 32768,
-    "max_tokens": 32768,
-    "supported_modalities": [
-      "text"
-    ],
-    "supported_output_modalities": [
-      "text"
-    ],
-    "supports_function_calling": false,
-    "supports_response_schema": false,
-    "supports_reasoning": false,
-    "provider": "cloudflare"
-  },
-  "workers-ai/workers-ai/@cf/qwen/qwen2.5-coder-32b-instruct": {
-    "base_model": "cloudflare/workers-ai/",
-    "mode": "chat",
-    "input_cost_per_token": 6.6E-7,
-    "output_cost_per_token": 0.000001,
-    "source": "https://models.dev/api.json",
-    "max_input_tokens": 32768,
-    "max_output_tokens": 32768,
-    "max_tokens": 32768,
-    "supported_modalities": [
-      "text"
-    ],
-    "supported_output_modalities": [
-      "text"
-    ],
-    "supports_function_calling": false,
-    "supports_response_schema": false,
-    "supports_reasoning": false,
-    "provider": "workers-ai"
-  },
-  "cloudflare/workers-ai/@cf/qwen/qwen3.8-27b": {
-    "base_model": "cloudflare/workers-ai/",
-    "mode": "chat",
-    "input_cost_per_token": 4.5E-7,
-    "output_cost_per_token": 0.0000032,
-    "source": "https://models.dev/api.json",
-    "cache_read_input_token_cost": 5E-8,
+    "cache_read_input_token_cost": 2.6E-7,
     "supports_prompt_caching": true,
-    "max_input_tokens": 262144,
-    "max_output_tokens": 262144,
-    "max_tokens": 262144,
+    "max_input_tokens": 1048576,
+    "max_output_tokens": 1048576,
+    "max_tokens": 1048576,
     "supported_modalities": [
-      "text",
-      "image"
+      "text"
     ],
     "supported_output_modalities": [
       "text"
     ],
-    "supports_vision": true,
     "supports_function_calling": true,
     "supports_response_schema": true,
     "supports_reasoning": true,
     "reasoning_effort_levels": [
       "low",
-      "medium",
-      "xhigh"
+      "high",
+      "max"
     ],
     "provider": "cloudflare"
   },
-  "workers-ai/workers-ai/@cf/qwen/qwen3.8-27b": {
+  "workers-ai/workers-ai/@cf/zai-org/glm-5.3": {
     "base_model": "cloudflare/workers-ai/",
     "mode": "chat",
-    "input_cost_per_token": 4.5E-7,
-    "output_cost_per_token": 0.0000032,
+    "input_cost_per_token": 0.0000014,
+    "output_cost_per_token": 0.0000044,
     "source": "https://models.dev/api.json",
-    "cache_read_input_token_cost": 5E-8,
+    "cache_read_input_token_cost": 2.6E-7,
     "supports_prompt_caching": true,
-    "max_input_tokens": 262144,
-    "max_output_tokens": 262144,
-    "max_tokens": 262144,
+    "max_input_tokens": 1048576,
+    "max_output_tokens": 1048576,
+    "max_tokens": 1048576,
+    "supported_modalities": [
+      "text"
+    ],
+    "supported_output_modalities": [
+      "text"
+    ],
+    "supports_function_calling": true,
+    "supports_response_schema": true,
+    "supports_reasoning": true,
+    "reasoning_effort_levels": [
+      "low",
+      "high",
+      "max"
+    ],
+    "provider": "workers-ai"
+  },
+  "cloudflare/workers-ai/@cf/cloudflare/clairic-flash": {
+    "base_model": "cloudflare/workers-ai/",
+    "mode": "chat",
+    "input_cost_per_token": 1E-7,
+    "output_cost_per_token": 0,
+    "source": "https://models.dev/api.json",
+    "max_input_tokens": 65536,
+    "max_output_tokens": 65536,
+    "max_tokens": 65536,
     "supported_modalities": [
       "text",
       "image"
@@ -168132,14 +168242,31 @@
       "text"
     ],
     "supports_vision": true,
-    "supports_function_calling": true,
+    "supports_function_calling": false,
     "supports_response_schema": true,
-    "supports_reasoning": true,
-    "reasoning_effort_levels": [
-      "low",
-      "medium",
-      "xhigh"
+    "supports_reasoning": false,
+    "provider": "cloudflare"
+  },
+  "workers-ai/workers-ai/@cf/cloudflare/clairic-flash": {
+    "base_model": "cloudflare/workers-ai/",
+    "mode": "chat",
+    "input_cost_per_token": 1E-7,
+    "output_cost_per_token": 0,
+    "source": "https://models.dev/api.json",
+    "max_input_tokens": 65536,
+    "max_output_tokens": 65536,
+    "max_tokens": 65536,
+    "supported_modalities": [
+      "text",
+      "image"
     ],
+    "supported_output_modalities": [
+      "text"
+    ],
+    "supports_vision": true,
+    "supports_function_calling": false,
+    "supports_response_schema": true,
+    "supports_reasoning": false,
     "provider": "workers-ai"
   },
   "cloudflare/workers-ai/@cf/openai/gpt-oss-20b": {
@@ -168242,107 +168369,15 @@
     ],
     "provider": "workers-ai"
   },
-  "cloudflare/workers-ai/@cf/google/gemma-4-26b-a4b-it": {
+  "cloudflare/workers-ai/@cf/meta/llama-3.2-11b-vision-instruct": {
     "base_model": "cloudflare/workers-ai/",
     "mode": "chat",
-    "input_cost_per_token": 1E-7,
-    "output_cost_per_token": 3E-7,
-    "source": "https://models.dev/api.json",
-    "cache_read_input_token_cost": 5E-8,
-    "supports_prompt_caching": true,
-    "max_input_tokens": 256000,
-    "max_output_tokens": 16384,
-    "max_tokens": 16384,
-    "supported_modalities": [
-      "text",
-      "image"
-    ],
-    "supported_output_modalities": [
-      "text"
-    ],
-    "supports_vision": true,
-    "supports_function_calling": true,
-    "supports_response_schema": true,
-    "supports_reasoning": true,
-    "provider": "cloudflare"
-  },
-  "workers-ai/workers-ai/@cf/google/gemma-4-26b-a4b-it": {
-    "base_model": "cloudflare/workers-ai/",
-    "mode": "chat",
-    "input_cost_per_token": 1E-7,
-    "output_cost_per_token": 3E-7,
-    "source": "https://models.dev/api.json",
-    "cache_read_input_token_cost": 5E-8,
-    "supports_prompt_caching": true,
-    "max_input_tokens": 256000,
-    "max_output_tokens": 16384,
-    "max_tokens": 16384,
-    "supported_modalities": [
-      "text",
-      "image"
-    ],
-    "supported_output_modalities": [
-      "text"
-    ],
-    "supports_vision": true,
-    "supports_function_calling": true,
-    "supports_response_schema": true,
-    "supports_reasoning": true,
-    "provider": "workers-ai"
-  },
-  "cloudflare/workers-ai/@cf/cloudflare/clairic-flash": {
-    "base_model": "cloudflare/workers-ai/",
-    "mode": "chat",
-    "input_cost_per_token": 1E-7,
-    "output_cost_per_token": 0,
-    "source": "https://models.dev/api.json",
-    "max_input_tokens": 65536,
-    "max_output_tokens": 65536,
-    "max_tokens": 65536,
-    "supported_modalities": [
-      "text",
-      "image"
-    ],
-    "supported_output_modalities": [
-      "text"
-    ],
-    "supports_vision": true,
-    "supports_function_calling": false,
-    "supports_response_schema": true,
-    "supports_reasoning": false,
-    "provider": "cloudflare"
-  },
-  "workers-ai/workers-ai/@cf/cloudflare/clairic-flash": {
-    "base_model": "cloudflare/workers-ai/",
-    "mode": "chat",
-    "input_cost_per_token": 1E-7,
-    "output_cost_per_token": 0,
-    "source": "https://models.dev/api.json",
-    "max_input_tokens": 65536,
-    "max_output_tokens": 65536,
-    "max_tokens": 65536,
-    "supported_modalities": [
-      "text",
-      "image"
-    ],
-    "supported_output_modalities": [
-      "text"
-    ],
-    "supports_vision": true,
-    "supports_function_calling": false,
-    "supports_response_schema": true,
-    "supports_reasoning": false,
-    "provider": "workers-ai"
-  },
-  "azure/cohere-embed-v-4-0": {
-    "base_model": "embed-v-4-0",
-    "mode": "embedding",
-    "input_cost_per_token": 1.2E-7,
-    "output_cost_per_token": 0,
+    "input_cost_per_token": 4.85E-8,
+    "output_cost_per_token": 6.76E-7,
     "source": "https://models.dev/api.json",
     "max_input_tokens": 128000,
-    "max_output_tokens": 1536,
-    "max_tokens": 1536,
+    "max_output_tokens": 128000,
+    "max_tokens": 128000,
     "supported_modalities": [
       "text",
       "image"
@@ -168352,9 +168387,259 @@
     ],
     "supports_vision": true,
     "supports_function_calling": false,
+    "supports_response_schema": false,
     "supports_reasoning": false,
-    "provider": "azure",
-    "input_cost_per_image_token": 4.7E-7
+    "provider": "cloudflare"
+  },
+  "workers-ai/workers-ai/@cf/meta/llama-3.2-11b-vision-instruct": {
+    "base_model": "cloudflare/workers-ai/",
+    "mode": "chat",
+    "input_cost_per_token": 4.85E-8,
+    "output_cost_per_token": 6.76E-7,
+    "source": "https://models.dev/api.json",
+    "max_input_tokens": 128000,
+    "max_output_tokens": 128000,
+    "max_tokens": 128000,
+    "supported_modalities": [
+      "text",
+      "image"
+    ],
+    "supported_output_modalities": [
+      "text"
+    ],
+    "supports_vision": true,
+    "supports_function_calling": false,
+    "supports_response_schema": false,
+    "supports_reasoning": false,
+    "provider": "workers-ai"
+  },
+  "cloudflare/workers-ai/@cf/meta/llama-4-scout-17b-16e-instruct": {
+    "base_model": "cloudflare/workers-ai/",
+    "mode": "chat",
+    "input_cost_per_token": 2.7E-7,
+    "output_cost_per_token": 8.5E-7,
+    "source": "https://models.dev/api.json",
+    "max_input_tokens": 131000,
+    "max_output_tokens": 16384,
+    "max_tokens": 16384,
+    "supported_modalities": [
+      "text",
+      "image"
+    ],
+    "supported_output_modalities": [
+      "text"
+    ],
+    "supports_vision": true,
+    "supports_function_calling": true,
+    "supports_response_schema": false,
+    "supports_reasoning": false,
+    "provider": "cloudflare"
+  },
+  "workers-ai/workers-ai/@cf/meta/llama-4-scout-17b-16e-instruct": {
+    "base_model": "cloudflare/workers-ai/",
+    "mode": "chat",
+    "input_cost_per_token": 2.7E-7,
+    "output_cost_per_token": 8.5E-7,
+    "source": "https://models.dev/api.json",
+    "max_input_tokens": 131000,
+    "max_output_tokens": 16384,
+    "max_tokens": 16384,
+    "supported_modalities": [
+      "text",
+      "image"
+    ],
+    "supported_output_modalities": [
+      "text"
+    ],
+    "supports_vision": true,
+    "supports_function_calling": true,
+    "supports_response_schema": false,
+    "supports_reasoning": false,
+    "provider": "workers-ai"
+  },
+  "cloudflare/workers-ai/@cf/meta/llama-3.3-70b-instruct-fp8-fast": {
+    "base_model": "cloudflare/workers-ai/",
+    "mode": "chat",
+    "input_cost_per_token": 2.93E-7,
+    "output_cost_per_token": 0.000002253,
+    "source": "https://models.dev/api.json",
+    "max_input_tokens": 24000,
+    "max_output_tokens": 24000,
+    "max_tokens": 24000,
+    "supported_modalities": [
+      "text"
+    ],
+    "supported_output_modalities": [
+      "text"
+    ],
+    "supports_function_calling": true,
+    "supports_response_schema": false,
+    "supports_reasoning": false,
+    "provider": "cloudflare"
+  },
+  "workers-ai/workers-ai/@cf/meta/llama-3.3-70b-instruct-fp8-fast": {
+    "base_model": "cloudflare/workers-ai/",
+    "mode": "chat",
+    "input_cost_per_token": 2.93E-7,
+    "output_cost_per_token": 0.000002253,
+    "source": "https://models.dev/api.json",
+    "max_input_tokens": 24000,
+    "max_output_tokens": 24000,
+    "max_tokens": 24000,
+    "supported_modalities": [
+      "text"
+    ],
+    "supported_output_modalities": [
+      "text"
+    ],
+    "supports_function_calling": true,
+    "supports_response_schema": false,
+    "supports_reasoning": false,
+    "provider": "workers-ai"
+  },
+  "cloudflare/workers-ai/@cf/meta/llama-guard-3-8b": {
+    "base_model": "cloudflare/workers-ai/",
+    "mode": "chat",
+    "input_cost_per_token": 4.84E-7,
+    "output_cost_per_token": 3E-8,
+    "source": "https://models.dev/api.json",
+    "max_input_tokens": 131072,
+    "max_output_tokens": 131072,
+    "max_tokens": 131072,
+    "supported_modalities": [
+      "text"
+    ],
+    "supported_output_modalities": [
+      "text"
+    ],
+    "supports_function_calling": false,
+    "supports_response_schema": false,
+    "supports_reasoning": false,
+    "provider": "cloudflare"
+  },
+  "workers-ai/workers-ai/@cf/meta/llama-guard-3-8b": {
+    "base_model": "cloudflare/workers-ai/",
+    "mode": "chat",
+    "input_cost_per_token": 4.84E-7,
+    "output_cost_per_token": 3E-8,
+    "source": "https://models.dev/api.json",
+    "max_input_tokens": 131072,
+    "max_output_tokens": 131072,
+    "max_tokens": 131072,
+    "supported_modalities": [
+      "text"
+    ],
+    "supported_output_modalities": [
+      "text"
+    ],
+    "supports_function_calling": false,
+    "supports_response_schema": false,
+    "supports_reasoning": false,
+    "provider": "workers-ai"
+  },
+  "cloudflare/workers-ai/@cf/deepseek-ai/deepseek-v4.1-flash-1017": {
+    "base_model": "cloudflare/workers-ai/",
+    "mode": "chat",
+    "input_cost_per_token": 3E-7,
+    "output_cost_per_token": 0.0000012,
+    "source": "https://models.dev/api.json",
+    "cache_read_input_token_cost": 6E-9,
+    "supports_prompt_caching": true,
+    "max_input_tokens": 1048576,
+    "max_output_tokens": 1048576,
+    "max_tokens": 1048576,
+    "supported_modalities": [
+      "text",
+      "image"
+    ],
+    "supported_output_modalities": [
+      "text"
+    ],
+    "supports_vision": true,
+    "supports_function_calling": true,
+    "supports_response_schema": true,
+    "supports_reasoning": true,
+    "reasoning_effort_levels": [
+      "none",
+      "low",
+      "high",
+      "max"
+    ],
+    "provider": "cloudflare"
+  },
+  "workers-ai/workers-ai/@cf/deepseek-ai/deepseek-v4.1-flash-1017": {
+    "base_model": "cloudflare/workers-ai/",
+    "mode": "chat",
+    "input_cost_per_token": 3E-7,
+    "output_cost_per_token": 0.0000012,
+    "source": "https://models.dev/api.json",
+    "cache_read_input_token_cost": 6E-9,
+    "supports_prompt_caching": true,
+    "max_input_tokens": 1048576,
+    "max_output_tokens": 1048576,
+    "max_tokens": 1048576,
+    "supported_modalities": [
+      "text",
+      "image"
+    ],
+    "supported_output_modalities": [
+      "text"
+    ],
+    "supports_vision": true,
+    "supports_function_calling": true,
+    "supports_response_schema": true,
+    "supports_reasoning": true,
+    "reasoning_effort_levels": [
+      "none",
+      "low",
+      "high",
+      "max"
+    ],
+    "provider": "workers-ai"
+  },
+  "cloudflare/workers-ai/@cf/mistralai/mistral-small-3.1-24b-instruct": {
+    "base_model": "cloudflare/workers-ai/",
+    "mode": "chat",
+    "input_cost_per_token": 3.51E-7,
+    "output_cost_per_token": 5.55E-7,
+    "source": "https://models.dev/api.json",
+    "max_input_tokens": 128000,
+    "max_output_tokens": 128000,
+    "max_tokens": 128000,
+    "supported_modalities": [
+      "text",
+      "image"
+    ],
+    "supported_output_modalities": [
+      "text"
+    ],
+    "supports_vision": true,
+    "supports_function_calling": true,
+    "supports_response_schema": false,
+    "supports_reasoning": false,
+    "provider": "cloudflare"
+  },
+  "workers-ai/workers-ai/@cf/mistralai/mistral-small-3.1-24b-instruct": {
+    "base_model": "cloudflare/workers-ai/",
+    "mode": "chat",
+    "input_cost_per_token": 3.51E-7,
+    "output_cost_per_token": 5.55E-7,
+    "source": "https://models.dev/api.json",
+    "max_input_tokens": 128000,
+    "max_output_tokens": 128000,
+    "max_tokens": 128000,
+    "supported_modalities": [
+      "text",
+      "image"
+    ],
+    "supported_output_modalities": [
+      "text"
+    ],
+    "supports_vision": true,
+    "supports_function_calling": true,
+    "supports_response_schema": false,
+    "supports_reasoning": false,
+    "provider": "workers-ai"
   },
   "azure/claude-mythos-5": {
     "base_model": "claude-mythos-5",
@@ -168391,6 +168676,28 @@
     "knowledge_cutoff": "2026-01-31",
     "provider": "azure",
     "supports_safeguards": true
+  },
+  "azure/cohere-embed-v-4-0": {
+    "base_model": "embed-v-4-0",
+    "mode": "embedding",
+    "input_cost_per_token": 1.2E-7,
+    "output_cost_per_token": 0,
+    "source": "https://models.dev/api.json",
+    "max_input_tokens": 128000,
+    "max_output_tokens": 1536,
+    "max_tokens": 1536,
+    "supported_modalities": [
+      "text",
+      "image"
+    ],
+    "supported_output_modalities": [
+      "text"
+    ],
+    "supports_vision": true,
+    "supports_function_calling": false,
+    "supports_reasoning": false,
+    "provider": "azure",
+    "input_cost_per_image_token": 4.7E-7
   },
   "azure/phi-4-reasoning-plus": {
     "base_model": "phi-4-reasoning-plus",

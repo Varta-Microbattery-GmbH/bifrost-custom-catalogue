@@ -1127748,6 +1127748,7 @@
     "successor_model": "friendliai/zai-org/GLM-5.3",
     "deprecation_date": "2026-11-20",
     "provider": "friendliai",
+    "is_deprecated": true,
     "max_tokens": 202752,
     "model_parameters": [
       {
@@ -1141139,7 +1141140,7 @@
     "base_model": "gpt-5.6-cyber",
     "max_input_tokens": 272000,
     "max_output_tokens": 128000,
-    "source": "https://docs.aws.amazon.com/bedrock/latest/userguide/model-card-openai-gpt-56-cyber.html",
+    "source": "https://aws.amazon.com/bedrock/pricing/",
     "use_openai_responses_path": true,
     "supported_endpoints": [
       "/v1/responses"
@@ -1141162,6 +1141163,43 @@
     "supports_vision": true,
     "supports_web_search": true,
     "provider": "bedrock_mantle",
+    "supports_audio_input": false,
+    "supports_audio_output": false,
+    "supported_regions": [
+      "us-east-2",
+      "us-gov-east-1",
+      "us-east-1",
+      "us-west-1",
+      "us-west-2",
+      "ca-central-1",
+      "ca-west-1",
+      "eu-central-1",
+      "eu-central-2",
+      "eu-north-1",
+      "eu-south-1",
+      "eu-south-2",
+      "eu-west-1",
+      "eu-west-2",
+      "eu-west-3",
+      "ap-east-2",
+      "ap-northeast-1",
+      "ap-northeast-2",
+      "ap-northeast-3",
+      "ap-south-1",
+      "ap-south-2",
+      "ap-southeast-1",
+      "ap-southeast-2",
+      "ap-southeast-3",
+      "ap-southeast-4",
+      "ap-southeast-5",
+      "ap-southeast-6",
+      "ap-southeast-7",
+      "il-central-1",
+      "me-central-1",
+      "me-south-1",
+      "af-south-1",
+      "sa-east-1"
+    ],
     "max_tokens": 128000,
     "model_parameters": [
       {
@@ -1141207,8 +1141245,44 @@
     "source": "https://docs.aws.amazon.com/bedrock/latest/userguide/model-card-openai-gpt-daybreak-blue-56-sol.html",
     "supports_web_search": true,
     "provider": "bedrock_mantle",
-    "bedrock_mantle_base_path": "openai/v1",
+    "supports_audio_input": false,
+    "supports_audio_output": false,
+    "supported_regions": [
+      "us-east-2",
+      "us-east-1",
+      "us-west-1",
+      "us-west-2",
+      "ca-central-1",
+      "ca-west-1",
+      "eu-central-1",
+      "eu-central-2",
+      "eu-north-1",
+      "eu-south-1",
+      "eu-south-2",
+      "eu-west-1",
+      "eu-west-2",
+      "eu-west-3",
+      "ap-east-2",
+      "ap-northeast-1",
+      "ap-northeast-2",
+      "ap-northeast-3",
+      "ap-south-1",
+      "ap-south-2",
+      "ap-southeast-1",
+      "ap-southeast-2",
+      "ap-southeast-3",
+      "ap-southeast-4",
+      "ap-southeast-5",
+      "ap-southeast-6",
+      "ap-southeast-7",
+      "il-central-1",
+      "me-central-1",
+      "me-south-1",
+      "af-south-1",
+      "sa-east-1"
+    ],
     "max_tokens": 128000,
+    "bedrock_mantle_base_path": "openai/v1",
     "model_parameters": [
       {
         "id": "max_output_tokens",
@@ -1221890,6 +1221964,24 @@
     "provider": "bedrock",
     "supports_native_structured_output": true
   },
+  "gpt-live-1.1": {
+    "mode": "realtime",
+    "base_model": "gpt-live-1.1",
+    "source": "https://developers.openai.com/api/docs/pricing",
+    "supported_modalities": [
+      "text",
+      "audio"
+    ],
+    "supported_output_modalities": [
+      "text",
+      "audio"
+    ],
+    "supports_audio_input": true,
+    "supports_audio_output": true,
+    "supports_function_calling": true,
+    "provider": "openai",
+    "web_search_billing_unit": "per_request"
+  },
   "azure/gpt-realtime-2.1-2026-07-07": {
     "deprecation_date": "2027-06-25",
     "deprecation_source": "https://learn.microsoft.com/en-us/azure/foundry/openai/concepts/model-retirement-schedule",
@@ -1230078,7 +1230170,7 @@
     "max_input_tokens": 922000,
     "max_output_tokens": 128000,
     "mode": "chat",
-    "source": "https://docs.aws.amazon.com/bedrock/latest/userguide/model-card-openai-gpt-daybreak-blue-56-sol.html",
+    "source": "https://aws.amazon.com/bedrock/pricing/",
     "supported_modalities": [
       "text",
       "image"
@@ -1230086,9 +1230178,9 @@
     "supported_output_modalities": [
       "text"
     ],
-    "supports_function_calling": true,
+    "supports_function_calling": false,
     "supports_minimal_reasoning_effort": false,
-    "supports_tool_choice": true,
+    "supports_tool_choice": false,
     "supports_reasoning": true,
     "supports_xhigh_reasoning_effort": true,
     "supports_vision": true,
@@ -1230098,7 +1230190,45 @@
       "/v1/responses"
     ],
     "provider": "bedrock",
-    "base_model": "gpt-daybreak-blue-5.6-sol"
+    "base_model": "gpt-daybreak-blue-5.6-sol",
+    "supports_prompt_caching": true,
+    "supports_audio_input": false,
+    "supports_audio_output": false,
+    "supported_regions": [
+      "us-east-2",
+      "us-east-1",
+      "us-west-1",
+      "us-west-2",
+      "ca-central-1",
+      "ca-west-1",
+      "eu-central-1",
+      "eu-central-2",
+      "eu-north-1",
+      "eu-south-1",
+      "eu-south-2",
+      "eu-west-1",
+      "eu-west-2",
+      "eu-west-3",
+      "ap-east-2",
+      "ap-northeast-1",
+      "ap-northeast-2",
+      "ap-northeast-3",
+      "ap-south-1",
+      "ap-south-2",
+      "ap-southeast-1",
+      "ap-southeast-2",
+      "ap-southeast-3",
+      "ap-southeast-4",
+      "ap-southeast-5",
+      "ap-southeast-6",
+      "ap-southeast-7",
+      "il-central-1",
+      "me-central-1",
+      "me-south-1",
+      "af-south-1",
+      "sa-east-1"
+    ],
+    "max_tokens": 1050000
   },
   "global.openai.gpt-daybreak-blue-5.6-sol": {
     "supports_bedrock_runtime_chat_completions_response_format": true,
@@ -1230106,7 +1230236,7 @@
     "max_input_tokens": 922000,
     "max_output_tokens": 128000,
     "mode": "chat",
-    "source": "https://docs.aws.amazon.com/bedrock/latest/userguide/model-card-openai-gpt-daybreak-blue-56-sol.html",
+    "source": "https://aws.amazon.com/bedrock/pricing/",
     "supported_modalities": [
       "text",
       "image"
@@ -1230114,9 +1230244,9 @@
     "supported_output_modalities": [
       "text"
     ],
-    "supports_function_calling": true,
+    "supports_function_calling": false,
     "supports_minimal_reasoning_effort": false,
-    "supports_tool_choice": true,
+    "supports_tool_choice": false,
     "supports_reasoning": true,
     "supports_xhigh_reasoning_effort": true,
     "supports_vision": true,
@@ -1230126,7 +1230256,45 @@
       "/v1/responses"
     ],
     "provider": "bedrock",
-    "base_model": "gpt-daybreak-blue-5.6-sol"
+    "base_model": "gpt-daybreak-blue-5.6-sol",
+    "supports_prompt_caching": true,
+    "supports_audio_input": false,
+    "supports_audio_output": false,
+    "supported_regions": [
+      "us-east-2",
+      "us-east-1",
+      "us-west-1",
+      "us-west-2",
+      "ca-central-1",
+      "ca-west-1",
+      "eu-central-1",
+      "eu-central-2",
+      "eu-north-1",
+      "eu-south-1",
+      "eu-south-2",
+      "eu-west-1",
+      "eu-west-2",
+      "eu-west-3",
+      "ap-east-2",
+      "ap-northeast-1",
+      "ap-northeast-2",
+      "ap-northeast-3",
+      "ap-south-1",
+      "ap-south-2",
+      "ap-southeast-1",
+      "ap-southeast-2",
+      "ap-southeast-3",
+      "ap-southeast-4",
+      "ap-southeast-5",
+      "ap-southeast-6",
+      "ap-southeast-7",
+      "il-central-1",
+      "me-central-1",
+      "me-south-1",
+      "af-south-1",
+      "sa-east-1"
+    ],
+    "max_tokens": 1050000
   },
   "us.openai.gpt-5.6-cyber": {
     "supports_bedrock_runtime_chat_completions_response_format": true,
@@ -1230134,7 +1230302,7 @@
     "max_input_tokens": 922000,
     "max_output_tokens": 128000,
     "mode": "chat",
-    "source": "https://docs.aws.amazon.com/bedrock/latest/userguide/model-card-openai-gpt-56-cyber.html",
+    "source": "https://aws.amazon.com/bedrock/pricing/",
     "supported_modalities": [
       "text",
       "image"
@@ -1230142,9 +1230310,9 @@
     "supported_output_modalities": [
       "text"
     ],
-    "supports_function_calling": true,
+    "supports_function_calling": false,
     "supports_minimal_reasoning_effort": false,
-    "supports_tool_choice": true,
+    "supports_tool_choice": false,
     "supports_reasoning": true,
     "supports_xhigh_reasoning_effort": true,
     "supports_vision": true,
@@ -1230154,7 +1230322,46 @@
       "/v1/responses"
     ],
     "provider": "bedrock",
-    "base_model": "gpt-5.6-cyber"
+    "base_model": "gpt-5.6-cyber",
+    "supports_prompt_caching": true,
+    "supports_audio_input": false,
+    "supports_audio_output": false,
+    "supported_regions": [
+      "us-east-2",
+      "us-gov-east-1",
+      "us-east-1",
+      "us-west-1",
+      "us-west-2",
+      "ca-central-1",
+      "ca-west-1",
+      "eu-central-1",
+      "eu-central-2",
+      "eu-north-1",
+      "eu-south-1",
+      "eu-south-2",
+      "eu-west-1",
+      "eu-west-2",
+      "eu-west-3",
+      "ap-east-2",
+      "ap-northeast-1",
+      "ap-northeast-2",
+      "ap-northeast-3",
+      "ap-south-1",
+      "ap-south-2",
+      "ap-southeast-1",
+      "ap-southeast-2",
+      "ap-southeast-3",
+      "ap-southeast-4",
+      "ap-southeast-5",
+      "ap-southeast-6",
+      "ap-southeast-7",
+      "il-central-1",
+      "me-central-1",
+      "me-south-1",
+      "af-south-1",
+      "sa-east-1"
+    ],
+    "max_tokens": 1050000
   },
   "global.openai.gpt-5.6-cyber": {
     "supports_bedrock_runtime_chat_completions_response_format": true,
@@ -1230162,7 +1230369,7 @@
     "max_input_tokens": 922000,
     "max_output_tokens": 128000,
     "mode": "chat",
-    "source": "https://docs.aws.amazon.com/bedrock/latest/userguide/model-card-openai-gpt-56-cyber.html",
+    "source": "https://aws.amazon.com/bedrock/pricing/",
     "supported_modalities": [
       "text",
       "image"
@@ -1230170,9 +1230377,9 @@
     "supported_output_modalities": [
       "text"
     ],
-    "supports_function_calling": true,
+    "supports_function_calling": false,
     "supports_minimal_reasoning_effort": false,
-    "supports_tool_choice": true,
+    "supports_tool_choice": false,
     "supports_reasoning": true,
     "supports_xhigh_reasoning_effort": true,
     "supports_vision": true,
@@ -1230182,7 +1230389,46 @@
       "/v1/responses"
     ],
     "provider": "bedrock",
-    "base_model": "gpt-5.6-cyber"
+    "base_model": "gpt-5.6-cyber",
+    "supports_prompt_caching": true,
+    "supports_audio_input": false,
+    "supports_audio_output": false,
+    "supported_regions": [
+      "us-east-2",
+      "us-gov-east-1",
+      "us-east-1",
+      "us-west-1",
+      "us-west-2",
+      "ca-central-1",
+      "ca-west-1",
+      "eu-central-1",
+      "eu-central-2",
+      "eu-north-1",
+      "eu-south-1",
+      "eu-south-2",
+      "eu-west-1",
+      "eu-west-2",
+      "eu-west-3",
+      "ap-east-2",
+      "ap-northeast-1",
+      "ap-northeast-2",
+      "ap-northeast-3",
+      "ap-south-1",
+      "ap-south-2",
+      "ap-southeast-1",
+      "ap-southeast-2",
+      "ap-southeast-3",
+      "ap-southeast-4",
+      "ap-southeast-5",
+      "ap-southeast-6",
+      "ap-southeast-7",
+      "il-central-1",
+      "me-central-1",
+      "me-south-1",
+      "af-south-1",
+      "sa-east-1"
+    ],
+    "max_tokens": 1050000
   },
   "us-gov.openai.gpt-5.6-terra": {
     "supports_bedrock_runtime_chat_completions_response_format": true,
@@ -1236440,6 +1236686,44 @@
     "use_openai_responses_path": true,
     "provider": "bedrock_mantle",
     "base_model": "gpt-6.2-sol",
+    "supports_audio_input": false,
+    "supports_audio_output": false,
+    "supported_regions": [
+      "us-east-1",
+      "us-east-2",
+      "us-west-2",
+      "us-gov-west-1",
+      "us-gov-east-1",
+      "us-west-1",
+      "ca-central-1",
+      "ca-west-1",
+      "eu-central-1",
+      "eu-central-2",
+      "eu-north-1",
+      "eu-south-1",
+      "eu-south-2",
+      "eu-west-1",
+      "eu-west-2",
+      "eu-west-3",
+      "ap-east-2",
+      "ap-northeast-1",
+      "ap-northeast-2",
+      "ap-northeast-3",
+      "ap-south-1",
+      "ap-south-2",
+      "ap-southeast-1",
+      "ap-southeast-2",
+      "ap-southeast-3",
+      "ap-southeast-4",
+      "ap-southeast-5",
+      "ap-southeast-6",
+      "ap-southeast-7",
+      "il-central-1",
+      "mx-central-1",
+      "me-south-1",
+      "af-south-1",
+      "sa-east-1"
+    ],
     "always_reasoning": true,
     "default_reasoning_effort": "medium",
     "is_reasoning_model": true,
@@ -1236527,10 +1236811,48 @@
     "use_openai_responses_path": true,
     "provider": "bedrock_mantle",
     "base_model": "gpt-6.2-astra",
+    "supports_audio_input": false,
+    "supports_audio_output": false,
+    "supported_regions": [
+      "us-east-1",
+      "us-east-2",
+      "us-west-2",
+      "us-gov-west-1",
+      "us-gov-east-1",
+      "us-west-1",
+      "ca-central-1",
+      "ca-west-1",
+      "eu-central-1",
+      "eu-central-2",
+      "eu-north-1",
+      "eu-south-1",
+      "eu-south-2",
+      "eu-west-1",
+      "eu-west-2",
+      "eu-west-3",
+      "ap-east-2",
+      "ap-northeast-1",
+      "ap-northeast-2",
+      "ap-northeast-3",
+      "ap-south-1",
+      "ap-south-2",
+      "ap-southeast-1",
+      "ap-southeast-2",
+      "ap-southeast-3",
+      "ap-southeast-4",
+      "ap-southeast-5",
+      "ap-southeast-6",
+      "ap-southeast-7",
+      "il-central-1",
+      "mx-central-1",
+      "me-south-1",
+      "af-south-1",
+      "sa-east-1"
+    ],
+    "max_tokens": 128000,
     "always_reasoning": true,
     "default_reasoning_effort": "medium",
     "is_reasoning_model": true,
-    "max_tokens": 128000,
     "min_output_tokens": 16,
     "prompt_cache_min_tokens": 1024,
     "reasoning_contexts": [
@@ -1257872,6 +1258194,7 @@
     "base_model": "gpt-6.2-sol"
   },
   "together_ai/Qwen/Qwen4-Max": {
+    "comment": "These are Together's promotional rates, valid until 2026-11-23. Update on 2026-11-24 when the promotion ends. List rates per 1M tokens on https://www.together.ai/pricing are $1.50 input, $0.075 cached input and $4.50 output.",
     "max_input_tokens": 1000000,
     "max_output_tokens": 1000000,
     "mode": "chat",
@@ -1284957,60 +1285280,6 @@
       "mx-central-1"
     ]
   },
-  "cloudflare/workers-ai/@cf/deepseek-ai/deepseek-v4.1-flash-1017": {
-    "base_model": "cloudflare/workers-ai/",
-    "mode": "chat",
-    "source": "https://models.dev/api.json",
-    "supports_prompt_caching": true,
-    "max_input_tokens": 1048576,
-    "max_output_tokens": 1048576,
-    "max_tokens": 1048576,
-    "supported_modalities": [
-      "text",
-      "image"
-    ],
-    "supported_output_modalities": [
-      "text"
-    ],
-    "supports_vision": true,
-    "supports_function_calling": true,
-    "supports_response_schema": true,
-    "supports_reasoning": true,
-    "reasoning_effort_levels": [
-      "none",
-      "low",
-      "high",
-      "max"
-    ],
-    "provider": "cloudflare"
-  },
-  "workers-ai/workers-ai/@cf/deepseek-ai/deepseek-v4.1-flash-1017": {
-    "base_model": "cloudflare/workers-ai/",
-    "mode": "chat",
-    "source": "https://models.dev/api.json",
-    "supports_prompt_caching": true,
-    "max_input_tokens": 1048576,
-    "max_output_tokens": 1048576,
-    "max_tokens": 1048576,
-    "supported_modalities": [
-      "text",
-      "image"
-    ],
-    "supported_output_modalities": [
-      "text"
-    ],
-    "supports_vision": true,
-    "supports_function_calling": true,
-    "supports_response_schema": true,
-    "supports_reasoning": true,
-    "reasoning_effort_levels": [
-      "none",
-      "low",
-      "high",
-      "max"
-    ],
-    "provider": "workers-ai"
-  },
   "cloudflare/workers-ai/@cf/thinkingmachines/inkling-2-small": {
     "base_model": "cloudflare/workers-ai/",
     "mode": "chat",
@@ -1285109,13 +1285378,14 @@
     "supports_reasoning": false,
     "provider": "workers-ai"
   },
-  "azure/cohere-embed-v-4-0": {
-    "base_model": "embed-v-4-0",
-    "mode": "embedding",
+  "cloudflare/workers-ai/@cf/deepseek-ai/deepseek-v4.1-flash-1017": {
+    "base_model": "cloudflare/workers-ai/",
+    "mode": "chat",
     "source": "https://models.dev/api.json",
-    "max_input_tokens": 128000,
-    "max_output_tokens": 1536,
-    "max_tokens": 1536,
+    "supports_prompt_caching": true,
+    "max_input_tokens": 1048576,
+    "max_output_tokens": 1048576,
+    "max_tokens": 1048576,
     "supported_modalities": [
       "text",
       "image"
@@ -1285124,9 +1285394,43 @@
       "text"
     ],
     "supports_vision": true,
-    "supports_function_calling": false,
-    "supports_reasoning": false,
-    "provider": "azure"
+    "supports_function_calling": true,
+    "supports_response_schema": true,
+    "supports_reasoning": true,
+    "reasoning_effort_levels": [
+      "none",
+      "low",
+      "high",
+      "max"
+    ],
+    "provider": "cloudflare"
+  },
+  "workers-ai/workers-ai/@cf/deepseek-ai/deepseek-v4.1-flash-1017": {
+    "base_model": "cloudflare/workers-ai/",
+    "mode": "chat",
+    "source": "https://models.dev/api.json",
+    "supports_prompt_caching": true,
+    "max_input_tokens": 1048576,
+    "max_output_tokens": 1048576,
+    "max_tokens": 1048576,
+    "supported_modalities": [
+      "text",
+      "image"
+    ],
+    "supported_output_modalities": [
+      "text"
+    ],
+    "supports_vision": true,
+    "supports_function_calling": true,
+    "supports_response_schema": true,
+    "supports_reasoning": true,
+    "reasoning_effort_levels": [
+      "none",
+      "low",
+      "high",
+      "max"
+    ],
+    "provider": "workers-ai"
   },
   "azure/claude-mythos-5": {
     "base_model": "claude-mythos-5",
@@ -1285159,6 +1285463,25 @@
     "knowledge_cutoff": "2026-01-31",
     "provider": "azure",
     "supports_safeguards": true
+  },
+  "azure/cohere-embed-v-4-0": {
+    "base_model": "embed-v-4-0",
+    "mode": "embedding",
+    "source": "https://models.dev/api.json",
+    "max_input_tokens": 128000,
+    "max_output_tokens": 1536,
+    "max_tokens": 1536,
+    "supported_modalities": [
+      "text",
+      "image"
+    ],
+    "supported_output_modalities": [
+      "text"
+    ],
+    "supports_vision": true,
+    "supports_function_calling": false,
+    "supports_reasoning": false,
+    "provider": "azure"
   },
   "azure/phi-4-reasoning-plus": {
     "base_model": "phi-4-reasoning-plus",
