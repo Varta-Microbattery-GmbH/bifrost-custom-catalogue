@@ -101485,6 +101485,7 @@
     "provider": "anthropic",
     "web_search_billing_unit": "per_request",
     "deprecation_date": "2026-11-24",
+    "is_deprecated": true,
     "max_tokens": 64000,
     "tool_use_system_prompt_tokens": 159,
     "model_parameters": [
@@ -101742,6 +101743,7 @@
     "web_search_billing_unit": "per_request",
     "deprecation_date": "2026-11-24",
     "supports_web_search": true,
+    "is_deprecated": true,
     "max_tokens": 64000,
     "tool_use_system_prompt_tokens": 159,
     "model_parameters": [
@@ -387557,6 +387559,7 @@
     "source": "https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/pricing",
     "provider": "vertex_ai-anthropic_models",
     "supports_web_search": true,
+    "is_deprecated": true,
     "max_tokens": 64000,
     "tool_use_system_prompt_tokens": 159,
     "model_parameters": [
@@ -387784,6 +387787,7 @@
     "source": "https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/pricing",
     "provider": "vertex_ai-anthropic_models",
     "supports_web_search": true,
+    "is_deprecated": true,
     "max_tokens": 64000,
     "tool_use_system_prompt_tokens": 159,
     "model_parameters": [
@@ -1088059,7 +1088063,8 @@
     "supports_tool_choice": true,
     "supports_vision": true,
     "supports_web_search": true,
-    "tool_use_system_prompt_tokens": 159
+    "tool_use_system_prompt_tokens": 159,
+    "is_deprecated": true
   },
   "claude-opus-4-6@default": {
     "mode": "chat",
@@ -1216659,7 +1216664,199 @@
       "auto",
       "standard_only",
       "fast"
-    ]
+    ],
+    "model_parameters": [
+      {
+        "helpText": "A list of tools the model may call.",
+        "id": "promptTools",
+        "label": "Prompt Tools (Functions)",
+        "type": "select",
+        "supported_endpoints": [
+          "/v1/chat/completions",
+          "/v1/responses"
+        ]
+      },
+      {
+        "default": 4096,
+        "helpText": "The maximum number of tokens that can be generated in the Result.",
+        "id": "max_tokens",
+        "label": "Max Tokens",
+        "range": {
+          "max": 128000,
+          "min": 1
+        },
+        "type": "number",
+        "supported_endpoints": [
+          "/v1/chat/completions",
+          "/v1/completions"
+        ]
+      },
+      {
+        "array": {
+          "maxElements": 4,
+          "minElements": 1,
+          "type": "text"
+        },
+        "helpText": "Custom text sequences that will cause the model to stop generating.",
+        "id": "stop_sequences",
+        "label": "Stop Sequence",
+        "type": "array"
+      },
+      {
+        "accesorKey": "type",
+        "default": {
+          "type": "text"
+        },
+        "id": "thinking",
+        "label": "Thinking",
+        "options": [
+          {
+            "label": "adaptive",
+            "value": "adaptive"
+          }
+        ],
+        "type": "select"
+      },
+      {
+        "accesorKey": "effort",
+        "default": {
+          "type": "text"
+        },
+        "id": "output_config",
+        "label": "output_config",
+        "options": [
+          {
+            "label": "max",
+            "value": "max"
+          },
+          {
+            "label": "xhigh",
+            "value": "xhigh"
+          },
+          {
+            "label": "high",
+            "value": "high"
+          },
+          {
+            "label": "medium",
+            "value": "medium"
+          },
+          {
+            "label": "low",
+            "value": "low"
+          }
+        ],
+        "type": "select"
+      },
+      {
+        "default": "high",
+        "helpText": "Reasoning effort gives the model guidance on how many reasoning tokens to generate before answering. Lower values favour speed and economical token usage; higher values favour more complete reasoning.",
+        "id": "reasoning_effort",
+        "label": "Reasoning Effort",
+        "options": [
+          {
+            "label": "Low",
+            "value": "low"
+          },
+          {
+            "label": "Medium",
+            "value": "medium"
+          },
+          {
+            "label": "High",
+            "value": "high"
+          },
+          {
+            "label": "XHigh",
+            "value": "xhigh"
+          },
+          {
+            "label": "Max",
+            "value": "max"
+          }
+        ],
+        "type": "select",
+        "supported_endpoints": [
+          "/v1/chat/completions",
+          "/v1/responses"
+        ]
+      },
+      {
+        "accesorKey": "type",
+        "default": {
+          "type": "text"
+        },
+        "helpText": "The format of the response. If set to 'Structured output', the response will match the supplied JSON schema.",
+        "id": "response_format",
+        "label": "Response Format",
+        "options": [
+          {
+            "label": "Structured output",
+            "subFields": [
+              {
+                "default": {
+                  "name": "",
+                  "schema": {},
+                  "strict": true
+                },
+                "helpText": "A JSON schema that the model will follow when generating the response.",
+                "id": "json_schema",
+                "label": "JSON Schema",
+                "type": "json"
+              }
+            ],
+            "value": "json_schema"
+          },
+          {
+            "label": "Text",
+            "value": "text"
+          }
+        ],
+        "type": "select",
+        "supported_endpoints": [
+          "/v1/chat/completions",
+          "/v1/responses"
+        ]
+      },
+      {
+        "default": false,
+        "helpText": "Enable web search tool for real-time information retrieval.",
+        "id": "web_search",
+        "label": "Web Search",
+        "type": "boolean",
+        "supported_endpoints": [
+          "/v1/chat/completions",
+          "/v1/responses"
+        ]
+      },
+      {
+        "id": "metadata",
+        "label": "Metadata",
+        "helpText": "An external identifier for the user who is associated with the request.",
+        "type": "text",
+        "supported_endpoints": [
+          "/v1/chat/completions",
+          "/v1/responses"
+        ]
+      },
+      {
+        "default": false,
+        "helpText": "The stream parameter in the API controls whether the response is sent in incremental updates, like tokenized data as it's generated, or as a complete result in one go.",
+        "id": "stream",
+        "label": "Stream",
+        "type": "boolean",
+        "supported_endpoints": [
+          "/v1/chat/completions",
+          "/v1/completions",
+          "/v1/responses"
+        ]
+      }
+    ],
+    "unsupported_fields": {
+      "temperature": true,
+      "top_p": true,
+      "top_k": true
+    }
   },
   "anthropic.claude-fable-5-2": {
     "mode": "chat",
@@ -1216747,7 +1216944,188 @@
       "litellm_provider": "bedrock_mantle",
       "region": "us-east-1"
     },
-    "supports_mid_conversation_system_messages": false
+    "supports_mid_conversation_system_messages": false,
+    "model_parameters": [
+      {
+        "helpText": "A list of tools the model may call.",
+        "id": "promptTools",
+        "label": "Prompt Tools (Functions)",
+        "type": "select",
+        "supported_endpoints": [
+          "/v1/chat/completions",
+          "/v1/responses"
+        ]
+      },
+      {
+        "id": "max_tokens",
+        "label": "Max Tokens",
+        "helpText": "The maximum number of tokens that can be generated in the Result.",
+        "type": "number",
+        "default": 4096,
+        "range": {
+          "min": 1,
+          "max": 128000
+        },
+        "supported_endpoints": [
+          "/v1/chat/completions",
+          "/v1/completions"
+        ]
+      },
+      {
+        "array": {
+          "maxElements": 4,
+          "minElements": 1,
+          "type": "text"
+        },
+        "helpText": "Custom text sequences that will cause the model to stop generating.",
+        "id": "stop_sequences",
+        "label": "Stop Sequence",
+        "type": "array"
+      },
+      {
+        "accesorKey": "type",
+        "default": {
+          "type": "text"
+        },
+        "id": "thinking",
+        "label": "Thinking",
+        "options": [
+          {
+            "label": "adaptive",
+            "value": "adaptive"
+          }
+        ],
+        "type": "select"
+      },
+      {
+        "accesorKey": "effort",
+        "default": {
+          "type": "text"
+        },
+        "id": "output_config",
+        "label": "output_config",
+        "options": [
+          {
+            "label": "max",
+            "value": "max"
+          },
+          {
+            "label": "xhigh",
+            "value": "xhigh"
+          },
+          {
+            "label": "high",
+            "value": "high"
+          },
+          {
+            "label": "medium",
+            "value": "medium"
+          },
+          {
+            "label": "low",
+            "value": "low"
+          }
+        ],
+        "type": "select"
+      },
+      {
+        "default": "high",
+        "helpText": "Reasoning effort gives the model guidance on how many reasoning tokens to generate before answering. Lower values favour speed and economical token usage; higher values favour more complete reasoning.",
+        "id": "reasoning_effort",
+        "label": "Reasoning Effort",
+        "options": [
+          {
+            "label": "Low",
+            "value": "low"
+          },
+          {
+            "label": "Medium",
+            "value": "medium"
+          },
+          {
+            "label": "High",
+            "value": "high"
+          },
+          {
+            "label": "XHigh",
+            "value": "xhigh"
+          },
+          {
+            "label": "Max",
+            "value": "max"
+          }
+        ],
+        "type": "select",
+        "supported_endpoints": [
+          "/v1/chat/completions",
+          "/v1/responses"
+        ]
+      },
+      {
+        "accesorKey": "type",
+        "default": {
+          "type": "text"
+        },
+        "helpText": "The format of the response. If set to 'Structured output', the response will match the supplied JSON schema.",
+        "id": "response_format",
+        "label": "Response Format",
+        "options": [
+          {
+            "label": "Structured output",
+            "subFields": [
+              {
+                "default": {
+                  "name": "",
+                  "schema": {},
+                  "strict": true
+                },
+                "helpText": "A JSON schema that the model will follow when generating the response.",
+                "id": "json_schema",
+                "label": "JSON Schema",
+                "type": "json"
+              }
+            ],
+            "value": "json_schema"
+          },
+          {
+            "label": "Text",
+            "value": "text"
+          }
+        ],
+        "type": "select",
+        "supported_endpoints": [
+          "/v1/chat/completions",
+          "/v1/responses"
+        ]
+      },
+      {
+        "id": "metadata",
+        "label": "Metadata",
+        "helpText": "An external identifier for the user who is associated with the request.",
+        "type": "text",
+        "supported_endpoints": [
+          "/v1/chat/completions",
+          "/v1/responses"
+        ]
+      },
+      {
+        "default": false,
+        "helpText": "The stream parameter in the API controls whether the response is sent in incremental updates, like tokenized data as it's generated, or as a complete result in one go.",
+        "id": "stream",
+        "label": "Stream",
+        "type": "boolean",
+        "supported_endpoints": [
+          "/v1/chat/completions",
+          "/v1/completions",
+          "/v1/responses"
+        ]
+      }
+    ],
+    "unsupported_fields": {
+      "temperature": true,
+      "top_p": true,
+      "top_k": true
+    }
   },
   "global.anthropic.claude-fable-5-2": {
     "mode": "chat",
@@ -1216836,7 +1217214,188 @@
       "litellm_provider": "bedrock_mantle",
       "region": "us-east-1"
     },
-    "supports_mid_conversation_system_messages": false
+    "supports_mid_conversation_system_messages": false,
+    "model_parameters": [
+      {
+        "helpText": "A list of tools the model may call.",
+        "id": "promptTools",
+        "label": "Prompt Tools (Functions)",
+        "type": "select",
+        "supported_endpoints": [
+          "/v1/chat/completions",
+          "/v1/responses"
+        ]
+      },
+      {
+        "id": "max_tokens",
+        "label": "Max Tokens",
+        "helpText": "The maximum number of tokens that can be generated in the Result.",
+        "type": "number",
+        "default": 4096,
+        "range": {
+          "min": 1,
+          "max": 128000
+        },
+        "supported_endpoints": [
+          "/v1/chat/completions",
+          "/v1/completions"
+        ]
+      },
+      {
+        "array": {
+          "maxElements": 4,
+          "minElements": 1,
+          "type": "text"
+        },
+        "helpText": "Custom text sequences that will cause the model to stop generating.",
+        "id": "stop_sequences",
+        "label": "Stop Sequence",
+        "type": "array"
+      },
+      {
+        "accesorKey": "type",
+        "default": {
+          "type": "text"
+        },
+        "id": "thinking",
+        "label": "Thinking",
+        "options": [
+          {
+            "label": "adaptive",
+            "value": "adaptive"
+          }
+        ],
+        "type": "select"
+      },
+      {
+        "accesorKey": "effort",
+        "default": {
+          "type": "text"
+        },
+        "id": "output_config",
+        "label": "output_config",
+        "options": [
+          {
+            "label": "max",
+            "value": "max"
+          },
+          {
+            "label": "xhigh",
+            "value": "xhigh"
+          },
+          {
+            "label": "high",
+            "value": "high"
+          },
+          {
+            "label": "medium",
+            "value": "medium"
+          },
+          {
+            "label": "low",
+            "value": "low"
+          }
+        ],
+        "type": "select"
+      },
+      {
+        "default": "high",
+        "helpText": "Reasoning effort gives the model guidance on how many reasoning tokens to generate before answering. Lower values favour speed and economical token usage; higher values favour more complete reasoning.",
+        "id": "reasoning_effort",
+        "label": "Reasoning Effort",
+        "options": [
+          {
+            "label": "Low",
+            "value": "low"
+          },
+          {
+            "label": "Medium",
+            "value": "medium"
+          },
+          {
+            "label": "High",
+            "value": "high"
+          },
+          {
+            "label": "XHigh",
+            "value": "xhigh"
+          },
+          {
+            "label": "Max",
+            "value": "max"
+          }
+        ],
+        "type": "select",
+        "supported_endpoints": [
+          "/v1/chat/completions",
+          "/v1/responses"
+        ]
+      },
+      {
+        "accesorKey": "type",
+        "default": {
+          "type": "text"
+        },
+        "helpText": "The format of the response. If set to 'Structured output', the response will match the supplied JSON schema.",
+        "id": "response_format",
+        "label": "Response Format",
+        "options": [
+          {
+            "label": "Structured output",
+            "subFields": [
+              {
+                "default": {
+                  "name": "",
+                  "schema": {},
+                  "strict": true
+                },
+                "helpText": "A JSON schema that the model will follow when generating the response.",
+                "id": "json_schema",
+                "label": "JSON Schema",
+                "type": "json"
+              }
+            ],
+            "value": "json_schema"
+          },
+          {
+            "label": "Text",
+            "value": "text"
+          }
+        ],
+        "type": "select",
+        "supported_endpoints": [
+          "/v1/chat/completions",
+          "/v1/responses"
+        ]
+      },
+      {
+        "id": "metadata",
+        "label": "Metadata",
+        "helpText": "An external identifier for the user who is associated with the request.",
+        "type": "text",
+        "supported_endpoints": [
+          "/v1/chat/completions",
+          "/v1/responses"
+        ]
+      },
+      {
+        "default": false,
+        "helpText": "The stream parameter in the API controls whether the response is sent in incremental updates, like tokenized data as it's generated, or as a complete result in one go.",
+        "id": "stream",
+        "label": "Stream",
+        "type": "boolean",
+        "supported_endpoints": [
+          "/v1/chat/completions",
+          "/v1/completions",
+          "/v1/responses"
+        ]
+      }
+    ],
+    "unsupported_fields": {
+      "temperature": true,
+      "top_p": true,
+      "top_k": true
+    }
   },
   "us.anthropic.claude-fable-5-2": {
     "mode": "chat",
@@ -1216925,7 +1217484,188 @@
       "litellm_provider": "bedrock_mantle",
       "region": "us-east-1"
     },
-    "supports_mid_conversation_system_messages": false
+    "supports_mid_conversation_system_messages": false,
+    "model_parameters": [
+      {
+        "helpText": "A list of tools the model may call.",
+        "id": "promptTools",
+        "label": "Prompt Tools (Functions)",
+        "type": "select",
+        "supported_endpoints": [
+          "/v1/chat/completions",
+          "/v1/responses"
+        ]
+      },
+      {
+        "id": "max_tokens",
+        "label": "Max Tokens",
+        "helpText": "The maximum number of tokens that can be generated in the Result.",
+        "type": "number",
+        "default": 4096,
+        "range": {
+          "min": 1,
+          "max": 128000
+        },
+        "supported_endpoints": [
+          "/v1/chat/completions",
+          "/v1/completions"
+        ]
+      },
+      {
+        "array": {
+          "maxElements": 4,
+          "minElements": 1,
+          "type": "text"
+        },
+        "helpText": "Custom text sequences that will cause the model to stop generating.",
+        "id": "stop_sequences",
+        "label": "Stop Sequence",
+        "type": "array"
+      },
+      {
+        "accesorKey": "type",
+        "default": {
+          "type": "text"
+        },
+        "id": "thinking",
+        "label": "Thinking",
+        "options": [
+          {
+            "label": "adaptive",
+            "value": "adaptive"
+          }
+        ],
+        "type": "select"
+      },
+      {
+        "accesorKey": "effort",
+        "default": {
+          "type": "text"
+        },
+        "id": "output_config",
+        "label": "output_config",
+        "options": [
+          {
+            "label": "max",
+            "value": "max"
+          },
+          {
+            "label": "xhigh",
+            "value": "xhigh"
+          },
+          {
+            "label": "high",
+            "value": "high"
+          },
+          {
+            "label": "medium",
+            "value": "medium"
+          },
+          {
+            "label": "low",
+            "value": "low"
+          }
+        ],
+        "type": "select"
+      },
+      {
+        "default": "high",
+        "helpText": "Reasoning effort gives the model guidance on how many reasoning tokens to generate before answering. Lower values favour speed and economical token usage; higher values favour more complete reasoning.",
+        "id": "reasoning_effort",
+        "label": "Reasoning Effort",
+        "options": [
+          {
+            "label": "Low",
+            "value": "low"
+          },
+          {
+            "label": "Medium",
+            "value": "medium"
+          },
+          {
+            "label": "High",
+            "value": "high"
+          },
+          {
+            "label": "XHigh",
+            "value": "xhigh"
+          },
+          {
+            "label": "Max",
+            "value": "max"
+          }
+        ],
+        "type": "select",
+        "supported_endpoints": [
+          "/v1/chat/completions",
+          "/v1/responses"
+        ]
+      },
+      {
+        "accesorKey": "type",
+        "default": {
+          "type": "text"
+        },
+        "helpText": "The format of the response. If set to 'Structured output', the response will match the supplied JSON schema.",
+        "id": "response_format",
+        "label": "Response Format",
+        "options": [
+          {
+            "label": "Structured output",
+            "subFields": [
+              {
+                "default": {
+                  "name": "",
+                  "schema": {},
+                  "strict": true
+                },
+                "helpText": "A JSON schema that the model will follow when generating the response.",
+                "id": "json_schema",
+                "label": "JSON Schema",
+                "type": "json"
+              }
+            ],
+            "value": "json_schema"
+          },
+          {
+            "label": "Text",
+            "value": "text"
+          }
+        ],
+        "type": "select",
+        "supported_endpoints": [
+          "/v1/chat/completions",
+          "/v1/responses"
+        ]
+      },
+      {
+        "id": "metadata",
+        "label": "Metadata",
+        "helpText": "An external identifier for the user who is associated with the request.",
+        "type": "text",
+        "supported_endpoints": [
+          "/v1/chat/completions",
+          "/v1/responses"
+        ]
+      },
+      {
+        "default": false,
+        "helpText": "The stream parameter in the API controls whether the response is sent in incremental updates, like tokenized data as it's generated, or as a complete result in one go.",
+        "id": "stream",
+        "label": "Stream",
+        "type": "boolean",
+        "supported_endpoints": [
+          "/v1/chat/completions",
+          "/v1/completions",
+          "/v1/responses"
+        ]
+      }
+    ],
+    "unsupported_fields": {
+      "temperature": true,
+      "top_p": true,
+      "top_k": true
+    }
   },
   "eu.anthropic.claude-fable-5-2": {
     "mode": "chat",
@@ -1216977,7 +1217717,188 @@
       "litellm_provider": "bedrock_mantle",
       "region": "eu-west-1"
     },
-    "supports_mid_conversation_system_messages": false
+    "supports_mid_conversation_system_messages": false,
+    "model_parameters": [
+      {
+        "helpText": "A list of tools the model may call.",
+        "id": "promptTools",
+        "label": "Prompt Tools (Functions)",
+        "type": "select",
+        "supported_endpoints": [
+          "/v1/chat/completions",
+          "/v1/responses"
+        ]
+      },
+      {
+        "id": "max_tokens",
+        "label": "Max Tokens",
+        "helpText": "The maximum number of tokens that can be generated in the Result.",
+        "type": "number",
+        "default": 4096,
+        "range": {
+          "min": 1,
+          "max": 128000
+        },
+        "supported_endpoints": [
+          "/v1/chat/completions",
+          "/v1/completions"
+        ]
+      },
+      {
+        "array": {
+          "maxElements": 4,
+          "minElements": 1,
+          "type": "text"
+        },
+        "helpText": "Custom text sequences that will cause the model to stop generating.",
+        "id": "stop_sequences",
+        "label": "Stop Sequence",
+        "type": "array"
+      },
+      {
+        "accesorKey": "type",
+        "default": {
+          "type": "text"
+        },
+        "id": "thinking",
+        "label": "Thinking",
+        "options": [
+          {
+            "label": "adaptive",
+            "value": "adaptive"
+          }
+        ],
+        "type": "select"
+      },
+      {
+        "accesorKey": "effort",
+        "default": {
+          "type": "text"
+        },
+        "id": "output_config",
+        "label": "output_config",
+        "options": [
+          {
+            "label": "max",
+            "value": "max"
+          },
+          {
+            "label": "xhigh",
+            "value": "xhigh"
+          },
+          {
+            "label": "high",
+            "value": "high"
+          },
+          {
+            "label": "medium",
+            "value": "medium"
+          },
+          {
+            "label": "low",
+            "value": "low"
+          }
+        ],
+        "type": "select"
+      },
+      {
+        "default": "high",
+        "helpText": "Reasoning effort gives the model guidance on how many reasoning tokens to generate before answering. Lower values favour speed and economical token usage; higher values favour more complete reasoning.",
+        "id": "reasoning_effort",
+        "label": "Reasoning Effort",
+        "options": [
+          {
+            "label": "Low",
+            "value": "low"
+          },
+          {
+            "label": "Medium",
+            "value": "medium"
+          },
+          {
+            "label": "High",
+            "value": "high"
+          },
+          {
+            "label": "XHigh",
+            "value": "xhigh"
+          },
+          {
+            "label": "Max",
+            "value": "max"
+          }
+        ],
+        "type": "select",
+        "supported_endpoints": [
+          "/v1/chat/completions",
+          "/v1/responses"
+        ]
+      },
+      {
+        "accesorKey": "type",
+        "default": {
+          "type": "text"
+        },
+        "helpText": "The format of the response. If set to 'Structured output', the response will match the supplied JSON schema.",
+        "id": "response_format",
+        "label": "Response Format",
+        "options": [
+          {
+            "label": "Structured output",
+            "subFields": [
+              {
+                "default": {
+                  "name": "",
+                  "schema": {},
+                  "strict": true
+                },
+                "helpText": "A JSON schema that the model will follow when generating the response.",
+                "id": "json_schema",
+                "label": "JSON Schema",
+                "type": "json"
+              }
+            ],
+            "value": "json_schema"
+          },
+          {
+            "label": "Text",
+            "value": "text"
+          }
+        ],
+        "type": "select",
+        "supported_endpoints": [
+          "/v1/chat/completions",
+          "/v1/responses"
+        ]
+      },
+      {
+        "id": "metadata",
+        "label": "Metadata",
+        "helpText": "An external identifier for the user who is associated with the request.",
+        "type": "text",
+        "supported_endpoints": [
+          "/v1/chat/completions",
+          "/v1/responses"
+        ]
+      },
+      {
+        "default": false,
+        "helpText": "The stream parameter in the API controls whether the response is sent in incremental updates, like tokenized data as it's generated, or as a complete result in one go.",
+        "id": "stream",
+        "label": "Stream",
+        "type": "boolean",
+        "supported_endpoints": [
+          "/v1/chat/completions",
+          "/v1/completions",
+          "/v1/responses"
+        ]
+      }
+    ],
+    "unsupported_fields": {
+      "temperature": true,
+      "top_p": true,
+      "top_k": true
+    }
   },
   "bedrock_mantle/anthropic.claude-fable-5-2": {
     "mode": "chat",
@@ -1217185,7 +1218106,199 @@
     "supports_speed": true,
     "supports_web_search": true,
     "tool_use_system_prompt_tokens": 346,
-    "supports_mid_conversation_system_messages": false
+    "supports_mid_conversation_system_messages": false,
+    "model_parameters": [
+      {
+        "helpText": "A list of tools the model may call.",
+        "id": "promptTools",
+        "label": "Prompt Tools (Functions)",
+        "type": "select",
+        "supported_endpoints": [
+          "/v1/chat/completions",
+          "/v1/responses"
+        ]
+      },
+      {
+        "default": 4096,
+        "helpText": "The maximum number of tokens that can be generated in the Result.",
+        "id": "max_tokens",
+        "label": "Max Tokens",
+        "range": {
+          "max": 128000,
+          "min": 1
+        },
+        "type": "number",
+        "supported_endpoints": [
+          "/v1/chat/completions",
+          "/v1/completions"
+        ]
+      },
+      {
+        "array": {
+          "maxElements": 4,
+          "minElements": 1,
+          "type": "text"
+        },
+        "helpText": "Custom text sequences that will cause the model to stop generating.",
+        "id": "stop_sequences",
+        "label": "Stop Sequence",
+        "type": "array"
+      },
+      {
+        "accesorKey": "type",
+        "default": {
+          "type": "text"
+        },
+        "id": "thinking",
+        "label": "Thinking",
+        "options": [
+          {
+            "label": "adaptive",
+            "value": "adaptive"
+          }
+        ],
+        "type": "select"
+      },
+      {
+        "accesorKey": "effort",
+        "default": {
+          "type": "text"
+        },
+        "id": "output_config",
+        "label": "output_config",
+        "options": [
+          {
+            "label": "max",
+            "value": "max"
+          },
+          {
+            "label": "xhigh",
+            "value": "xhigh"
+          },
+          {
+            "label": "high",
+            "value": "high"
+          },
+          {
+            "label": "medium",
+            "value": "medium"
+          },
+          {
+            "label": "low",
+            "value": "low"
+          }
+        ],
+        "type": "select"
+      },
+      {
+        "default": "high",
+        "helpText": "Reasoning effort gives the model guidance on how many reasoning tokens to generate before answering. Lower values favour speed and economical token usage; higher values favour more complete reasoning.",
+        "id": "reasoning_effort",
+        "label": "Reasoning Effort",
+        "options": [
+          {
+            "label": "Low",
+            "value": "low"
+          },
+          {
+            "label": "Medium",
+            "value": "medium"
+          },
+          {
+            "label": "High",
+            "value": "high"
+          },
+          {
+            "label": "XHigh",
+            "value": "xhigh"
+          },
+          {
+            "label": "Max",
+            "value": "max"
+          }
+        ],
+        "type": "select",
+        "supported_endpoints": [
+          "/v1/chat/completions",
+          "/v1/responses"
+        ]
+      },
+      {
+        "accesorKey": "type",
+        "default": {
+          "type": "text"
+        },
+        "helpText": "The format of the response. If set to 'Structured output', the response will match the supplied JSON schema.",
+        "id": "response_format",
+        "label": "Response Format",
+        "options": [
+          {
+            "label": "Structured output",
+            "subFields": [
+              {
+                "default": {
+                  "name": "",
+                  "schema": {},
+                  "strict": true
+                },
+                "helpText": "A JSON schema that the model will follow when generating the response.",
+                "id": "json_schema",
+                "label": "JSON Schema",
+                "type": "json"
+              }
+            ],
+            "value": "json_schema"
+          },
+          {
+            "label": "Text",
+            "value": "text"
+          }
+        ],
+        "type": "select",
+        "supported_endpoints": [
+          "/v1/chat/completions",
+          "/v1/responses"
+        ]
+      },
+      {
+        "default": false,
+        "helpText": "Enable web search tool for real-time information retrieval.",
+        "id": "web_search",
+        "label": "Web Search",
+        "type": "boolean",
+        "supported_endpoints": [
+          "/v1/chat/completions",
+          "/v1/responses"
+        ]
+      },
+      {
+        "id": "metadata",
+        "label": "Metadata",
+        "helpText": "An external identifier for the user who is associated with the request.",
+        "type": "text",
+        "supported_endpoints": [
+          "/v1/chat/completions",
+          "/v1/responses"
+        ]
+      },
+      {
+        "default": false,
+        "helpText": "The stream parameter in the API controls whether the response is sent in incremental updates, like tokenized data as it's generated, or as a complete result in one go.",
+        "id": "stream",
+        "label": "Stream",
+        "type": "boolean",
+        "supported_endpoints": [
+          "/v1/chat/completions",
+          "/v1/completions",
+          "/v1/responses"
+        ]
+      }
+    ],
+    "unsupported_fields": {
+      "temperature": true,
+      "top_p": true,
+      "top_k": true
+    }
   },
   "vertex_ai/claude-fable-5-2@default": {
     "mode": "chat",
@@ -1217275,7 +1218388,199 @@
     "default_reasoning_effort": "high",
     "supports_forced_tool_choice": false,
     "supports_safeguards": true,
-    "supports_mid_conversation_system_messages": false
+    "supports_mid_conversation_system_messages": false,
+    "model_parameters": [
+      {
+        "helpText": "A list of tools the model may call.",
+        "id": "promptTools",
+        "label": "Prompt Tools (Functions)",
+        "type": "select",
+        "supported_endpoints": [
+          "/v1/chat/completions",
+          "/v1/responses"
+        ]
+      },
+      {
+        "default": 4096,
+        "helpText": "The maximum number of tokens that can be generated in the Result.",
+        "id": "max_tokens",
+        "label": "Max Tokens",
+        "range": {
+          "max": 128000,
+          "min": 1
+        },
+        "type": "number",
+        "supported_endpoints": [
+          "/v1/chat/completions",
+          "/v1/completions"
+        ]
+      },
+      {
+        "array": {
+          "maxElements": 4,
+          "minElements": 1,
+          "type": "text"
+        },
+        "helpText": "Custom text sequences that will cause the model to stop generating.",
+        "id": "stop_sequences",
+        "label": "Stop Sequence",
+        "type": "array"
+      },
+      {
+        "accesorKey": "type",
+        "default": {
+          "type": "text"
+        },
+        "id": "thinking",
+        "label": "Thinking",
+        "options": [
+          {
+            "label": "adaptive",
+            "value": "adaptive"
+          }
+        ],
+        "type": "select"
+      },
+      {
+        "accesorKey": "effort",
+        "default": {
+          "type": "text"
+        },
+        "id": "output_config",
+        "label": "output_config",
+        "options": [
+          {
+            "label": "max",
+            "value": "max"
+          },
+          {
+            "label": "xhigh",
+            "value": "xhigh"
+          },
+          {
+            "label": "high",
+            "value": "high"
+          },
+          {
+            "label": "medium",
+            "value": "medium"
+          },
+          {
+            "label": "low",
+            "value": "low"
+          }
+        ],
+        "type": "select"
+      },
+      {
+        "default": "high",
+        "helpText": "Reasoning effort gives the model guidance on how many reasoning tokens to generate before answering. Lower values favour speed and economical token usage; higher values favour more complete reasoning.",
+        "id": "reasoning_effort",
+        "label": "Reasoning Effort",
+        "options": [
+          {
+            "label": "Low",
+            "value": "low"
+          },
+          {
+            "label": "Medium",
+            "value": "medium"
+          },
+          {
+            "label": "High",
+            "value": "high"
+          },
+          {
+            "label": "XHigh",
+            "value": "xhigh"
+          },
+          {
+            "label": "Max",
+            "value": "max"
+          }
+        ],
+        "type": "select",
+        "supported_endpoints": [
+          "/v1/chat/completions",
+          "/v1/responses"
+        ]
+      },
+      {
+        "accesorKey": "type",
+        "default": {
+          "type": "text"
+        },
+        "helpText": "The format of the response. If set to 'Structured output', the response will match the supplied JSON schema.",
+        "id": "response_format",
+        "label": "Response Format",
+        "options": [
+          {
+            "label": "Structured output",
+            "subFields": [
+              {
+                "default": {
+                  "name": "",
+                  "schema": {},
+                  "strict": true
+                },
+                "helpText": "A JSON schema that the model will follow when generating the response.",
+                "id": "json_schema",
+                "label": "JSON Schema",
+                "type": "json"
+              }
+            ],
+            "value": "json_schema"
+          },
+          {
+            "label": "Text",
+            "value": "text"
+          }
+        ],
+        "type": "select",
+        "supported_endpoints": [
+          "/v1/chat/completions",
+          "/v1/responses"
+        ]
+      },
+      {
+        "default": false,
+        "helpText": "Enable web search tool for real-time information retrieval.",
+        "id": "web_search",
+        "label": "Web Search",
+        "type": "boolean",
+        "supported_endpoints": [
+          "/v1/chat/completions",
+          "/v1/responses"
+        ]
+      },
+      {
+        "id": "metadata",
+        "label": "Metadata",
+        "helpText": "An external identifier for the user who is associated with the request.",
+        "type": "text",
+        "supported_endpoints": [
+          "/v1/chat/completions",
+          "/v1/responses"
+        ]
+      },
+      {
+        "default": false,
+        "helpText": "The stream parameter in the API controls whether the response is sent in incremental updates, like tokenized data as it's generated, or as a complete result in one go.",
+        "id": "stream",
+        "label": "Stream",
+        "type": "boolean",
+        "supported_endpoints": [
+          "/v1/chat/completions",
+          "/v1/completions",
+          "/v1/responses"
+        ]
+      }
+    ],
+    "unsupported_fields": {
+      "temperature": true,
+      "top_p": true,
+      "top_k": true
+    }
   },
   "gemini-4-carbon": {
     "mode": "chat",
@@ -1222350,7 +1223655,129 @@
     "supports_tool_choice": true,
     "supports_vision": true,
     "provider": "bedrock",
-    "supports_native_structured_output": true
+    "supports_native_structured_output": true,
+    "model_parameters": [
+      {
+        "id": "promptTools",
+        "label": "Prompt Tools (Functions)",
+        "helpText": "A list of tools the model may call.",
+        "type": "select",
+        "supported_endpoints": [
+          "/v1/chat/completions",
+          "/v1/responses"
+        ]
+      },
+      {
+        "id": "max_tokens",
+        "label": "Max Tokens",
+        "helpText": "The maximum number of tokens that can be generated in the Result.",
+        "type": "number",
+        "default": 4096,
+        "range": {
+          "min": 1,
+          "max": 131072
+        },
+        "supported_endpoints": [
+          "/v1/chat/completions",
+          "/v1/completions"
+        ]
+      },
+      {
+        "id": "max_output_tokens",
+        "label": "Max Output Tokens",
+        "helpText": "The maximum number of tokens that can be generated in the Result.",
+        "type": "number",
+        "default": 4096,
+        "range": {
+          "min": 1,
+          "max": 131072
+        },
+        "supported_endpoints": [
+          "/v1/responses"
+        ]
+      },
+      {
+        "id": "reasoning_effort",
+        "label": "Reasoning Effort",
+        "helpText": "This parameter controls how many reasoning tokens the model generates before producing a response",
+        "type": "select",
+        "options": [
+          {
+            "label": "None",
+            "value": "none"
+          },
+          {
+            "label": "Low",
+            "value": "low"
+          },
+          {
+            "label": "Medium",
+            "value": "medium"
+          },
+          {
+            "label": "High",
+            "value": "high"
+          },
+          {
+            "label": "XHigh",
+            "value": "xhigh"
+          },
+          {
+            "label": "Max",
+            "value": "max"
+          }
+        ],
+        "supported_endpoints": [
+          "/v1/chat/completions",
+          "/v1/responses"
+        ]
+      },
+      {
+        "id": "response_format",
+        "label": "Response Format",
+        "helpText": "The format of the response. If set to 'json', the response will be a JSON object with the keys 'choices' and 'logprobs'. If set to 'text', the response will be a string with the completion text. If set to 'Structured output', the response will match the supplied JSON schema.",
+        "type": "select",
+        "accesorKey": "type",
+        "default": {
+          "type": "text"
+        },
+        "options": [
+          {
+            "label": "Text",
+            "value": "text"
+          },
+          {
+            "label": "Structured output",
+            "value": "json_schema"
+          }
+        ],
+        "supported_endpoints": [
+          "/v1/chat/completions",
+          "/v1/responses"
+        ]
+      },
+      {
+        "id": "stream",
+        "label": "Stream",
+        "helpText": "The stream parameter in the API controls whether the response is sent in incremental updates, like tokenized data as it's generated, or as a complete result in one go.",
+        "type": "boolean",
+        "default": false,
+        "supported_endpoints": [
+          "/v1/chat/completions",
+          "/v1/completions",
+          "/v1/responses"
+        ]
+      }
+    ],
+    "max_tokens": 131072,
+    "supports_sampling_params": false,
+    "unsupported_fields": {
+      "temperature": true,
+      "top_p": true,
+      "stop": true,
+      "frequency_penalty": true,
+      "presence_penalty": true
+    }
   },
   "gpt-live-1.1": {
     "mode": "realtime",
@@ -1222369,6 +1223796,2888 @@
     "supports_function_calling": true,
     "provider": "openai",
     "web_search_billing_unit": "per_request"
+  },
+  "gpt-6.2-sol": {
+    "mode": "chat",
+    "base_model": "gpt-6.2-sol",
+    "fedramp_uplift_multiplier": 1.1,
+    "max_input_tokens": 922000,
+    "max_output_tokens": 128000,
+    "reasoning_contexts": [
+      "auto",
+      "current_turn",
+      "all_turns"
+    ],
+    "reasoning_modes": [
+      "standard",
+      "pro"
+    ],
+    "regional_processing_uplift_multiplier_eu": 1.1,
+    "regional_processing_uplift_multiplier_us": 1.1,
+    "source": "https://developers.openai.com/api/docs/models/gpt-6.2-sol",
+    "supported_endpoints": [
+      "/v1/chat/completions",
+      "/v1/responses",
+      "/v1/batch"
+    ],
+    "supported_modalities": [
+      "text",
+      "image"
+    ],
+    "supported_output_modalities": [
+      "text"
+    ],
+    "supports_computer_use": true,
+    "supports_function_calling": true,
+    "supports_max_reasoning_effort": true,
+    "supports_minimal_reasoning_effort": false,
+    "supports_native_streaming": true,
+    "supports_none_reasoning_effort": false,
+    "supports_parallel_function_calling": true,
+    "supports_pdf_input": true,
+    "supports_prompt_cache_breakpoint": true,
+    "supports_prompt_caching": true,
+    "supports_reasoning": true,
+    "supports_response_schema": true,
+    "supports_system_messages": true,
+    "supports_tool_choice": true,
+    "supports_tool_search": true,
+    "supports_vision": true,
+    "supports_web_search": true,
+    "supports_xhigh_reasoning_effort": true,
+    "provider": "openai",
+    "web_search_billing_unit": "per_request",
+    "min_output_tokens": 16,
+    "service_tiers": [
+      "auto",
+      "default",
+      "priority",
+      "fast",
+      "ultrafast"
+    ],
+    "supports_service_tier": true,
+    "supports_custom_tools": true,
+    "supports_file_search": true,
+    "supports_code_execution": true,
+    "supports_image_gen_tool": true,
+    "supports_native_structured_output": true,
+    "supports_image_input": true,
+    "supports_prompt_cache_breakpoints": true,
+    "supports_reasoning_effort": true,
+    "is_reasoning_model": true,
+    "default_reasoning_effort": "medium",
+    "supports_low_reasoning_effort": true,
+    "supports_reasoning_disable": false,
+    "thinking_always_on": true,
+    "always_reasoning": true,
+    "supports_reasoning_with_tool_calls": false,
+    "supported_reasoning_contexts": [
+      "auto",
+      "current_turn",
+      "all_turns"
+    ],
+    "supports_sampling_params": false,
+    "unsupported_fields": {
+      "temperature": true,
+      "top_p": true,
+      "logprobs": true,
+      "top_logprobs": true,
+      "stop": true,
+      "presence_penalty": true,
+      "frequency_penalty": true,
+      "logit_bias": true,
+      "web_search_options": true
+    },
+    "regional_endpoint_uplift_multiplier": 1.1,
+    "metadata": {
+      "notes": "Context window 1,050,000 (922K input + 128K output). For prompts over 272K input tokens, OpenAI charges 2x input/cache and 1.5x output for the full request. 12-hour cache writes are priced for short-context requests only. Ultrafast is 3x Standard through 2027-02-28 and 6x Standard from 2027-03-01 (Pacific); *_ultrafast fields reflect 3x and must be updated on 2027-03-01. Knowledge cutoff: 2026-06-01. API rejects reasoning effort 'none'."
+    },
+    "model_parameters": [
+      {
+        "id": "metadata",
+        "label": "Metadata",
+        "helpText": "A unique identifier representing your end-user.",
+        "type": "text",
+        "supported_endpoints": [
+          "/v1/chat/completions",
+          "/v1/responses"
+        ]
+      },
+      {
+        "id": "seed",
+        "label": "Seed",
+        "helpText": "(BETA) - System will make a best effort to sample deterministically, such that repeated requests with the same seed and parameters should return the same result.",
+        "type": "number",
+        "range": {
+          "min": 0,
+          "max": 100
+        },
+        "supported_endpoints": [
+          "/v1/chat/completions"
+        ]
+      },
+      {
+        "id": "max_completion_tokens",
+        "label": "Max Completion Tokens",
+        "helpText": "The maximum number of tokens that can be generated in the Result.",
+        "type": "number",
+        "default": 2048,
+        "range": {
+          "min": 16,
+          "max": 128000
+        },
+        "supported_endpoints": [
+          "/v1/chat/completions"
+        ]
+      },
+      {
+        "id": "max_output_tokens",
+        "label": "Max Output Tokens",
+        "helpText": "The maximum number of tokens that can be generated in the Result.",
+        "type": "number",
+        "default": 2048,
+        "range": {
+          "min": 16,
+          "max": 128000
+        },
+        "supported_endpoints": [
+          "/v1/responses"
+        ]
+      },
+      {
+        "id": "max_tool_calls",
+        "label": "Max Tool Calls",
+        "helpText": "The maximum number of total calls to built-in tools that can be processed in a response.",
+        "type": "number",
+        "range": {
+          "min": 1,
+          "max": 128,
+          "step": 1
+        },
+        "supported_endpoints": [
+          "/v1/responses"
+        ]
+      },
+      {
+        "id": "prompt_cache_key",
+        "label": "Prompt Cache Key",
+        "helpText": "Used by OpenAI to cache responses for similar requests to optimize your cache hit rates.",
+        "type": "text",
+        "supported_endpoints": [
+          "/v1/chat/completions",
+          "/v1/responses"
+        ]
+      },
+      {
+        "id": "prompt_cache_retention",
+        "label": "Prompt Cache Retention",
+        "helpText": "The retention policy for the prompt cache.",
+        "type": "select",
+        "options": [
+          {
+            "label": "24 Hours",
+            "value": "24h"
+          }
+        ],
+        "supported_endpoints": [
+          "/v1/chat/completions",
+          "/v1/responses"
+        ]
+      },
+      {
+        "id": "verbosity",
+        "label": "Verbosity",
+        "helpText": "Verbosity determines how many output tokens are generated. Lowering the number of tokens reduces overall latency.",
+        "type": "select",
+        "options": [
+          {
+            "label": "Low",
+            "value": "low"
+          },
+          {
+            "label": "Medium",
+            "value": "medium"
+          },
+          {
+            "label": "High",
+            "value": "high"
+          }
+        ],
+        "supported_endpoints": [
+          "/v1/chat/completions",
+          "/v1/responses"
+        ]
+      },
+      {
+        "id": "reasoning_effort",
+        "label": "Reasoning Effort",
+        "helpText": "This parameter controls how many reasoning tokens the model generates before producing a response. Max is accepted on the Responses API only.",
+        "type": "select",
+        "options": [
+          {
+            "label": "Low",
+            "value": "low"
+          },
+          {
+            "label": "Medium",
+            "value": "medium"
+          },
+          {
+            "label": "High",
+            "value": "high"
+          },
+          {
+            "label": "XHigh",
+            "value": "xhigh"
+          },
+          {
+            "label": "Max",
+            "value": "max"
+          }
+        ],
+        "default": "medium",
+        "supported_endpoints": [
+          "/v1/chat/completions",
+          "/v1/responses"
+        ]
+      },
+      {
+        "id": "reasoning_summary",
+        "label": "Reasoning Summary",
+        "helpText": "Controls the level of detail in the reasoning summary output",
+        "type": "select",
+        "options": [
+          {
+            "label": "Auto",
+            "value": "auto"
+          },
+          {
+            "label": "Concise",
+            "value": "concise"
+          },
+          {
+            "label": "Detailed",
+            "value": "detailed"
+          }
+        ],
+        "supported_endpoints": [
+          "/v1/responses"
+        ]
+      },
+      {
+        "id": "response_format",
+        "label": "Response Format",
+        "helpText": "The format of the response. If set to 'json', the response will be a JSON object with the keys 'choices' and 'logprobs'. If set to 'text', the response will be a string with the completion text. If set to 'Structured output', the response will match the supplied JSON schema.",
+        "type": "select",
+        "accesorKey": "type",
+        "default": {
+          "type": "text"
+        },
+        "options": [
+          {
+            "label": "Text",
+            "value": "text"
+          },
+          {
+            "label": "JSON",
+            "value": "json_object"
+          },
+          {
+            "label": "Structured output",
+            "value": "json_schema"
+          }
+        ],
+        "supported_endpoints": [
+          "/v1/chat/completions",
+          "/v1/responses"
+        ]
+      },
+      {
+        "id": "web_search",
+        "label": "Web Search",
+        "helpText": "Enable web search tool for real-time information retrieval.",
+        "type": "boolean",
+        "default": false,
+        "supported_endpoints": [
+          "/v1/responses"
+        ]
+      },
+      {
+        "id": "promptTools",
+        "label": "Prompt Tools (Functions)",
+        "helpText": "A list of tools the model may call.",
+        "type": "select",
+        "supported_endpoints": [
+          "/v1/chat/completions",
+          "/v1/responses"
+        ]
+      },
+      {
+        "id": "stream",
+        "label": "Stream",
+        "helpText": "The stream parameter in the API controls whether the response is sent in incremental updates, like tokenized data as it's generated, or as a complete result in one go.",
+        "type": "boolean",
+        "default": false,
+        "supported_endpoints": [
+          "/v1/chat/completions",
+          "/v1/completions",
+          "/v1/responses"
+        ]
+      }
+    ]
+  },
+  "gpt-6.2-astra": {
+    "mode": "chat",
+    "base_model": "gpt-6.2-astra",
+    "fedramp_uplift_multiplier": 1.1,
+    "max_input_tokens": 922000,
+    "max_output_tokens": 128000,
+    "reasoning_contexts": [
+      "auto",
+      "current_turn",
+      "all_turns"
+    ],
+    "reasoning_modes": [
+      "standard",
+      "pro"
+    ],
+    "regional_processing_uplift_multiplier_eu": 1.1,
+    "regional_processing_uplift_multiplier_us": 1.1,
+    "source": "https://developers.openai.com/api/docs/models/gpt-6.2-astra",
+    "supported_endpoints": [
+      "/v1/chat/completions",
+      "/v1/responses",
+      "/v1/batch"
+    ],
+    "supported_modalities": [
+      "text",
+      "image"
+    ],
+    "supported_output_modalities": [
+      "text"
+    ],
+    "supports_computer_use": true,
+    "supports_function_calling": true,
+    "supports_max_reasoning_effort": true,
+    "supports_minimal_reasoning_effort": false,
+    "supports_native_streaming": true,
+    "supports_none_reasoning_effort": false,
+    "supports_parallel_function_calling": true,
+    "supports_pdf_input": true,
+    "supports_prompt_cache_breakpoint": true,
+    "supports_prompt_caching": true,
+    "supports_reasoning": true,
+    "supports_response_schema": true,
+    "supports_system_messages": true,
+    "supports_tool_choice": true,
+    "supports_tool_search": true,
+    "supports_vision": true,
+    "supports_web_search": true,
+    "supports_xhigh_reasoning_effort": true,
+    "provider": "openai",
+    "web_search_billing_unit": "per_request",
+    "min_output_tokens": 16,
+    "service_tiers": [
+      "auto",
+      "default",
+      "priority",
+      "fast",
+      "ultrafast"
+    ],
+    "supports_service_tier": true,
+    "supports_custom_tools": true,
+    "supports_file_search": true,
+    "supports_code_execution": true,
+    "supports_image_gen_tool": true,
+    "supports_native_structured_output": true,
+    "supports_image_input": true,
+    "supports_prompt_cache_breakpoints": true,
+    "supports_reasoning_effort": true,
+    "is_reasoning_model": true,
+    "default_reasoning_effort": "medium",
+    "supports_low_reasoning_effort": true,
+    "supports_reasoning_disable": false,
+    "thinking_always_on": true,
+    "always_reasoning": true,
+    "supports_reasoning_with_tool_calls": false,
+    "supported_reasoning_contexts": [
+      "auto",
+      "current_turn",
+      "all_turns"
+    ],
+    "supports_sampling_params": false,
+    "unsupported_fields": {
+      "temperature": true,
+      "top_p": true,
+      "logprobs": true,
+      "top_logprobs": true,
+      "stop": true,
+      "presence_penalty": true,
+      "frequency_penalty": true,
+      "logit_bias": true,
+      "web_search_options": true
+    },
+    "regional_endpoint_uplift_multiplier": 1.1,
+    "metadata": {
+      "notes": "Context window 1,050,000 (922K input + 128K output). For prompts over 272K input tokens, OpenAI charges 2x input/cache and 1.5x output for the full request. 12-hour cache writes are priced for short-context requests only. Ultrafast is 3x Standard through 2027-02-28 and 6x Standard from 2027-03-01 (Pacific); *_ultrafast fields reflect 3x and must be updated on 2027-03-01. Knowledge cutoff: 2026-05-18. API rejects reasoning effort 'none'."
+    },
+    "model_parameters": [
+      {
+        "id": "metadata",
+        "label": "Metadata",
+        "helpText": "A unique identifier representing your end-user.",
+        "type": "text",
+        "supported_endpoints": [
+          "/v1/chat/completions",
+          "/v1/responses"
+        ]
+      },
+      {
+        "id": "seed",
+        "label": "Seed",
+        "helpText": "(BETA) - System will make a best effort to sample deterministically, such that repeated requests with the same seed and parameters should return the same result.",
+        "type": "number",
+        "range": {
+          "min": 0,
+          "max": 100
+        },
+        "supported_endpoints": [
+          "/v1/chat/completions"
+        ]
+      },
+      {
+        "id": "max_completion_tokens",
+        "label": "Max Completion Tokens",
+        "helpText": "The maximum number of tokens that can be generated in the Result.",
+        "type": "number",
+        "default": 2048,
+        "range": {
+          "min": 16,
+          "max": 128000
+        },
+        "supported_endpoints": [
+          "/v1/chat/completions"
+        ]
+      },
+      {
+        "id": "max_output_tokens",
+        "label": "Max Output Tokens",
+        "helpText": "The maximum number of tokens that can be generated in the Result.",
+        "type": "number",
+        "default": 2048,
+        "range": {
+          "min": 16,
+          "max": 128000
+        },
+        "supported_endpoints": [
+          "/v1/responses"
+        ]
+      },
+      {
+        "id": "max_tool_calls",
+        "label": "Max Tool Calls",
+        "helpText": "The maximum number of total calls to built-in tools that can be processed in a response.",
+        "type": "number",
+        "range": {
+          "min": 1,
+          "max": 128,
+          "step": 1
+        },
+        "supported_endpoints": [
+          "/v1/responses"
+        ]
+      },
+      {
+        "id": "prompt_cache_key",
+        "label": "Prompt Cache Key",
+        "helpText": "Used by OpenAI to cache responses for similar requests to optimize your cache hit rates.",
+        "type": "text",
+        "supported_endpoints": [
+          "/v1/chat/completions",
+          "/v1/responses"
+        ]
+      },
+      {
+        "id": "prompt_cache_retention",
+        "label": "Prompt Cache Retention",
+        "helpText": "The retention policy for the prompt cache.",
+        "type": "select",
+        "options": [
+          {
+            "label": "24 Hours",
+            "value": "24h"
+          }
+        ],
+        "supported_endpoints": [
+          "/v1/chat/completions",
+          "/v1/responses"
+        ]
+      },
+      {
+        "id": "verbosity",
+        "label": "Verbosity",
+        "helpText": "Verbosity determines how many output tokens are generated. Lowering the number of tokens reduces overall latency.",
+        "type": "select",
+        "options": [
+          {
+            "label": "Low",
+            "value": "low"
+          },
+          {
+            "label": "Medium",
+            "value": "medium"
+          },
+          {
+            "label": "High",
+            "value": "high"
+          }
+        ],
+        "supported_endpoints": [
+          "/v1/chat/completions",
+          "/v1/responses"
+        ]
+      },
+      {
+        "id": "reasoning_effort",
+        "label": "Reasoning Effort",
+        "helpText": "This parameter controls how many reasoning tokens the model generates before producing a response. Max is accepted on the Responses API only.",
+        "type": "select",
+        "options": [
+          {
+            "label": "Low",
+            "value": "low"
+          },
+          {
+            "label": "Medium",
+            "value": "medium"
+          },
+          {
+            "label": "High",
+            "value": "high"
+          },
+          {
+            "label": "XHigh",
+            "value": "xhigh"
+          },
+          {
+            "label": "Max",
+            "value": "max"
+          }
+        ],
+        "default": "medium",
+        "supported_endpoints": [
+          "/v1/chat/completions",
+          "/v1/responses"
+        ]
+      },
+      {
+        "id": "reasoning_summary",
+        "label": "Reasoning Summary",
+        "helpText": "Controls the level of detail in the reasoning summary output",
+        "type": "select",
+        "options": [
+          {
+            "label": "Auto",
+            "value": "auto"
+          },
+          {
+            "label": "Concise",
+            "value": "concise"
+          },
+          {
+            "label": "Detailed",
+            "value": "detailed"
+          }
+        ],
+        "supported_endpoints": [
+          "/v1/responses"
+        ]
+      },
+      {
+        "id": "response_format",
+        "label": "Response Format",
+        "helpText": "The format of the response. If set to 'json', the response will be a JSON object with the keys 'choices' and 'logprobs'. If set to 'text', the response will be a string with the completion text. If set to 'Structured output', the response will match the supplied JSON schema.",
+        "type": "select",
+        "accesorKey": "type",
+        "default": {
+          "type": "text"
+        },
+        "options": [
+          {
+            "label": "Text",
+            "value": "text"
+          },
+          {
+            "label": "JSON",
+            "value": "json_object"
+          },
+          {
+            "label": "Structured output",
+            "value": "json_schema"
+          }
+        ],
+        "supported_endpoints": [
+          "/v1/chat/completions",
+          "/v1/responses"
+        ]
+      },
+      {
+        "id": "web_search",
+        "label": "Web Search",
+        "helpText": "Enable web search tool for real-time information retrieval.",
+        "type": "boolean",
+        "default": false,
+        "supported_endpoints": [
+          "/v1/responses"
+        ]
+      },
+      {
+        "id": "promptTools",
+        "label": "Prompt Tools (Functions)",
+        "helpText": "A list of tools the model may call.",
+        "type": "select",
+        "supported_endpoints": [
+          "/v1/chat/completions",
+          "/v1/responses"
+        ]
+      },
+      {
+        "id": "stream",
+        "label": "Stream",
+        "helpText": "The stream parameter in the API controls whether the response is sent in incremental updates, like tokenized data as it's generated, or as a complete result in one go.",
+        "type": "boolean",
+        "default": false,
+        "supported_endpoints": [
+          "/v1/chat/completions",
+          "/v1/completions",
+          "/v1/responses"
+        ]
+      }
+    ]
+  },
+  "azure/gpt-6.2-sol": {
+    "mode": "chat",
+    "base_model": "gpt-6.2-sol",
+    "successor_model": "azure/gpt-6.1-sol",
+    "deprecation_date": "2027-11-17",
+    "deprecation_source": "https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.CognitiveServices/locations/eastus/models?api-version=2024-10-01",
+    "max_input_tokens": 922000,
+    "max_output_tokens": 128000,
+    "source": "https://ai.azure.com/catalog/models/gpt-6.2-sol",
+    "supported_endpoints": [
+      "/v1/chat/completions",
+      "/v1/responses"
+    ],
+    "supported_modalities": [
+      "text",
+      "image"
+    ],
+    "supported_output_modalities": [
+      "text"
+    ],
+    "supports_computer_use": true,
+    "supports_function_calling": true,
+    "supports_max_reasoning_effort": true,
+    "supports_minimal_reasoning_effort": false,
+    "supports_native_streaming": true,
+    "supports_none_reasoning_effort": false,
+    "supports_parallel_function_calling": true,
+    "supports_pdf_input": true,
+    "supports_prompt_caching": true,
+    "supports_reasoning": true,
+    "supports_response_schema": true,
+    "supports_system_messages": true,
+    "supports_tool_choice": true,
+    "supports_vision": true,
+    "supports_web_search": true,
+    "supports_xhigh_reasoning_effort": true,
+    "provider": "azure",
+    "min_output_tokens": 16,
+    "supports_service_tier": false,
+    "supports_custom_tools": true,
+    "supports_tool_search": true,
+    "supports_file_search": true,
+    "supports_code_execution": true,
+    "supports_image_gen_tool": true,
+    "supports_native_structured_output": true,
+    "supports_image_input": true,
+    "supports_prompt_cache_breakpoint": true,
+    "supports_prompt_cache_breakpoints": true,
+    "supports_reasoning_effort": true,
+    "is_reasoning_model": true,
+    "reasoning_effort_levels": [
+      "low",
+      "medium",
+      "high",
+      "xhigh",
+      "max"
+    ],
+    "default_reasoning_effort": "medium",
+    "supports_low_reasoning_effort": true,
+    "supports_reasoning_disable": false,
+    "thinking_always_on": true,
+    "always_reasoning": true,
+    "supports_reasoning_with_tool_calls": false,
+    "reasoning_contexts": [
+      "auto",
+      "current_turn",
+      "all_turns"
+    ],
+    "supported_reasoning_contexts": [
+      "auto",
+      "current_turn",
+      "all_turns"
+    ],
+    "supports_sampling_params": false,
+    "unsupported_fields": {
+      "temperature": true,
+      "top_p": true,
+      "logprobs": true,
+      "top_logprobs": true,
+      "stop": true,
+      "presence_penalty": true,
+      "frequency_penalty": true,
+      "logit_bias": true,
+      "web_search_options": true
+    },
+    "web_search_billing_unit": "per_request",
+    "regional_processing_uplift_multiplier_us": 1.1,
+    "regional_processing_uplift_multiplier_eu": 1.2,
+    "max_tokens": 128000,
+    "metadata": {
+      "notes": "PROVISIONAL: Azure has not yet published GPT-6.2 prices (catalog version 2026-11-17 links to https://aka.ms/AzureOAIpricing with no figures). Global Standard is set to OpenAI's Standard rates, as Azure matched OpenAI for GPT-6 Astra/Sol. Data Zone uplift follows the GPT-6 pattern: US 1.1x, EU 1.2x. Over 272K input tokens: 2x input/cache, 1.5x output for the full request. Knowledge cutoff: 2026-06-01. API rejects reasoning effort 'none'. Re-verify once Azure posts pricing."
+    },
+    "model_parameters": [
+      {
+        "id": "metadata",
+        "label": "Metadata",
+        "helpText": "A unique identifier representing your end-user.",
+        "type": "text",
+        "supported_endpoints": [
+          "/v1/chat/completions",
+          "/v1/responses"
+        ]
+      },
+      {
+        "id": "seed",
+        "label": "Seed",
+        "helpText": "(BETA) - System will make a best effort to sample deterministically, such that repeated requests with the same seed and parameters should return the same result.",
+        "type": "number",
+        "range": {
+          "min": 0,
+          "max": 100
+        },
+        "supported_endpoints": [
+          "/v1/chat/completions"
+        ]
+      },
+      {
+        "id": "max_completion_tokens",
+        "label": "Max Completion Tokens",
+        "helpText": "The maximum number of tokens that can be generated in the Result.",
+        "type": "number",
+        "default": 2048,
+        "range": {
+          "min": 16,
+          "max": 128000
+        },
+        "supported_endpoints": [
+          "/v1/chat/completions"
+        ]
+      },
+      {
+        "id": "max_output_tokens",
+        "label": "Max Output Tokens",
+        "helpText": "The maximum number of tokens that can be generated in the Result.",
+        "type": "number",
+        "default": 2048,
+        "range": {
+          "min": 16,
+          "max": 128000
+        },
+        "supported_endpoints": [
+          "/v1/responses"
+        ]
+      },
+      {
+        "id": "max_tool_calls",
+        "label": "Max Tool Calls",
+        "helpText": "The maximum number of total calls to built-in tools that can be processed in a response.",
+        "type": "number",
+        "range": {
+          "min": 1,
+          "max": 128,
+          "step": 1
+        },
+        "supported_endpoints": [
+          "/v1/responses"
+        ]
+      },
+      {
+        "id": "prompt_cache_key",
+        "label": "Prompt Cache Key",
+        "helpText": "Used by OpenAI to cache responses for similar requests to optimize your cache hit rates.",
+        "type": "text",
+        "supported_endpoints": [
+          "/v1/chat/completions",
+          "/v1/responses"
+        ]
+      },
+      {
+        "id": "prompt_cache_retention",
+        "label": "Prompt Cache Retention",
+        "helpText": "The retention policy for the prompt cache.",
+        "type": "select",
+        "options": [
+          {
+            "label": "24 Hours",
+            "value": "24h"
+          }
+        ],
+        "supported_endpoints": [
+          "/v1/chat/completions",
+          "/v1/responses"
+        ]
+      },
+      {
+        "id": "verbosity",
+        "label": "Verbosity",
+        "helpText": "Verbosity determines how many output tokens are generated. Lowering the number of tokens reduces overall latency.",
+        "type": "select",
+        "options": [
+          {
+            "label": "Low",
+            "value": "low"
+          },
+          {
+            "label": "Medium",
+            "value": "medium"
+          },
+          {
+            "label": "High",
+            "value": "high"
+          }
+        ],
+        "supported_endpoints": [
+          "/v1/chat/completions",
+          "/v1/responses"
+        ]
+      },
+      {
+        "id": "reasoning_effort",
+        "label": "Reasoning Effort",
+        "helpText": "This parameter controls how many reasoning tokens the model generates before producing a response. Max is accepted on the Responses API only.",
+        "type": "select",
+        "options": [
+          {
+            "label": "Low",
+            "value": "low"
+          },
+          {
+            "label": "Medium",
+            "value": "medium"
+          },
+          {
+            "label": "High",
+            "value": "high"
+          },
+          {
+            "label": "XHigh",
+            "value": "xhigh"
+          },
+          {
+            "label": "Max",
+            "value": "max"
+          }
+        ],
+        "default": "medium",
+        "supported_endpoints": [
+          "/v1/chat/completions",
+          "/v1/responses"
+        ]
+      },
+      {
+        "id": "reasoning_summary",
+        "label": "Reasoning Summary",
+        "helpText": "Controls the level of detail in the reasoning summary output",
+        "type": "select",
+        "options": [
+          {
+            "label": "Auto",
+            "value": "auto"
+          },
+          {
+            "label": "Concise",
+            "value": "concise"
+          },
+          {
+            "label": "Detailed",
+            "value": "detailed"
+          }
+        ],
+        "supported_endpoints": [
+          "/v1/responses"
+        ]
+      },
+      {
+        "id": "response_format",
+        "label": "Response Format",
+        "helpText": "The format of the response. If set to 'json', the response will be a JSON object with the keys 'choices' and 'logprobs'. If set to 'text', the response will be a string with the completion text. If set to 'Structured output', the response will match the supplied JSON schema.",
+        "type": "select",
+        "accesorKey": "type",
+        "default": {
+          "type": "text"
+        },
+        "options": [
+          {
+            "label": "Text",
+            "value": "text"
+          },
+          {
+            "label": "JSON",
+            "value": "json_object"
+          },
+          {
+            "label": "Structured output",
+            "value": "json_schema"
+          }
+        ],
+        "supported_endpoints": [
+          "/v1/chat/completions",
+          "/v1/responses"
+        ]
+      },
+      {
+        "id": "web_search",
+        "label": "Web Search",
+        "helpText": "Enable web search tool for real-time information retrieval.",
+        "type": "boolean",
+        "default": false,
+        "supported_endpoints": [
+          "/v1/responses"
+        ]
+      },
+      {
+        "id": "promptTools",
+        "label": "Prompt Tools (Functions)",
+        "helpText": "A list of tools the model may call.",
+        "type": "select",
+        "supported_endpoints": [
+          "/v1/chat/completions",
+          "/v1/responses"
+        ]
+      },
+      {
+        "id": "stream",
+        "label": "Stream",
+        "helpText": "The stream parameter in the API controls whether the response is sent in incremental updates, like tokenized data as it's generated, or as a complete result in one go.",
+        "type": "boolean",
+        "default": false,
+        "supported_endpoints": [
+          "/v1/chat/completions",
+          "/v1/completions",
+          "/v1/responses"
+        ]
+      }
+    ]
+  },
+  "azure/gpt-6.2-astra": {
+    "mode": "chat",
+    "base_model": "gpt-6.2-astra",
+    "successor_model": "azure/gpt-6-astra",
+    "deprecation_date": "2027-02-17",
+    "deprecation_source": "https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.CognitiveServices/locations/eastus/models?api-version=2024-10-01",
+    "max_input_tokens": 922000,
+    "max_output_tokens": 128000,
+    "source": "https://ai.azure.com/catalog/models/gpt-6.2-astra",
+    "supported_endpoints": [
+      "/v1/chat/completions",
+      "/v1/responses"
+    ],
+    "supported_modalities": [
+      "text",
+      "image"
+    ],
+    "supported_output_modalities": [
+      "text"
+    ],
+    "supports_computer_use": true,
+    "supports_function_calling": true,
+    "supports_max_reasoning_effort": true,
+    "supports_minimal_reasoning_effort": false,
+    "supports_native_streaming": true,
+    "supports_none_reasoning_effort": false,
+    "supports_parallel_function_calling": true,
+    "supports_pdf_input": true,
+    "supports_prompt_caching": true,
+    "supports_reasoning": true,
+    "supports_response_schema": true,
+    "supports_system_messages": true,
+    "supports_tool_choice": true,
+    "supports_vision": true,
+    "supports_web_search": true,
+    "supports_xhigh_reasoning_effort": true,
+    "provider": "azure",
+    "min_output_tokens": 16,
+    "supports_service_tier": false,
+    "supports_custom_tools": true,
+    "supports_tool_search": true,
+    "supports_file_search": true,
+    "supports_code_execution": true,
+    "supports_image_gen_tool": true,
+    "supports_native_structured_output": true,
+    "supports_image_input": true,
+    "supports_prompt_cache_breakpoint": true,
+    "supports_prompt_cache_breakpoints": true,
+    "supports_reasoning_effort": true,
+    "is_reasoning_model": true,
+    "reasoning_effort_levels": [
+      "low",
+      "medium",
+      "high",
+      "xhigh",
+      "max"
+    ],
+    "default_reasoning_effort": "medium",
+    "supports_low_reasoning_effort": true,
+    "supports_reasoning_disable": false,
+    "thinking_always_on": true,
+    "always_reasoning": true,
+    "supports_reasoning_with_tool_calls": false,
+    "reasoning_contexts": [
+      "auto",
+      "current_turn",
+      "all_turns"
+    ],
+    "supported_reasoning_contexts": [
+      "auto",
+      "current_turn",
+      "all_turns"
+    ],
+    "supports_sampling_params": false,
+    "unsupported_fields": {
+      "temperature": true,
+      "top_p": true,
+      "logprobs": true,
+      "top_logprobs": true,
+      "stop": true,
+      "presence_penalty": true,
+      "frequency_penalty": true,
+      "logit_bias": true,
+      "web_search_options": true
+    },
+    "web_search_billing_unit": "per_request",
+    "regional_processing_uplift_multiplier_us": 1.1,
+    "regional_processing_uplift_multiplier_eu": 1.2,
+    "max_tokens": 128000,
+    "metadata": {
+      "notes": "PROVISIONAL: Azure has not yet published GPT-6.2 prices (catalog version 2026-11-17 links to https://aka.ms/AzureOAIpricing with no figures). Global Standard is set to OpenAI's Standard rates, as Azure matched OpenAI for GPT-6 Astra/Sol. Data Zone uplift follows the GPT-6 pattern: US 1.1x, EU 1.2x. Over 272K input tokens: 2x input/cache, 1.5x output for the full request. Knowledge cutoff: 2026-05-18. API rejects reasoning effort 'none'. Re-verify once Azure posts pricing."
+    },
+    "model_parameters": [
+      {
+        "id": "metadata",
+        "label": "Metadata",
+        "helpText": "A unique identifier representing your end-user.",
+        "type": "text",
+        "supported_endpoints": [
+          "/v1/chat/completions",
+          "/v1/responses"
+        ]
+      },
+      {
+        "id": "seed",
+        "label": "Seed",
+        "helpText": "(BETA) - System will make a best effort to sample deterministically, such that repeated requests with the same seed and parameters should return the same result.",
+        "type": "number",
+        "range": {
+          "min": 0,
+          "max": 100
+        },
+        "supported_endpoints": [
+          "/v1/chat/completions"
+        ]
+      },
+      {
+        "id": "max_completion_tokens",
+        "label": "Max Completion Tokens",
+        "helpText": "The maximum number of tokens that can be generated in the Result.",
+        "type": "number",
+        "default": 2048,
+        "range": {
+          "min": 16,
+          "max": 128000
+        },
+        "supported_endpoints": [
+          "/v1/chat/completions"
+        ]
+      },
+      {
+        "id": "max_output_tokens",
+        "label": "Max Output Tokens",
+        "helpText": "The maximum number of tokens that can be generated in the Result.",
+        "type": "number",
+        "default": 2048,
+        "range": {
+          "min": 16,
+          "max": 128000
+        },
+        "supported_endpoints": [
+          "/v1/responses"
+        ]
+      },
+      {
+        "id": "max_tool_calls",
+        "label": "Max Tool Calls",
+        "helpText": "The maximum number of total calls to built-in tools that can be processed in a response.",
+        "type": "number",
+        "range": {
+          "min": 1,
+          "max": 128,
+          "step": 1
+        },
+        "supported_endpoints": [
+          "/v1/responses"
+        ]
+      },
+      {
+        "id": "prompt_cache_key",
+        "label": "Prompt Cache Key",
+        "helpText": "Used by OpenAI to cache responses for similar requests to optimize your cache hit rates.",
+        "type": "text",
+        "supported_endpoints": [
+          "/v1/chat/completions",
+          "/v1/responses"
+        ]
+      },
+      {
+        "id": "prompt_cache_retention",
+        "label": "Prompt Cache Retention",
+        "helpText": "The retention policy for the prompt cache.",
+        "type": "select",
+        "options": [
+          {
+            "label": "24 Hours",
+            "value": "24h"
+          }
+        ],
+        "supported_endpoints": [
+          "/v1/chat/completions",
+          "/v1/responses"
+        ]
+      },
+      {
+        "id": "verbosity",
+        "label": "Verbosity",
+        "helpText": "Verbosity determines how many output tokens are generated. Lowering the number of tokens reduces overall latency.",
+        "type": "select",
+        "options": [
+          {
+            "label": "Low",
+            "value": "low"
+          },
+          {
+            "label": "Medium",
+            "value": "medium"
+          },
+          {
+            "label": "High",
+            "value": "high"
+          }
+        ],
+        "supported_endpoints": [
+          "/v1/chat/completions",
+          "/v1/responses"
+        ]
+      },
+      {
+        "id": "reasoning_effort",
+        "label": "Reasoning Effort",
+        "helpText": "This parameter controls how many reasoning tokens the model generates before producing a response. Max is accepted on the Responses API only.",
+        "type": "select",
+        "options": [
+          {
+            "label": "Low",
+            "value": "low"
+          },
+          {
+            "label": "Medium",
+            "value": "medium"
+          },
+          {
+            "label": "High",
+            "value": "high"
+          },
+          {
+            "label": "XHigh",
+            "value": "xhigh"
+          },
+          {
+            "label": "Max",
+            "value": "max"
+          }
+        ],
+        "default": "medium",
+        "supported_endpoints": [
+          "/v1/chat/completions",
+          "/v1/responses"
+        ]
+      },
+      {
+        "id": "reasoning_summary",
+        "label": "Reasoning Summary",
+        "helpText": "Controls the level of detail in the reasoning summary output",
+        "type": "select",
+        "options": [
+          {
+            "label": "Auto",
+            "value": "auto"
+          },
+          {
+            "label": "Concise",
+            "value": "concise"
+          },
+          {
+            "label": "Detailed",
+            "value": "detailed"
+          }
+        ],
+        "supported_endpoints": [
+          "/v1/responses"
+        ]
+      },
+      {
+        "id": "response_format",
+        "label": "Response Format",
+        "helpText": "The format of the response. If set to 'json', the response will be a JSON object with the keys 'choices' and 'logprobs'. If set to 'text', the response will be a string with the completion text. If set to 'Structured output', the response will match the supplied JSON schema.",
+        "type": "select",
+        "accesorKey": "type",
+        "default": {
+          "type": "text"
+        },
+        "options": [
+          {
+            "label": "Text",
+            "value": "text"
+          },
+          {
+            "label": "JSON",
+            "value": "json_object"
+          },
+          {
+            "label": "Structured output",
+            "value": "json_schema"
+          }
+        ],
+        "supported_endpoints": [
+          "/v1/chat/completions",
+          "/v1/responses"
+        ]
+      },
+      {
+        "id": "web_search",
+        "label": "Web Search",
+        "helpText": "Enable web search tool for real-time information retrieval.",
+        "type": "boolean",
+        "default": false,
+        "supported_endpoints": [
+          "/v1/responses"
+        ]
+      },
+      {
+        "id": "promptTools",
+        "label": "Prompt Tools (Functions)",
+        "helpText": "A list of tools the model may call.",
+        "type": "select",
+        "supported_endpoints": [
+          "/v1/chat/completions",
+          "/v1/responses"
+        ]
+      },
+      {
+        "id": "stream",
+        "label": "Stream",
+        "helpText": "The stream parameter in the API controls whether the response is sent in incremental updates, like tokenized data as it's generated, or as a complete result in one go.",
+        "type": "boolean",
+        "default": false,
+        "supported_endpoints": [
+          "/v1/chat/completions",
+          "/v1/completions",
+          "/v1/responses"
+        ]
+      }
+    ]
+  },
+  "azure/gpt-6.2-sol-2026-11-17": {
+    "mode": "chat",
+    "base_model": "gpt-6.2-sol",
+    "provider": "azure",
+    "max_input_tokens": 922000,
+    "max_output_tokens": 128000,
+    "min_output_tokens": 16,
+    "supported_endpoints": [
+      "/v1/chat/completions",
+      "/v1/responses"
+    ],
+    "supported_modalities": [
+      "text",
+      "image"
+    ],
+    "supported_output_modalities": [
+      "text"
+    ],
+    "supports_service_tier": false,
+    "supports_native_streaming": true,
+    "supports_system_messages": true,
+    "supports_function_calling": true,
+    "supports_parallel_function_calling": true,
+    "supports_tool_choice": true,
+    "supports_custom_tools": true,
+    "supports_tool_search": true,
+    "supports_computer_use": true,
+    "supports_web_search": true,
+    "supports_file_search": true,
+    "supports_code_execution": true,
+    "supports_image_gen_tool": true,
+    "supports_response_schema": true,
+    "supports_native_structured_output": true,
+    "supports_vision": true,
+    "supports_image_input": true,
+    "supports_pdf_input": true,
+    "supports_prompt_caching": true,
+    "supports_prompt_cache_breakpoint": true,
+    "supports_prompt_cache_breakpoints": true,
+    "supports_reasoning": true,
+    "supports_reasoning_effort": true,
+    "is_reasoning_model": true,
+    "reasoning_effort_levels": [
+      "low",
+      "medium",
+      "high",
+      "xhigh",
+      "max"
+    ],
+    "default_reasoning_effort": "medium",
+    "supports_none_reasoning_effort": false,
+    "supports_minimal_reasoning_effort": false,
+    "supports_low_reasoning_effort": true,
+    "supports_xhigh_reasoning_effort": true,
+    "supports_max_reasoning_effort": true,
+    "supports_reasoning_disable": false,
+    "thinking_always_on": true,
+    "always_reasoning": true,
+    "supports_reasoning_with_tool_calls": false,
+    "reasoning_contexts": [
+      "auto",
+      "current_turn",
+      "all_turns"
+    ],
+    "supported_reasoning_contexts": [
+      "auto",
+      "current_turn",
+      "all_turns"
+    ],
+    "supports_sampling_params": false,
+    "unsupported_fields": {
+      "temperature": true,
+      "top_p": true,
+      "logprobs": true,
+      "top_logprobs": true,
+      "stop": true,
+      "presence_penalty": true,
+      "frequency_penalty": true,
+      "logit_bias": true,
+      "web_search_options": true
+    },
+    "web_search_billing_unit": "per_request",
+    "regional_processing_uplift_multiplier_us": 1.1,
+    "regional_processing_uplift_multiplier_eu": 1.2,
+    "max_tokens": 128000,
+    "source": "https://ai.azure.com/catalog/models/gpt-6.2-sol",
+    "metadata": {
+      "notes": "PROVISIONAL: Azure has not yet published GPT-6.2 prices (catalog version 2026-11-17 links to https://aka.ms/AzureOAIpricing with no figures). Global Standard is set to OpenAI's Standard rates, as Azure matched OpenAI for GPT-6 Astra/Sol. Data Zone uplift follows the GPT-6 pattern: US 1.1x, EU 1.2x. Over 272K input tokens: 2x input/cache, 1.5x output for the full request. Knowledge cutoff: 2026-06-01. API rejects reasoning effort 'none'. Re-verify once Azure posts pricing."
+    },
+    "model_parameters": [
+      {
+        "id": "metadata",
+        "label": "Metadata",
+        "helpText": "A unique identifier representing your end-user.",
+        "type": "text",
+        "supported_endpoints": [
+          "/v1/chat/completions",
+          "/v1/responses"
+        ]
+      },
+      {
+        "id": "seed",
+        "label": "Seed",
+        "helpText": "(BETA) - System will make a best effort to sample deterministically, such that repeated requests with the same seed and parameters should return the same result.",
+        "type": "number",
+        "range": {
+          "min": 0,
+          "max": 100
+        },
+        "supported_endpoints": [
+          "/v1/chat/completions"
+        ]
+      },
+      {
+        "id": "max_completion_tokens",
+        "label": "Max Completion Tokens",
+        "helpText": "The maximum number of tokens that can be generated in the Result.",
+        "type": "number",
+        "default": 2048,
+        "range": {
+          "min": 16,
+          "max": 128000
+        },
+        "supported_endpoints": [
+          "/v1/chat/completions"
+        ]
+      },
+      {
+        "id": "max_output_tokens",
+        "label": "Max Output Tokens",
+        "helpText": "The maximum number of tokens that can be generated in the Result.",
+        "type": "number",
+        "default": 2048,
+        "range": {
+          "min": 16,
+          "max": 128000
+        },
+        "supported_endpoints": [
+          "/v1/responses"
+        ]
+      },
+      {
+        "id": "max_tool_calls",
+        "label": "Max Tool Calls",
+        "helpText": "The maximum number of total calls to built-in tools that can be processed in a response.",
+        "type": "number",
+        "range": {
+          "min": 1,
+          "max": 128,
+          "step": 1
+        },
+        "supported_endpoints": [
+          "/v1/responses"
+        ]
+      },
+      {
+        "id": "prompt_cache_key",
+        "label": "Prompt Cache Key",
+        "helpText": "Used by OpenAI to cache responses for similar requests to optimize your cache hit rates.",
+        "type": "text",
+        "supported_endpoints": [
+          "/v1/chat/completions",
+          "/v1/responses"
+        ]
+      },
+      {
+        "id": "prompt_cache_retention",
+        "label": "Prompt Cache Retention",
+        "helpText": "The retention policy for the prompt cache.",
+        "type": "select",
+        "options": [
+          {
+            "label": "24 Hours",
+            "value": "24h"
+          }
+        ],
+        "supported_endpoints": [
+          "/v1/chat/completions",
+          "/v1/responses"
+        ]
+      },
+      {
+        "id": "verbosity",
+        "label": "Verbosity",
+        "helpText": "Verbosity determines how many output tokens are generated. Lowering the number of tokens reduces overall latency.",
+        "type": "select",
+        "options": [
+          {
+            "label": "Low",
+            "value": "low"
+          },
+          {
+            "label": "Medium",
+            "value": "medium"
+          },
+          {
+            "label": "High",
+            "value": "high"
+          }
+        ],
+        "supported_endpoints": [
+          "/v1/chat/completions",
+          "/v1/responses"
+        ]
+      },
+      {
+        "id": "reasoning_effort",
+        "label": "Reasoning Effort",
+        "helpText": "This parameter controls how many reasoning tokens the model generates before producing a response. Max is accepted on the Responses API only.",
+        "type": "select",
+        "options": [
+          {
+            "label": "Low",
+            "value": "low"
+          },
+          {
+            "label": "Medium",
+            "value": "medium"
+          },
+          {
+            "label": "High",
+            "value": "high"
+          },
+          {
+            "label": "XHigh",
+            "value": "xhigh"
+          },
+          {
+            "label": "Max",
+            "value": "max"
+          }
+        ],
+        "default": "medium",
+        "supported_endpoints": [
+          "/v1/chat/completions",
+          "/v1/responses"
+        ]
+      },
+      {
+        "id": "reasoning_summary",
+        "label": "Reasoning Summary",
+        "helpText": "Controls the level of detail in the reasoning summary output",
+        "type": "select",
+        "options": [
+          {
+            "label": "Auto",
+            "value": "auto"
+          },
+          {
+            "label": "Concise",
+            "value": "concise"
+          },
+          {
+            "label": "Detailed",
+            "value": "detailed"
+          }
+        ],
+        "supported_endpoints": [
+          "/v1/responses"
+        ]
+      },
+      {
+        "id": "response_format",
+        "label": "Response Format",
+        "helpText": "The format of the response. If set to 'json', the response will be a JSON object with the keys 'choices' and 'logprobs'. If set to 'text', the response will be a string with the completion text. If set to 'Structured output', the response will match the supplied JSON schema.",
+        "type": "select",
+        "accesorKey": "type",
+        "default": {
+          "type": "text"
+        },
+        "options": [
+          {
+            "label": "Text",
+            "value": "text"
+          },
+          {
+            "label": "JSON",
+            "value": "json_object"
+          },
+          {
+            "label": "Structured output",
+            "value": "json_schema"
+          }
+        ],
+        "supported_endpoints": [
+          "/v1/chat/completions",
+          "/v1/responses"
+        ]
+      },
+      {
+        "id": "web_search",
+        "label": "Web Search",
+        "helpText": "Enable web search tool for real-time information retrieval.",
+        "type": "boolean",
+        "default": false,
+        "supported_endpoints": [
+          "/v1/responses"
+        ]
+      },
+      {
+        "id": "promptTools",
+        "label": "Prompt Tools (Functions)",
+        "helpText": "A list of tools the model may call.",
+        "type": "select",
+        "supported_endpoints": [
+          "/v1/chat/completions",
+          "/v1/responses"
+        ]
+      },
+      {
+        "id": "stream",
+        "label": "Stream",
+        "helpText": "The stream parameter in the API controls whether the response is sent in incremental updates, like tokenized data as it's generated, or as a complete result in one go.",
+        "type": "boolean",
+        "default": false,
+        "supported_endpoints": [
+          "/v1/chat/completions",
+          "/v1/completions",
+          "/v1/responses"
+        ]
+      }
+    ]
+  },
+  "azure/gpt-6.2-astra-2026-11-17": {
+    "mode": "chat",
+    "base_model": "gpt-6.2-astra",
+    "provider": "azure",
+    "max_input_tokens": 922000,
+    "max_output_tokens": 128000,
+    "min_output_tokens": 16,
+    "supported_endpoints": [
+      "/v1/chat/completions",
+      "/v1/responses"
+    ],
+    "supported_modalities": [
+      "text",
+      "image"
+    ],
+    "supported_output_modalities": [
+      "text"
+    ],
+    "supports_service_tier": false,
+    "supports_native_streaming": true,
+    "supports_system_messages": true,
+    "supports_function_calling": true,
+    "supports_parallel_function_calling": true,
+    "supports_tool_choice": true,
+    "supports_custom_tools": true,
+    "supports_tool_search": true,
+    "supports_computer_use": true,
+    "supports_web_search": true,
+    "supports_file_search": true,
+    "supports_code_execution": true,
+    "supports_image_gen_tool": true,
+    "supports_response_schema": true,
+    "supports_native_structured_output": true,
+    "supports_vision": true,
+    "supports_image_input": true,
+    "supports_pdf_input": true,
+    "supports_prompt_caching": true,
+    "supports_prompt_cache_breakpoint": true,
+    "supports_prompt_cache_breakpoints": true,
+    "supports_reasoning": true,
+    "supports_reasoning_effort": true,
+    "is_reasoning_model": true,
+    "reasoning_effort_levels": [
+      "low",
+      "medium",
+      "high",
+      "xhigh",
+      "max"
+    ],
+    "default_reasoning_effort": "medium",
+    "supports_none_reasoning_effort": false,
+    "supports_minimal_reasoning_effort": false,
+    "supports_low_reasoning_effort": true,
+    "supports_xhigh_reasoning_effort": true,
+    "supports_max_reasoning_effort": true,
+    "supports_reasoning_disable": false,
+    "thinking_always_on": true,
+    "always_reasoning": true,
+    "supports_reasoning_with_tool_calls": false,
+    "reasoning_contexts": [
+      "auto",
+      "current_turn",
+      "all_turns"
+    ],
+    "supported_reasoning_contexts": [
+      "auto",
+      "current_turn",
+      "all_turns"
+    ],
+    "supports_sampling_params": false,
+    "unsupported_fields": {
+      "temperature": true,
+      "top_p": true,
+      "logprobs": true,
+      "top_logprobs": true,
+      "stop": true,
+      "presence_penalty": true,
+      "frequency_penalty": true,
+      "logit_bias": true,
+      "web_search_options": true
+    },
+    "web_search_billing_unit": "per_request",
+    "regional_processing_uplift_multiplier_us": 1.1,
+    "regional_processing_uplift_multiplier_eu": 1.2,
+    "max_tokens": 128000,
+    "source": "https://ai.azure.com/catalog/models/gpt-6.2-astra",
+    "metadata": {
+      "notes": "PROVISIONAL: Azure has not yet published GPT-6.2 prices (catalog version 2026-11-17 links to https://aka.ms/AzureOAIpricing with no figures). Global Standard is set to OpenAI's Standard rates, as Azure matched OpenAI for GPT-6 Astra/Sol. Data Zone uplift follows the GPT-6 pattern: US 1.1x, EU 1.2x. Over 272K input tokens: 2x input/cache, 1.5x output for the full request. Knowledge cutoff: 2026-05-18. API rejects reasoning effort 'none'. Re-verify once Azure posts pricing."
+    },
+    "model_parameters": [
+      {
+        "id": "metadata",
+        "label": "Metadata",
+        "helpText": "A unique identifier representing your end-user.",
+        "type": "text",
+        "supported_endpoints": [
+          "/v1/chat/completions",
+          "/v1/responses"
+        ]
+      },
+      {
+        "id": "seed",
+        "label": "Seed",
+        "helpText": "(BETA) - System will make a best effort to sample deterministically, such that repeated requests with the same seed and parameters should return the same result.",
+        "type": "number",
+        "range": {
+          "min": 0,
+          "max": 100
+        },
+        "supported_endpoints": [
+          "/v1/chat/completions"
+        ]
+      },
+      {
+        "id": "max_completion_tokens",
+        "label": "Max Completion Tokens",
+        "helpText": "The maximum number of tokens that can be generated in the Result.",
+        "type": "number",
+        "default": 2048,
+        "range": {
+          "min": 16,
+          "max": 128000
+        },
+        "supported_endpoints": [
+          "/v1/chat/completions"
+        ]
+      },
+      {
+        "id": "max_output_tokens",
+        "label": "Max Output Tokens",
+        "helpText": "The maximum number of tokens that can be generated in the Result.",
+        "type": "number",
+        "default": 2048,
+        "range": {
+          "min": 16,
+          "max": 128000
+        },
+        "supported_endpoints": [
+          "/v1/responses"
+        ]
+      },
+      {
+        "id": "max_tool_calls",
+        "label": "Max Tool Calls",
+        "helpText": "The maximum number of total calls to built-in tools that can be processed in a response.",
+        "type": "number",
+        "range": {
+          "min": 1,
+          "max": 128,
+          "step": 1
+        },
+        "supported_endpoints": [
+          "/v1/responses"
+        ]
+      },
+      {
+        "id": "prompt_cache_key",
+        "label": "Prompt Cache Key",
+        "helpText": "Used by OpenAI to cache responses for similar requests to optimize your cache hit rates.",
+        "type": "text",
+        "supported_endpoints": [
+          "/v1/chat/completions",
+          "/v1/responses"
+        ]
+      },
+      {
+        "id": "prompt_cache_retention",
+        "label": "Prompt Cache Retention",
+        "helpText": "The retention policy for the prompt cache.",
+        "type": "select",
+        "options": [
+          {
+            "label": "24 Hours",
+            "value": "24h"
+          }
+        ],
+        "supported_endpoints": [
+          "/v1/chat/completions",
+          "/v1/responses"
+        ]
+      },
+      {
+        "id": "verbosity",
+        "label": "Verbosity",
+        "helpText": "Verbosity determines how many output tokens are generated. Lowering the number of tokens reduces overall latency.",
+        "type": "select",
+        "options": [
+          {
+            "label": "Low",
+            "value": "low"
+          },
+          {
+            "label": "Medium",
+            "value": "medium"
+          },
+          {
+            "label": "High",
+            "value": "high"
+          }
+        ],
+        "supported_endpoints": [
+          "/v1/chat/completions",
+          "/v1/responses"
+        ]
+      },
+      {
+        "id": "reasoning_effort",
+        "label": "Reasoning Effort",
+        "helpText": "This parameter controls how many reasoning tokens the model generates before producing a response. Max is accepted on the Responses API only.",
+        "type": "select",
+        "options": [
+          {
+            "label": "Low",
+            "value": "low"
+          },
+          {
+            "label": "Medium",
+            "value": "medium"
+          },
+          {
+            "label": "High",
+            "value": "high"
+          },
+          {
+            "label": "XHigh",
+            "value": "xhigh"
+          },
+          {
+            "label": "Max",
+            "value": "max"
+          }
+        ],
+        "default": "medium",
+        "supported_endpoints": [
+          "/v1/chat/completions",
+          "/v1/responses"
+        ]
+      },
+      {
+        "id": "reasoning_summary",
+        "label": "Reasoning Summary",
+        "helpText": "Controls the level of detail in the reasoning summary output",
+        "type": "select",
+        "options": [
+          {
+            "label": "Auto",
+            "value": "auto"
+          },
+          {
+            "label": "Concise",
+            "value": "concise"
+          },
+          {
+            "label": "Detailed",
+            "value": "detailed"
+          }
+        ],
+        "supported_endpoints": [
+          "/v1/responses"
+        ]
+      },
+      {
+        "id": "response_format",
+        "label": "Response Format",
+        "helpText": "The format of the response. If set to 'json', the response will be a JSON object with the keys 'choices' and 'logprobs'. If set to 'text', the response will be a string with the completion text. If set to 'Structured output', the response will match the supplied JSON schema.",
+        "type": "select",
+        "accesorKey": "type",
+        "default": {
+          "type": "text"
+        },
+        "options": [
+          {
+            "label": "Text",
+            "value": "text"
+          },
+          {
+            "label": "JSON",
+            "value": "json_object"
+          },
+          {
+            "label": "Structured output",
+            "value": "json_schema"
+          }
+        ],
+        "supported_endpoints": [
+          "/v1/chat/completions",
+          "/v1/responses"
+        ]
+      },
+      {
+        "id": "web_search",
+        "label": "Web Search",
+        "helpText": "Enable web search tool for real-time information retrieval.",
+        "type": "boolean",
+        "default": false,
+        "supported_endpoints": [
+          "/v1/responses"
+        ]
+      },
+      {
+        "id": "promptTools",
+        "label": "Prompt Tools (Functions)",
+        "helpText": "A list of tools the model may call.",
+        "type": "select",
+        "supported_endpoints": [
+          "/v1/chat/completions",
+          "/v1/responses"
+        ]
+      },
+      {
+        "id": "stream",
+        "label": "Stream",
+        "helpText": "The stream parameter in the API controls whether the response is sent in incremental updates, like tokenized data as it's generated, or as a complete result in one go.",
+        "type": "boolean",
+        "default": false,
+        "supported_endpoints": [
+          "/v1/chat/completions",
+          "/v1/completions",
+          "/v1/responses"
+        ]
+      }
+    ]
+  },
+  "gemini/gemini-4-hydrogen": {
+    "mode": "chat",
+    "base_model": "gemini-4-hydrogen",
+    "max_input_tokens": 1048576,
+    "max_output_tokens": 1048576,
+    "prompt_cache_min_tokens": 4096,
+    "rpm": 2000,
+    "search_free_requests": {
+      "count": 5000,
+      "period": "month",
+      "shared_group": "gemini-3"
+    },
+    "source": "https://aistudio.google.com/docs/pricing#gemini-4-hydrogen",
+    "supported_endpoints": [
+      "/v1/chat/completions",
+      "/v1/completions"
+    ],
+    "supported_modalities": [
+      "text",
+      "image",
+      "audio",
+      "video"
+    ],
+    "supported_output_modalities": [
+      "text"
+    ],
+    "supports_audio_input": true,
+    "supports_audio_output": false,
+    "supports_computer_use": true,
+    "supports_continuation": true,
+    "supports_function_calling": true,
+    "supports_minimal_reasoning_effort": false,
+    "supports_native_streaming": true,
+    "supports_parallel_function_calling": true,
+    "supports_pdf_input": true,
+    "supports_prompt_caching": true,
+    "supports_reasoning": true,
+    "supports_response_schema": true,
+    "supports_system_messages": true,
+    "supports_tool_choice": true,
+    "supports_url_context": true,
+    "supports_video_input": true,
+    "supports_vision": true,
+    "supports_web_search": true,
+    "supports_xhigh_reasoning_effort": true,
+    "tpm": 800000,
+    "web_search_billing_unit": "per_query",
+    "provider": "gemini",
+    "model_parameters": [
+      {
+        "id": "promptTools",
+        "label": "Prompt Tools (Functions)",
+        "helpText": "A list of tools the model may call.",
+        "type": "select",
+        "supported_endpoints": [
+          "/v1/chat/completions",
+          "/v1/responses"
+        ]
+      },
+      {
+        "id": "thinking_level",
+        "label": "Thinking Level",
+        "helpText": "Set the thinking level",
+        "type": "select",
+        "default": "high",
+        "options": [
+          {
+            "label": "Low",
+            "value": "low"
+          },
+          {
+            "label": "Medium",
+            "value": "medium"
+          },
+          {
+            "label": "High",
+            "value": "high"
+          },
+          {
+            "label": "Extra High",
+            "value": "xhigh"
+          },
+          {
+            "label": "Max",
+            "value": "max"
+          }
+        ],
+        "supported_endpoints": [
+          "/v1/chat/completions",
+          "/v1/responses"
+        ]
+      },
+      {
+        "id": "temperature",
+        "label": "Temperature",
+        "helpText": "What sampling temperature to use, between 0 and 2. Higher values make the output more random, lower values make it more focused and deterministic.",
+        "type": "number",
+        "default": 1,
+        "range": {
+          "min": 0,
+          "max": 2,
+          "step": 0.01
+        },
+        "supported_endpoints": [
+          "/v1/chat/completions",
+          "/v1/completions",
+          "/v1/responses"
+        ]
+      },
+      {
+        "id": "top_p",
+        "label": "Top P",
+        "helpText": "Nucleus sampling: the model considers the tokens with top_p probability mass.",
+        "type": "number",
+        "default": 0.95,
+        "range": {
+          "min": 0,
+          "max": 1,
+          "step": 0.01
+        },
+        "supported_endpoints": [
+          "/v1/chat/completions",
+          "/v1/completions",
+          "/v1/responses"
+        ]
+      },
+      {
+        "id": "top_k",
+        "label": "Top K",
+        "helpText": "Only sample from the top K options for each subsequent token.",
+        "type": "number",
+        "range": {
+          "min": 1,
+          "max": 64,
+          "step": 1
+        },
+        "supported_endpoints": [
+          "/v1/chat/completions",
+          "/v1/completions",
+          "/v1/responses"
+        ]
+      },
+      {
+        "id": "max_tokens",
+        "label": "Max Tokens",
+        "helpText": "The maximum number of tokens that can be generated in the Result.",
+        "type": "number",
+        "default": 4096,
+        "range": {
+          "min": 1,
+          "max": 1048576
+        },
+        "supported_endpoints": [
+          "/v1/chat/completions",
+          "/v1/completions"
+        ]
+      },
+      {
+        "id": "max_output_tokens",
+        "label": "Max Output Tokens",
+        "helpText": "The maximum number of tokens that can be generated in the Result.",
+        "type": "number",
+        "default": 4096,
+        "range": {
+          "min": 1,
+          "max": 1048576
+        },
+        "supported_endpoints": [
+          "/v1/responses"
+        ]
+      },
+      {
+        "id": "stop",
+        "label": "Stop",
+        "helpText": "Custom text sequences that will cause the model to stop generating.",
+        "type": "array",
+        "array": {
+          "type": "text",
+          "maxElements": 5,
+          "minElements": 1
+        },
+        "supported_endpoints": [
+          "/v1/chat/completions",
+          "/v1/completions"
+        ]
+      },
+      {
+        "id": "response_format",
+        "label": "Response Format",
+        "helpText": "The format of the response. If set to 'json', the response will be a JSON object with the keys 'choices' and 'logprobs'. If set to 'text', the response will be a string with the completion text. If set to 'Structured output', the response will match the supplied JSON schema.",
+        "type": "select",
+        "accesorKey": "type",
+        "default": {
+          "type": "text"
+        },
+        "options": [
+          {
+            "label": "Structured output",
+            "value": "json_schema"
+          },
+          {
+            "label": "JSON",
+            "value": "json_object"
+          },
+          {
+            "label": "Text",
+            "value": "text"
+          }
+        ],
+        "supported_endpoints": [
+          "/v1/chat/completions",
+          "/v1/responses"
+        ]
+      },
+      {
+        "id": "stream",
+        "label": "Stream",
+        "helpText": "The stream parameter in the API controls whether the response is sent in incremental updates, like tokenized data as it's generated, or as a complete result in one go.",
+        "type": "boolean",
+        "default": false,
+        "supported_endpoints": [
+          "/v1/chat/completions",
+          "/v1/completions",
+          "/v1/responses"
+        ]
+      }
+    ],
+    "max_tokens": 1048576,
+    "reasoning_effort_levels": [
+      "low",
+      "medium",
+      "high",
+      "xhigh",
+      "max"
+    ]
+  },
+  "vertex_ai/gemini-4-hydrogen": {
+    "mode": "chat",
+    "base_model": "gemini-4-hydrogen",
+    "max_input_tokens": 1048576,
+    "max_output_tokens": 1048576,
+    "prompt_cache_min_tokens": 4096,
+    "regional_endpoint_uplift_multiplier": 1.1,
+    "search_free_requests": {
+      "count": 5000,
+      "period": "month",
+      "shared_group": "gemini-3"
+    },
+    "source": "https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/pricing",
+    "supported_endpoints": [
+      "/v1/chat/completions",
+      "/v1/completions",
+      "/v1/batch"
+    ],
+    "supported_modalities": [
+      "text",
+      "image",
+      "audio",
+      "video"
+    ],
+    "supported_output_modalities": [
+      "text"
+    ],
+    "supports_audio_input": true,
+    "supports_audio_output": false,
+    "supports_computer_use": true,
+    "supports_continuation": true,
+    "supports_function_calling": true,
+    "supports_logprobs": false,
+    "supports_minimal_reasoning_effort": false,
+    "supports_native_streaming": true,
+    "supports_parallel_function_calling": true,
+    "supports_pdf_input": true,
+    "supports_prompt_caching": true,
+    "supports_reasoning": true,
+    "supports_response_schema": true,
+    "supports_system_messages": true,
+    "supports_tool_choice": true,
+    "supports_url_context": true,
+    "supports_video_input": true,
+    "supports_vision": true,
+    "supports_web_search": true,
+    "supports_xhigh_reasoning_effort": true,
+    "web_search_billing_unit": "per_query",
+    "provider": "vertex_ai",
+    "model_parameters": [
+      {
+        "id": "promptTools",
+        "label": "Prompt Tools (Functions)",
+        "helpText": "A list of tools the model may call.",
+        "type": "select",
+        "supported_endpoints": [
+          "/v1/chat/completions",
+          "/v1/responses"
+        ]
+      },
+      {
+        "id": "thinking_level",
+        "label": "Thinking Level",
+        "helpText": "Set the thinking level",
+        "type": "select",
+        "default": "high",
+        "options": [
+          {
+            "label": "Low",
+            "value": "low"
+          },
+          {
+            "label": "Medium",
+            "value": "medium"
+          },
+          {
+            "label": "High",
+            "value": "high"
+          },
+          {
+            "label": "Extra High",
+            "value": "xhigh"
+          },
+          {
+            "label": "Max",
+            "value": "max"
+          }
+        ],
+        "supported_endpoints": [
+          "/v1/chat/completions",
+          "/v1/responses"
+        ]
+      },
+      {
+        "id": "temperature",
+        "label": "Temperature",
+        "helpText": "What sampling temperature to use, between 0 and 2. Higher values make the output more random, lower values make it more focused and deterministic.",
+        "type": "number",
+        "default": 1,
+        "range": {
+          "min": 0,
+          "max": 2,
+          "step": 0.01
+        },
+        "supported_endpoints": [
+          "/v1/chat/completions",
+          "/v1/completions",
+          "/v1/responses"
+        ]
+      },
+      {
+        "id": "top_p",
+        "label": "Top P",
+        "helpText": "Nucleus sampling: the model considers the tokens with top_p probability mass.",
+        "type": "number",
+        "default": 0.95,
+        "range": {
+          "min": 0,
+          "max": 1,
+          "step": 0.01
+        },
+        "supported_endpoints": [
+          "/v1/chat/completions",
+          "/v1/completions",
+          "/v1/responses"
+        ]
+      },
+      {
+        "id": "top_k",
+        "label": "Top K",
+        "helpText": "Only sample from the top K options for each subsequent token.",
+        "type": "number",
+        "range": {
+          "min": 1,
+          "max": 64,
+          "step": 1
+        },
+        "supported_endpoints": [
+          "/v1/chat/completions",
+          "/v1/completions",
+          "/v1/responses"
+        ]
+      },
+      {
+        "id": "max_tokens",
+        "label": "Max Tokens",
+        "helpText": "The maximum number of tokens that can be generated in the Result.",
+        "type": "number",
+        "default": 4096,
+        "range": {
+          "min": 1,
+          "max": 1048576
+        },
+        "supported_endpoints": [
+          "/v1/chat/completions",
+          "/v1/completions"
+        ]
+      },
+      {
+        "id": "max_output_tokens",
+        "label": "Max Output Tokens",
+        "helpText": "The maximum number of tokens that can be generated in the Result.",
+        "type": "number",
+        "default": 4096,
+        "range": {
+          "min": 1,
+          "max": 1048576
+        },
+        "supported_endpoints": [
+          "/v1/responses"
+        ]
+      },
+      {
+        "id": "stop",
+        "label": "Stop",
+        "helpText": "Custom text sequences that will cause the model to stop generating.",
+        "type": "array",
+        "array": {
+          "type": "text",
+          "maxElements": 5,
+          "minElements": 1
+        },
+        "supported_endpoints": [
+          "/v1/chat/completions",
+          "/v1/completions"
+        ]
+      },
+      {
+        "id": "response_format",
+        "label": "Response Format",
+        "helpText": "The format of the response. If set to 'json', the response will be a JSON object with the keys 'choices' and 'logprobs'. If set to 'text', the response will be a string with the completion text. If set to 'Structured output', the response will match the supplied JSON schema.",
+        "type": "select",
+        "accesorKey": "type",
+        "default": {
+          "type": "text"
+        },
+        "options": [
+          {
+            "label": "Structured output",
+            "value": "json_schema"
+          },
+          {
+            "label": "JSON",
+            "value": "json_object"
+          },
+          {
+            "label": "Text",
+            "value": "text"
+          }
+        ],
+        "supported_endpoints": [
+          "/v1/chat/completions",
+          "/v1/responses"
+        ]
+      },
+      {
+        "id": "stream",
+        "label": "Stream",
+        "helpText": "The stream parameter in the API controls whether the response is sent in incremental updates, like tokenized data as it's generated, or as a complete result in one go.",
+        "type": "boolean",
+        "default": false,
+        "supported_endpoints": [
+          "/v1/chat/completions",
+          "/v1/completions",
+          "/v1/responses"
+        ]
+      }
+    ],
+    "max_tokens": 1048576,
+    "reasoning_effort_levels": [
+      "low",
+      "medium",
+      "high",
+      "xhigh",
+      "max"
+    ]
+  },
+  "us.moonshotai.kimi-k3.1": {
+    "mode": "chat",
+    "base_model": "kimi-k3.1",
+    "max_input_tokens": 868928,
+    "max_output_tokens": 131072,
+    "reasoning_effort_levels": [
+      "none",
+      "low",
+      "medium",
+      "high",
+      "xhigh",
+      "max"
+    ],
+    "source": "https://docs.aws.amazon.com/bedrock/latest/userguide/model-card-moonshot-ai-kimi-k3-1-highspeed.md",
+    "supports_audio_input": false,
+    "supports_bedrock_converse_cache_point": false,
+    "supports_function_calling": true,
+    "supports_none_reasoning_effort": true,
+    "supports_prompt_cache_breakpoint": false,
+    "supports_prompt_caching": true,
+    "supports_reasoning": true,
+    "supports_regex_lookaround": false,
+    "supports_response_schema": true,
+    "supports_system_messages": true,
+    "supports_tool_choice": true,
+    "supports_vision": true,
+    "provider": "bedrock",
+    "model_parameters": [
+      {
+        "id": "promptTools",
+        "label": "Prompt Tools (Functions)",
+        "helpText": "A list of tools the model may call.",
+        "type": "select",
+        "supported_endpoints": [
+          "/v1/chat/completions",
+          "/v1/responses"
+        ]
+      },
+      {
+        "id": "max_tokens",
+        "label": "Max Tokens",
+        "helpText": "The maximum number of tokens that can be generated in the Result.",
+        "type": "number",
+        "default": 4096,
+        "range": {
+          "min": 1,
+          "max": 131072
+        },
+        "supported_endpoints": [
+          "/v1/chat/completions",
+          "/v1/completions"
+        ]
+      },
+      {
+        "id": "max_output_tokens",
+        "label": "Max Output Tokens",
+        "helpText": "The maximum number of tokens that can be generated in the Result.",
+        "type": "number",
+        "default": 4096,
+        "range": {
+          "min": 1,
+          "max": 131072
+        },
+        "supported_endpoints": [
+          "/v1/responses"
+        ]
+      },
+      {
+        "id": "reasoning_effort",
+        "label": "Reasoning Effort",
+        "helpText": "This parameter controls how many reasoning tokens the model generates before producing a response",
+        "type": "select",
+        "options": [
+          {
+            "label": "None",
+            "value": "none"
+          },
+          {
+            "label": "Low",
+            "value": "low"
+          },
+          {
+            "label": "Medium",
+            "value": "medium"
+          },
+          {
+            "label": "High",
+            "value": "high"
+          },
+          {
+            "label": "XHigh",
+            "value": "xhigh"
+          },
+          {
+            "label": "Max",
+            "value": "max"
+          }
+        ],
+        "supported_endpoints": [
+          "/v1/chat/completions",
+          "/v1/responses"
+        ]
+      },
+      {
+        "id": "response_format",
+        "label": "Response Format",
+        "helpText": "The format of the response. If set to 'json', the response will be a JSON object with the keys 'choices' and 'logprobs'. If set to 'text', the response will be a string with the completion text. If set to 'Structured output', the response will match the supplied JSON schema.",
+        "type": "select",
+        "accesorKey": "type",
+        "default": {
+          "type": "text"
+        },
+        "options": [
+          {
+            "label": "Text",
+            "value": "text"
+          },
+          {
+            "label": "Structured output",
+            "value": "json_schema"
+          }
+        ],
+        "supported_endpoints": [
+          "/v1/chat/completions",
+          "/v1/responses"
+        ]
+      },
+      {
+        "id": "stream",
+        "label": "Stream",
+        "helpText": "The stream parameter in the API controls whether the response is sent in incremental updates, like tokenized data as it's generated, or as a complete result in one go.",
+        "type": "boolean",
+        "default": false,
+        "supported_endpoints": [
+          "/v1/chat/completions",
+          "/v1/completions",
+          "/v1/responses"
+        ]
+      }
+    ],
+    "max_tokens": 131072,
+    "supports_sampling_params": false,
+    "unsupported_fields": {
+      "temperature": true,
+      "top_p": true,
+      "stop": true,
+      "frequency_penalty": true,
+      "presence_penalty": true
+    },
+    "supports_native_structured_output": true
+  },
+  "global.moonshotai.kimi-k3.1": {
+    "mode": "chat",
+    "base_model": "kimi-k3.1",
+    "max_input_tokens": 868928,
+    "max_output_tokens": 131072,
+    "reasoning_effort_levels": [
+      "none",
+      "low",
+      "medium",
+      "high",
+      "xhigh",
+      "max"
+    ],
+    "source": "https://docs.aws.amazon.com/bedrock/latest/userguide/model-card-moonshot-ai-kimi-k3-1-highspeed.md",
+    "supports_audio_input": false,
+    "supports_bedrock_converse_cache_point": false,
+    "supports_function_calling": true,
+    "supports_none_reasoning_effort": true,
+    "supports_prompt_cache_breakpoint": false,
+    "supports_prompt_caching": true,
+    "supports_reasoning": true,
+    "supports_regex_lookaround": false,
+    "supports_response_schema": true,
+    "supports_system_messages": true,
+    "supports_tool_choice": true,
+    "supports_vision": true,
+    "provider": "bedrock",
+    "model_parameters": [
+      {
+        "id": "promptTools",
+        "label": "Prompt Tools (Functions)",
+        "helpText": "A list of tools the model may call.",
+        "type": "select",
+        "supported_endpoints": [
+          "/v1/chat/completions",
+          "/v1/responses"
+        ]
+      },
+      {
+        "id": "max_tokens",
+        "label": "Max Tokens",
+        "helpText": "The maximum number of tokens that can be generated in the Result.",
+        "type": "number",
+        "default": 4096,
+        "range": {
+          "min": 1,
+          "max": 131072
+        },
+        "supported_endpoints": [
+          "/v1/chat/completions",
+          "/v1/completions"
+        ]
+      },
+      {
+        "id": "max_output_tokens",
+        "label": "Max Output Tokens",
+        "helpText": "The maximum number of tokens that can be generated in the Result.",
+        "type": "number",
+        "default": 4096,
+        "range": {
+          "min": 1,
+          "max": 131072
+        },
+        "supported_endpoints": [
+          "/v1/responses"
+        ]
+      },
+      {
+        "id": "reasoning_effort",
+        "label": "Reasoning Effort",
+        "helpText": "This parameter controls how many reasoning tokens the model generates before producing a response",
+        "type": "select",
+        "options": [
+          {
+            "label": "None",
+            "value": "none"
+          },
+          {
+            "label": "Low",
+            "value": "low"
+          },
+          {
+            "label": "Medium",
+            "value": "medium"
+          },
+          {
+            "label": "High",
+            "value": "high"
+          },
+          {
+            "label": "XHigh",
+            "value": "xhigh"
+          },
+          {
+            "label": "Max",
+            "value": "max"
+          }
+        ],
+        "supported_endpoints": [
+          "/v1/chat/completions",
+          "/v1/responses"
+        ]
+      },
+      {
+        "id": "response_format",
+        "label": "Response Format",
+        "helpText": "The format of the response. If set to 'json', the response will be a JSON object with the keys 'choices' and 'logprobs'. If set to 'text', the response will be a string with the completion text. If set to 'Structured output', the response will match the supplied JSON schema.",
+        "type": "select",
+        "accesorKey": "type",
+        "default": {
+          "type": "text"
+        },
+        "options": [
+          {
+            "label": "Text",
+            "value": "text"
+          },
+          {
+            "label": "Structured output",
+            "value": "json_schema"
+          }
+        ],
+        "supported_endpoints": [
+          "/v1/chat/completions",
+          "/v1/responses"
+        ]
+      },
+      {
+        "id": "stream",
+        "label": "Stream",
+        "helpText": "The stream parameter in the API controls whether the response is sent in incremental updates, like tokenized data as it's generated, or as a complete result in one go.",
+        "type": "boolean",
+        "default": false,
+        "supported_endpoints": [
+          "/v1/chat/completions",
+          "/v1/completions",
+          "/v1/responses"
+        ]
+      }
+    ],
+    "max_tokens": 131072,
+    "supports_sampling_params": false,
+    "unsupported_fields": {
+      "temperature": true,
+      "top_p": true,
+      "stop": true,
+      "frequency_penalty": true,
+      "presence_penalty": true
+    },
+    "supports_native_structured_output": true
+  },
+  "in.moonshotai.kimi-k3.1": {
+    "mode": "chat",
+    "base_model": "kimi-k3.1",
+    "max_input_tokens": 868928,
+    "max_output_tokens": 131072,
+    "reasoning_effort_levels": [
+      "none",
+      "low",
+      "medium",
+      "high",
+      "xhigh",
+      "max"
+    ],
+    "source": "https://docs.aws.amazon.com/bedrock/latest/userguide/model-card-moonshot-ai-kimi-k3-1-highspeed.md",
+    "supports_audio_input": false,
+    "supports_bedrock_converse_cache_point": false,
+    "supports_function_calling": true,
+    "supports_none_reasoning_effort": true,
+    "supports_prompt_cache_breakpoint": false,
+    "supports_prompt_caching": true,
+    "supports_reasoning": true,
+    "supports_regex_lookaround": false,
+    "supports_response_schema": true,
+    "supports_system_messages": true,
+    "supports_tool_choice": true,
+    "supports_vision": true,
+    "provider": "bedrock",
+    "model_parameters": [
+      {
+        "id": "promptTools",
+        "label": "Prompt Tools (Functions)",
+        "helpText": "A list of tools the model may call.",
+        "type": "select",
+        "supported_endpoints": [
+          "/v1/chat/completions",
+          "/v1/responses"
+        ]
+      },
+      {
+        "id": "max_tokens",
+        "label": "Max Tokens",
+        "helpText": "The maximum number of tokens that can be generated in the Result.",
+        "type": "number",
+        "default": 4096,
+        "range": {
+          "min": 1,
+          "max": 131072
+        },
+        "supported_endpoints": [
+          "/v1/chat/completions",
+          "/v1/completions"
+        ]
+      },
+      {
+        "id": "max_output_tokens",
+        "label": "Max Output Tokens",
+        "helpText": "The maximum number of tokens that can be generated in the Result.",
+        "type": "number",
+        "default": 4096,
+        "range": {
+          "min": 1,
+          "max": 131072
+        },
+        "supported_endpoints": [
+          "/v1/responses"
+        ]
+      },
+      {
+        "id": "reasoning_effort",
+        "label": "Reasoning Effort",
+        "helpText": "This parameter controls how many reasoning tokens the model generates before producing a response",
+        "type": "select",
+        "options": [
+          {
+            "label": "None",
+            "value": "none"
+          },
+          {
+            "label": "Low",
+            "value": "low"
+          },
+          {
+            "label": "Medium",
+            "value": "medium"
+          },
+          {
+            "label": "High",
+            "value": "high"
+          },
+          {
+            "label": "XHigh",
+            "value": "xhigh"
+          },
+          {
+            "label": "Max",
+            "value": "max"
+          }
+        ],
+        "supported_endpoints": [
+          "/v1/chat/completions",
+          "/v1/responses"
+        ]
+      },
+      {
+        "id": "response_format",
+        "label": "Response Format",
+        "helpText": "The format of the response. If set to 'json', the response will be a JSON object with the keys 'choices' and 'logprobs'. If set to 'text', the response will be a string with the completion text. If set to 'Structured output', the response will match the supplied JSON schema.",
+        "type": "select",
+        "accesorKey": "type",
+        "default": {
+          "type": "text"
+        },
+        "options": [
+          {
+            "label": "Text",
+            "value": "text"
+          },
+          {
+            "label": "Structured output",
+            "value": "json_schema"
+          }
+        ],
+        "supported_endpoints": [
+          "/v1/chat/completions",
+          "/v1/responses"
+        ]
+      },
+      {
+        "id": "stream",
+        "label": "Stream",
+        "helpText": "The stream parameter in the API controls whether the response is sent in incremental updates, like tokenized data as it's generated, or as a complete result in one go.",
+        "type": "boolean",
+        "default": false,
+        "supported_endpoints": [
+          "/v1/chat/completions",
+          "/v1/completions",
+          "/v1/responses"
+        ]
+      }
+    ],
+    "max_tokens": 131072,
+    "supports_sampling_params": false,
+    "unsupported_fields": {
+      "temperature": true,
+      "top_p": true,
+      "stop": true,
+      "frequency_penalty": true,
+      "presence_penalty": true
+    },
+    "supports_native_structured_output": true
   },
   "azure/gpt-realtime-2.1-2026-07-07": {
     "successor_model": "azure/gpt-live-1",
@@ -1242534,90 +1246843,6 @@
     "provider": "databricks",
     "base_model": "kimi-k3-1-pro"
   },
-  "us.moonshotai.kimi-k3.1": {
-    "max_input_tokens": 868928,
-    "max_output_tokens": 131072,
-    "mode": "chat",
-    "reasoning_effort_levels": [
-      "none",
-      "low",
-      "medium",
-      "high",
-      "xhigh",
-      "max"
-    ],
-    "source": "https://docs.aws.amazon.com/bedrock/latest/userguide/model-card-moonshot-ai-kimi-k3-1-highspeed.md",
-    "supports_audio_input": false,
-    "supports_bedrock_converse_cache_point": false,
-    "supports_function_calling": true,
-    "supports_none_reasoning_effort": true,
-    "supports_prompt_cache_breakpoint": false,
-    "supports_prompt_caching": true,
-    "supports_reasoning": true,
-    "supports_regex_lookaround": false,
-    "supports_response_schema": true,
-    "supports_system_messages": true,
-    "supports_tool_choice": true,
-    "supports_vision": true,
-    "provider": "bedrock",
-    "base_model": "kimi-k3.1"
-  },
-  "global.moonshotai.kimi-k3.1": {
-    "max_input_tokens": 868928,
-    "max_output_tokens": 131072,
-    "mode": "chat",
-    "reasoning_effort_levels": [
-      "none",
-      "low",
-      "medium",
-      "high",
-      "xhigh",
-      "max"
-    ],
-    "source": "https://docs.aws.amazon.com/bedrock/latest/userguide/model-card-moonshot-ai-kimi-k3-1-highspeed.md",
-    "supports_audio_input": false,
-    "supports_bedrock_converse_cache_point": false,
-    "supports_function_calling": true,
-    "supports_none_reasoning_effort": true,
-    "supports_prompt_cache_breakpoint": false,
-    "supports_prompt_caching": true,
-    "supports_reasoning": true,
-    "supports_regex_lookaround": false,
-    "supports_response_schema": true,
-    "supports_system_messages": true,
-    "supports_tool_choice": true,
-    "supports_vision": true,
-    "provider": "bedrock",
-    "base_model": "kimi-k3.1"
-  },
-  "in.moonshotai.kimi-k3.1": {
-    "max_input_tokens": 868928,
-    "max_output_tokens": 131072,
-    "mode": "chat",
-    "reasoning_effort_levels": [
-      "none",
-      "low",
-      "medium",
-      "high",
-      "xhigh",
-      "max"
-    ],
-    "source": "https://docs.aws.amazon.com/bedrock/latest/userguide/model-card-moonshot-ai-kimi-k3-1-highspeed.md",
-    "supports_audio_input": false,
-    "supports_bedrock_converse_cache_point": false,
-    "supports_function_calling": true,
-    "supports_none_reasoning_effort": true,
-    "supports_prompt_cache_breakpoint": false,
-    "supports_prompt_caching": true,
-    "supports_reasoning": true,
-    "supports_regex_lookaround": false,
-    "supports_response_schema": true,
-    "supports_system_messages": true,
-    "supports_tool_choice": true,
-    "supports_vision": true,
-    "provider": "bedrock",
-    "base_model": "kimi-k3.1"
-  },
   "wandb/deepseek-ai/DeepSeek-V4.1-Flash-1017": {
     "max_input_tokens": 1049000,
     "max_output_tokens": 1048576,
@@ -1256097,105 +1260322,6 @@
     "provider": "fal_ai",
     "base_model": "vidu/template-to-video"
   },
-  "gemini/gemini-4-hydrogen": {
-    "max_input_tokens": 1048576,
-    "max_output_tokens": 1048576,
-    "mode": "chat",
-    "prompt_cache_min_tokens": 4096,
-    "rpm": 2000,
-    "search_free_requests": {
-      "count": 5000,
-      "period": "month",
-      "shared_group": "gemini-3"
-    },
-    "source": "https://aistudio.google.com/docs/pricing#gemini-4-hydrogen",
-    "supported_endpoints": [
-      "/v1/chat/completions",
-      "/v1/completions"
-    ],
-    "supported_modalities": [
-      "text",
-      "image",
-      "audio",
-      "video"
-    ],
-    "supported_output_modalities": [
-      "text"
-    ],
-    "supports_audio_input": true,
-    "supports_audio_output": false,
-    "supports_computer_use": true,
-    "supports_continuation": true,
-    "supports_function_calling": true,
-    "supports_minimal_reasoning_effort": false,
-    "supports_native_streaming": true,
-    "supports_parallel_function_calling": true,
-    "supports_pdf_input": true,
-    "supports_prompt_caching": true,
-    "supports_reasoning": true,
-    "supports_response_schema": true,
-    "supports_system_messages": true,
-    "supports_tool_choice": true,
-    "supports_url_context": true,
-    "supports_video_input": true,
-    "supports_vision": true,
-    "supports_web_search": true,
-    "supports_xhigh_reasoning_effort": true,
-    "tpm": 800000,
-    "web_search_billing_unit": "per_query",
-    "provider": "gemini",
-    "base_model": "gemini-4-hydrogen"
-  },
-  "vertex_ai/gemini-4-hydrogen": {
-    "max_input_tokens": 1048576,
-    "max_output_tokens": 1048576,
-    "mode": "chat",
-    "prompt_cache_min_tokens": 4096,
-    "regional_endpoint_uplift_multiplier": 1.1,
-    "search_free_requests": {
-      "count": 5000,
-      "period": "month",
-      "shared_group": "gemini-3"
-    },
-    "source": "https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/pricing",
-    "supported_endpoints": [
-      "/v1/chat/completions",
-      "/v1/completions",
-      "/v1/batch"
-    ],
-    "supported_modalities": [
-      "text",
-      "image",
-      "audio",
-      "video"
-    ],
-    "supported_output_modalities": [
-      "text"
-    ],
-    "supports_audio_input": true,
-    "supports_audio_output": false,
-    "supports_computer_use": true,
-    "supports_continuation": true,
-    "supports_function_calling": true,
-    "supports_logprobs": false,
-    "supports_minimal_reasoning_effort": false,
-    "supports_native_streaming": true,
-    "supports_parallel_function_calling": true,
-    "supports_pdf_input": true,
-    "supports_prompt_caching": true,
-    "supports_reasoning": true,
-    "supports_response_schema": true,
-    "supports_system_messages": true,
-    "supports_tool_choice": true,
-    "supports_url_context": true,
-    "supports_video_input": true,
-    "supports_vision": true,
-    "supports_web_search": true,
-    "supports_xhigh_reasoning_effort": true,
-    "web_search_billing_unit": "per_query",
-    "provider": "vertex_ai",
-    "base_model": "gemini-4-hydrogen"
-  },
   "together_ai/thinkingmachines/Inkling-2-Small": {
     "max_input_tokens": 1048576,
     "max_output_tokens": 1048576,
@@ -1257821,102 +1261947,6 @@
     "provider": "databricks",
     "base_model": "system.ai.gemini-4-hydrogen"
   },
-  "gpt-6.2-astra": {
-    "fedramp_uplift_multiplier": 1.1,
-    "max_input_tokens": 922000,
-    "max_output_tokens": 128000,
-    "mode": "chat",
-    "reasoning_contexts": [
-      "auto",
-      "current_turn",
-      "all_turns"
-    ],
-    "reasoning_modes": [
-      "standard",
-      "pro"
-    ],
-    "regional_processing_uplift_multiplier_eu": 1.1,
-    "regional_processing_uplift_multiplier_us": 1.1,
-    "source": "https://developers.openai.com/api/docs/models/gpt-6.2-astra",
-    "supported_endpoints": [
-      "/v1/chat/completions",
-      "/v1/responses",
-      "/v1/batch"
-    ],
-    "supported_modalities": [
-      "text",
-      "image"
-    ],
-    "supported_output_modalities": [
-      "text"
-    ],
-    "supports_computer_use": true,
-    "supports_function_calling": true,
-    "supports_max_reasoning_effort": true,
-    "supports_minimal_reasoning_effort": false,
-    "supports_native_streaming": true,
-    "supports_none_reasoning_effort": false,
-    "supports_parallel_function_calling": true,
-    "supports_pdf_input": true,
-    "supports_prompt_cache_breakpoint": true,
-    "supports_prompt_caching": true,
-    "supports_reasoning": true,
-    "supports_response_schema": true,
-    "supports_system_messages": true,
-    "supports_tool_choice": true,
-    "supports_tool_search": true,
-    "supports_vision": true,
-    "supports_web_search": true,
-    "supports_xhigh_reasoning_effort": true,
-    "provider": "openai",
-    "base_model": "gpt-6.2-astra",
-    "web_search_billing_unit": "per_request",
-    "min_output_tokens": 16,
-    "service_tiers": [
-      "auto",
-      "default",
-      "priority",
-      "fast",
-      "ultrafast"
-    ],
-    "supports_service_tier": true,
-    "supports_custom_tools": true,
-    "supports_file_search": true,
-    "supports_code_execution": true,
-    "supports_image_gen_tool": true,
-    "supports_native_structured_output": true,
-    "supports_image_input": true,
-    "supports_prompt_cache_breakpoints": true,
-    "supports_reasoning_effort": true,
-    "is_reasoning_model": true,
-    "default_reasoning_effort": "medium",
-    "supports_low_reasoning_effort": true,
-    "supports_reasoning_disable": false,
-    "thinking_always_on": true,
-    "always_reasoning": true,
-    "supports_reasoning_with_tool_calls": false,
-    "supported_reasoning_contexts": [
-      "auto",
-      "current_turn",
-      "all_turns"
-    ],
-    "supports_sampling_params": false,
-    "unsupported_fields": {
-      "temperature": true,
-      "top_p": true,
-      "logprobs": true,
-      "top_logprobs": true,
-      "stop": true,
-      "presence_penalty": true,
-      "frequency_penalty": true,
-      "logit_bias": true,
-      "web_search_options": true
-    },
-    "regional_endpoint_uplift_multiplier": 1.1,
-    "metadata": {
-      "notes": "Context window 1,050,000 (922K input + 128K output). For prompts over 272K input tokens, OpenAI charges 2x input/cache and 1.5x output for the full request. 12-hour cache writes are priced for short-context requests only. Ultrafast is 3x Standard through 2027-02-28 and 6x Standard from 2027-03-01 (Pacific); *_ultrafast fields reflect 3x and must be updated on 2027-03-01. Knowledge cutoff: 2026-05-18. API rejects reasoning effort 'none'."
-    }
-  },
   "chatgpt/gpt-6.2-astra": {
     "max_input_tokens": 922000,
     "max_output_tokens": 128000,
@@ -1257937,102 +1261967,6 @@
     "supports_xhigh_reasoning_effort": true,
     "provider": "chatgpt",
     "base_model": "gpt-6.2-astra"
-  },
-  "gpt-6.2-sol": {
-    "fedramp_uplift_multiplier": 1.1,
-    "max_input_tokens": 922000,
-    "max_output_tokens": 128000,
-    "mode": "chat",
-    "reasoning_contexts": [
-      "auto",
-      "current_turn",
-      "all_turns"
-    ],
-    "reasoning_modes": [
-      "standard",
-      "pro"
-    ],
-    "regional_processing_uplift_multiplier_eu": 1.1,
-    "regional_processing_uplift_multiplier_us": 1.1,
-    "source": "https://developers.openai.com/api/docs/models/gpt-6.2-sol",
-    "supported_endpoints": [
-      "/v1/chat/completions",
-      "/v1/responses",
-      "/v1/batch"
-    ],
-    "supported_modalities": [
-      "text",
-      "image"
-    ],
-    "supported_output_modalities": [
-      "text"
-    ],
-    "supports_computer_use": true,
-    "supports_function_calling": true,
-    "supports_max_reasoning_effort": true,
-    "supports_minimal_reasoning_effort": false,
-    "supports_native_streaming": true,
-    "supports_none_reasoning_effort": false,
-    "supports_parallel_function_calling": true,
-    "supports_pdf_input": true,
-    "supports_prompt_cache_breakpoint": true,
-    "supports_prompt_caching": true,
-    "supports_reasoning": true,
-    "supports_response_schema": true,
-    "supports_system_messages": true,
-    "supports_tool_choice": true,
-    "supports_tool_search": true,
-    "supports_vision": true,
-    "supports_web_search": true,
-    "supports_xhigh_reasoning_effort": true,
-    "provider": "openai",
-    "base_model": "gpt-6.2-sol",
-    "web_search_billing_unit": "per_request",
-    "min_output_tokens": 16,
-    "service_tiers": [
-      "auto",
-      "default",
-      "priority",
-      "fast",
-      "ultrafast"
-    ],
-    "supports_service_tier": true,
-    "supports_custom_tools": true,
-    "supports_file_search": true,
-    "supports_code_execution": true,
-    "supports_image_gen_tool": true,
-    "supports_native_structured_output": true,
-    "supports_image_input": true,
-    "supports_prompt_cache_breakpoints": true,
-    "supports_reasoning_effort": true,
-    "is_reasoning_model": true,
-    "default_reasoning_effort": "medium",
-    "supports_low_reasoning_effort": true,
-    "supports_reasoning_disable": false,
-    "thinking_always_on": true,
-    "always_reasoning": true,
-    "supports_reasoning_with_tool_calls": false,
-    "supported_reasoning_contexts": [
-      "auto",
-      "current_turn",
-      "all_turns"
-    ],
-    "supports_sampling_params": false,
-    "unsupported_fields": {
-      "temperature": true,
-      "top_p": true,
-      "logprobs": true,
-      "top_logprobs": true,
-      "stop": true,
-      "presence_penalty": true,
-      "frequency_penalty": true,
-      "logit_bias": true,
-      "web_search_options": true
-    },
-    "regional_endpoint_uplift_multiplier": 1.1,
-    "metadata": {
-      "notes": "Context window 1,050,000 (922K input + 128K output). For prompts over 272K input tokens, OpenAI charges 2x input/cache and 1.5x output for the full request. 12-hour cache writes are priced for short-context requests only. Ultrafast is 3x Standard through 2027-02-28 and 6x Standard from 2027-03-01 (Pacific); *_ultrafast fields reflect 3x and must be updated on 2027-03-01. Knowledge cutoff: 2026-06-01. API rejects reasoning effort 'none'."
-    }
   },
   "chatgpt/gpt-6.2-sol": {
     "max_input_tokens": 922000,
@@ -1258126,99 +1262060,6 @@
     "supports_xhigh_reasoning_effort": true,
     "provider": "chatgpt",
     "base_model": "gpt-6.2-astra-law"
-  },
-  "azure/gpt-6.2-astra": {
-    "successor_model": "azure/gpt-6-astra",
-    "deprecation_date": "2027-02-17",
-    "deprecation_source": "https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.CognitiveServices/locations/eastus/models?api-version=2024-10-01",
-    "max_input_tokens": 922000,
-    "max_output_tokens": 128000,
-    "mode": "chat",
-    "source": "https://ai.azure.com/catalog/models/gpt-6.2-astra",
-    "supported_endpoints": [
-      "/v1/chat/completions",
-      "/v1/responses"
-    ],
-    "supported_modalities": [
-      "text",
-      "image"
-    ],
-    "supported_output_modalities": [
-      "text"
-    ],
-    "supports_computer_use": true,
-    "supports_function_calling": true,
-    "supports_max_reasoning_effort": true,
-    "supports_minimal_reasoning_effort": false,
-    "supports_native_streaming": true,
-    "supports_none_reasoning_effort": false,
-    "supports_parallel_function_calling": true,
-    "supports_pdf_input": true,
-    "supports_prompt_caching": true,
-    "supports_reasoning": true,
-    "supports_response_schema": true,
-    "supports_system_messages": true,
-    "supports_tool_choice": true,
-    "supports_vision": true,
-    "supports_web_search": true,
-    "supports_xhigh_reasoning_effort": true,
-    "provider": "azure",
-    "base_model": "gpt-6.2-astra",
-    "min_output_tokens": 16,
-    "supports_service_tier": false,
-    "supports_custom_tools": true,
-    "supports_tool_search": true,
-    "supports_file_search": true,
-    "supports_code_execution": true,
-    "supports_image_gen_tool": true,
-    "supports_native_structured_output": true,
-    "supports_image_input": true,
-    "supports_prompt_cache_breakpoint": true,
-    "supports_prompt_cache_breakpoints": true,
-    "supports_reasoning_effort": true,
-    "is_reasoning_model": true,
-    "reasoning_effort_levels": [
-      "low",
-      "medium",
-      "high",
-      "xhigh",
-      "max"
-    ],
-    "default_reasoning_effort": "medium",
-    "supports_low_reasoning_effort": true,
-    "supports_reasoning_disable": false,
-    "thinking_always_on": true,
-    "always_reasoning": true,
-    "supports_reasoning_with_tool_calls": false,
-    "reasoning_contexts": [
-      "auto",
-      "current_turn",
-      "all_turns"
-    ],
-    "supported_reasoning_contexts": [
-      "auto",
-      "current_turn",
-      "all_turns"
-    ],
-    "supports_sampling_params": false,
-    "unsupported_fields": {
-      "temperature": true,
-      "top_p": true,
-      "logprobs": true,
-      "top_logprobs": true,
-      "stop": true,
-      "presence_penalty": true,
-      "frequency_penalty": true,
-      "logit_bias": true,
-      "web_search_options": true
-    },
-    "web_search_billing_unit": "per_request",
-    "regional_processing_uplift_multiplier_us": 1.1,
-    "regional_processing_uplift_multiplier_eu": 1.2,
-    "max_tokens": 128000,
-    "metadata": {
-      "notes": "PROVISIONAL: Azure has not yet published GPT-6.2 prices (catalog version 2026-11-17 links to https://aka.ms/AzureOAIpricing with no figures). Global Standard is set to OpenAI's Standard rates, as Azure matched OpenAI for GPT-6 Astra/Sol. Data Zone uplift follows the GPT-6 pattern: US 1.1x, EU 1.2x. Over 272K input tokens: 2x input/cache, 1.5x output for the full request. Knowledge cutoff: 2026-05-18. API rejects reasoning effort 'none'. Re-verify once Azure posts pricing."
-    }
   },
   "azure/us/gpt-6.2-astra": {
     "successor_model": "azure/us/gpt-6-astra",
@@ -1258333,99 +1262174,6 @@
     "supports_xhigh_reasoning_effort": true,
     "provider": "azure",
     "base_model": "apac/gpt-6.2-astra"
-  },
-  "azure/gpt-6.2-sol": {
-    "successor_model": "azure/gpt-6.1-sol",
-    "deprecation_date": "2027-11-17",
-    "deprecation_source": "https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.CognitiveServices/locations/eastus/models?api-version=2024-10-01",
-    "max_input_tokens": 922000,
-    "max_output_tokens": 128000,
-    "mode": "chat",
-    "source": "https://ai.azure.com/catalog/models/gpt-6.2-sol",
-    "supported_endpoints": [
-      "/v1/chat/completions",
-      "/v1/responses"
-    ],
-    "supported_modalities": [
-      "text",
-      "image"
-    ],
-    "supported_output_modalities": [
-      "text"
-    ],
-    "supports_computer_use": true,
-    "supports_function_calling": true,
-    "supports_max_reasoning_effort": true,
-    "supports_minimal_reasoning_effort": false,
-    "supports_native_streaming": true,
-    "supports_none_reasoning_effort": false,
-    "supports_parallel_function_calling": true,
-    "supports_pdf_input": true,
-    "supports_prompt_caching": true,
-    "supports_reasoning": true,
-    "supports_response_schema": true,
-    "supports_system_messages": true,
-    "supports_tool_choice": true,
-    "supports_vision": true,
-    "supports_web_search": true,
-    "supports_xhigh_reasoning_effort": true,
-    "provider": "azure",
-    "base_model": "gpt-6.2-sol",
-    "min_output_tokens": 16,
-    "supports_service_tier": false,
-    "supports_custom_tools": true,
-    "supports_tool_search": true,
-    "supports_file_search": true,
-    "supports_code_execution": true,
-    "supports_image_gen_tool": true,
-    "supports_native_structured_output": true,
-    "supports_image_input": true,
-    "supports_prompt_cache_breakpoint": true,
-    "supports_prompt_cache_breakpoints": true,
-    "supports_reasoning_effort": true,
-    "is_reasoning_model": true,
-    "reasoning_effort_levels": [
-      "low",
-      "medium",
-      "high",
-      "xhigh",
-      "max"
-    ],
-    "default_reasoning_effort": "medium",
-    "supports_low_reasoning_effort": true,
-    "supports_reasoning_disable": false,
-    "thinking_always_on": true,
-    "always_reasoning": true,
-    "supports_reasoning_with_tool_calls": false,
-    "reasoning_contexts": [
-      "auto",
-      "current_turn",
-      "all_turns"
-    ],
-    "supported_reasoning_contexts": [
-      "auto",
-      "current_turn",
-      "all_turns"
-    ],
-    "supports_sampling_params": false,
-    "unsupported_fields": {
-      "temperature": true,
-      "top_p": true,
-      "logprobs": true,
-      "top_logprobs": true,
-      "stop": true,
-      "presence_penalty": true,
-      "frequency_penalty": true,
-      "logit_bias": true,
-      "web_search_options": true
-    },
-    "web_search_billing_unit": "per_request",
-    "regional_processing_uplift_multiplier_us": 1.1,
-    "regional_processing_uplift_multiplier_eu": 1.2,
-    "max_tokens": 128000,
-    "metadata": {
-      "notes": "PROVISIONAL: Azure has not yet published GPT-6.2 prices (catalog version 2026-11-17 links to https://aka.ms/AzureOAIpricing with no figures). Global Standard is set to OpenAI's Standard rates, as Azure matched OpenAI for GPT-6 Astra/Sol. Data Zone uplift follows the GPT-6 pattern: US 1.1x, EU 1.2x. Over 272K input tokens: 2x input/cache, 1.5x output for the full request. Knowledge cutoff: 2026-06-01. API rejects reasoning effort 'none'. Re-verify once Azure posts pricing."
-    }
   },
   "azure/us/gpt-6.2-sol": {
     "successor_model": "azure/us/gpt-6.1-sol",
@@ -1287926,186 +1291674,6 @@
     "supported_endpoints": [
       "/v1/audio/transcriptions"
     ]
-  },
-  "azure/gpt-6.2-astra-2026-11-17": {
-    "base_model": "gpt-6.2-astra",
-    "provider": "azure",
-    "mode": "chat",
-    "max_input_tokens": 922000,
-    "max_output_tokens": 128000,
-    "min_output_tokens": 16,
-    "supported_endpoints": [
-      "/v1/chat/completions",
-      "/v1/responses"
-    ],
-    "supported_modalities": [
-      "text",
-      "image"
-    ],
-    "supported_output_modalities": [
-      "text"
-    ],
-    "supports_service_tier": false,
-    "supports_native_streaming": true,
-    "supports_system_messages": true,
-    "supports_function_calling": true,
-    "supports_parallel_function_calling": true,
-    "supports_tool_choice": true,
-    "supports_custom_tools": true,
-    "supports_tool_search": true,
-    "supports_computer_use": true,
-    "supports_web_search": true,
-    "supports_file_search": true,
-    "supports_code_execution": true,
-    "supports_image_gen_tool": true,
-    "supports_response_schema": true,
-    "supports_native_structured_output": true,
-    "supports_vision": true,
-    "supports_image_input": true,
-    "supports_pdf_input": true,
-    "supports_prompt_caching": true,
-    "supports_prompt_cache_breakpoint": true,
-    "supports_prompt_cache_breakpoints": true,
-    "supports_reasoning": true,
-    "supports_reasoning_effort": true,
-    "is_reasoning_model": true,
-    "reasoning_effort_levels": [
-      "low",
-      "medium",
-      "high",
-      "xhigh",
-      "max"
-    ],
-    "default_reasoning_effort": "medium",
-    "supports_none_reasoning_effort": false,
-    "supports_minimal_reasoning_effort": false,
-    "supports_low_reasoning_effort": true,
-    "supports_xhigh_reasoning_effort": true,
-    "supports_max_reasoning_effort": true,
-    "supports_reasoning_disable": false,
-    "thinking_always_on": true,
-    "always_reasoning": true,
-    "supports_reasoning_with_tool_calls": false,
-    "reasoning_contexts": [
-      "auto",
-      "current_turn",
-      "all_turns"
-    ],
-    "supported_reasoning_contexts": [
-      "auto",
-      "current_turn",
-      "all_turns"
-    ],
-    "supports_sampling_params": false,
-    "unsupported_fields": {
-      "temperature": true,
-      "top_p": true,
-      "logprobs": true,
-      "top_logprobs": true,
-      "stop": true,
-      "presence_penalty": true,
-      "frequency_penalty": true,
-      "logit_bias": true,
-      "web_search_options": true
-    },
-    "web_search_billing_unit": "per_request",
-    "regional_processing_uplift_multiplier_us": 1.1,
-    "regional_processing_uplift_multiplier_eu": 1.2,
-    "max_tokens": 128000,
-    "source": "https://ai.azure.com/catalog/models/gpt-6.2-astra",
-    "metadata": {
-      "notes": "PROVISIONAL: Azure has not yet published GPT-6.2 prices (catalog version 2026-11-17 links to https://aka.ms/AzureOAIpricing with no figures). Global Standard is set to OpenAI's Standard rates, as Azure matched OpenAI for GPT-6 Astra/Sol. Data Zone uplift follows the GPT-6 pattern: US 1.1x, EU 1.2x. Over 272K input tokens: 2x input/cache, 1.5x output for the full request. Knowledge cutoff: 2026-05-18. API rejects reasoning effort 'none'. Re-verify once Azure posts pricing."
-    }
-  },
-  "azure/gpt-6.2-sol-2026-11-17": {
-    "base_model": "gpt-6.2-sol",
-    "provider": "azure",
-    "mode": "chat",
-    "max_input_tokens": 922000,
-    "max_output_tokens": 128000,
-    "min_output_tokens": 16,
-    "supported_endpoints": [
-      "/v1/chat/completions",
-      "/v1/responses"
-    ],
-    "supported_modalities": [
-      "text",
-      "image"
-    ],
-    "supported_output_modalities": [
-      "text"
-    ],
-    "supports_service_tier": false,
-    "supports_native_streaming": true,
-    "supports_system_messages": true,
-    "supports_function_calling": true,
-    "supports_parallel_function_calling": true,
-    "supports_tool_choice": true,
-    "supports_custom_tools": true,
-    "supports_tool_search": true,
-    "supports_computer_use": true,
-    "supports_web_search": true,
-    "supports_file_search": true,
-    "supports_code_execution": true,
-    "supports_image_gen_tool": true,
-    "supports_response_schema": true,
-    "supports_native_structured_output": true,
-    "supports_vision": true,
-    "supports_image_input": true,
-    "supports_pdf_input": true,
-    "supports_prompt_caching": true,
-    "supports_prompt_cache_breakpoint": true,
-    "supports_prompt_cache_breakpoints": true,
-    "supports_reasoning": true,
-    "supports_reasoning_effort": true,
-    "is_reasoning_model": true,
-    "reasoning_effort_levels": [
-      "low",
-      "medium",
-      "high",
-      "xhigh",
-      "max"
-    ],
-    "default_reasoning_effort": "medium",
-    "supports_none_reasoning_effort": false,
-    "supports_minimal_reasoning_effort": false,
-    "supports_low_reasoning_effort": true,
-    "supports_xhigh_reasoning_effort": true,
-    "supports_max_reasoning_effort": true,
-    "supports_reasoning_disable": false,
-    "thinking_always_on": true,
-    "always_reasoning": true,
-    "supports_reasoning_with_tool_calls": false,
-    "reasoning_contexts": [
-      "auto",
-      "current_turn",
-      "all_turns"
-    ],
-    "supported_reasoning_contexts": [
-      "auto",
-      "current_turn",
-      "all_turns"
-    ],
-    "supports_sampling_params": false,
-    "unsupported_fields": {
-      "temperature": true,
-      "top_p": true,
-      "logprobs": true,
-      "top_logprobs": true,
-      "stop": true,
-      "presence_penalty": true,
-      "frequency_penalty": true,
-      "logit_bias": true,
-      "web_search_options": true
-    },
-    "web_search_billing_unit": "per_request",
-    "regional_processing_uplift_multiplier_us": 1.1,
-    "regional_processing_uplift_multiplier_eu": 1.2,
-    "max_tokens": 128000,
-    "source": "https://ai.azure.com/catalog/models/gpt-6.2-sol",
-    "metadata": {
-      "notes": "PROVISIONAL: Azure has not yet published GPT-6.2 prices (catalog version 2026-11-17 links to https://aka.ms/AzureOAIpricing with no figures). Global Standard is set to OpenAI's Standard rates, as Azure matched OpenAI for GPT-6 Astra/Sol. Data Zone uplift follows the GPT-6 pattern: US 1.1x, EU 1.2x. Over 272K input tokens: 2x input/cache, 1.5x output for the full request. Knowledge cutoff: 2026-06-01. API rejects reasoning effort 'none'. Re-verify once Azure posts pricing."
-    }
   },
   "bedrock/global.openai.gpt-6.2-astra": {
     "base_model": "gpt-6.2-astra",

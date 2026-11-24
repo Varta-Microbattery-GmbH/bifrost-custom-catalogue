@@ -19791,7 +19791,8 @@
     "base_model": "claude-opus-4-5",
     "web_search_cost_per_request": 0.01,
     "web_search_billing_unit": "per_request",
-    "deprecation_date": "2026-11-24"
+    "deprecation_date": "2026-11-24",
+    "is_deprecated": true
   },
   "claude-opus-4-5": {
     "cache_creation_input_token_cost": 0.00000625,
@@ -19830,7 +19831,8 @@
     "web_search_cost_per_request": 0.01,
     "web_search_billing_unit": "per_request",
     "deprecation_date": "2026-11-24",
-    "supports_web_search": true
+    "supports_web_search": true,
+    "is_deprecated": true
   },
   "claude-opus-4-6": {
     "cache_creation_input_token_cost": 0.00000625,
@@ -58707,7 +58709,8 @@
     "source": "https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/pricing",
     "provider": "vertex_ai",
     "base_model": "claude-opus-4-5",
-    "supports_web_search": true
+    "supports_web_search": true,
+    "is_deprecated": true
   },
   "vertex_ai/claude-opus-4-5@20251101": {
     "deprecation_source": "https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/opus-4-5",
@@ -58746,7 +58749,8 @@
     "source": "https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/pricing",
     "provider": "vertex_ai",
     "base_model": "claude-opus-4-5",
-    "supports_web_search": true
+    "supports_web_search": true,
+    "is_deprecated": true
   },
   "vertex_ai/claude-opus-4-6": {
     "cache_creation_input_token_cost": 0.00000625,
