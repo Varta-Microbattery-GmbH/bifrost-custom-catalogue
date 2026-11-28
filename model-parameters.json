@@ -298063,7 +298063,6 @@
     "supports_reasoning": true,
     "supports_response_schema": true,
     "supports_vision": true,
-    "supports_prompt_caching": true,
     "source": "https://openrouter.ai/moonshotai/kimi-k2.5",
     "supports_video_input": true,
     "model_parameters": [
@@ -1010544,6 +1010543,8 @@
     "max_input_tokens": 63000,
     "max_output_tokens": 63000,
     "max_tokens": 63000,
+    "supports_function_calling": true,
+    "supports_tool_choice": true,
     "model_parameters": [
       {
         "id": "promptTools",
@@ -1010744,8 +1010745,6 @@
         ]
       }
     ],
-    "supports_function_calling": true,
-    "supports_tool_choice": true,
     "source": "merged_from_llm_models_csv"
   },
   "openrouter/thudm/glm-4.1v-9b-thinking": {
@@ -1026981,7 +1026980,6 @@
     "max_tokens": 131072,
     "supports_response_schema": true,
     "supports_vision": true,
-    "supports_prompt_caching": true,
     "model_parameters": [
       {
         "id": "temperature",
@@ -1028506,7 +1028504,6 @@
     "supports_tool_choice": true,
     "supports_response_schema": true,
     "supports_vision": true,
-    "supports_prompt_caching": true,
     "model_parameters": [
       {
         "id": "temperature",
@@ -1159427,20 +1159424,20 @@
   "openrouter/moonshotai/kimi-k2-0905": {
     "mode": "chat",
     "base_model": "kimi-k2-0905",
+    "provider": "openrouter",
     "max_input_tokens": 262144,
     "max_output_tokens": 98304,
     "max_tokens": 98304,
+    "supports_function_calling": true,
+    "supports_tool_choice": true,
+    "supports_response_schema": true,
     "source": "https://openrouter.ai/api/v1/models",
     "supports_audio_input": false,
-    "supports_function_calling": true,
     "supports_pdf_input": false,
     "supports_prompt_caching": false,
     "supports_reasoning": false,
-    "supports_tool_choice": true,
-    "supports_response_schema": true,
     "supports_vision": false,
     "supports_web_search": false,
-    "provider": "openrouter",
     "model_parameters": [
       {
         "id": "max_tokens",
@@ -1159457,9 +1159454,7 @@
           "/v1/completions"
         ]
       }
-    ],
-    "supports_parallel_function_calling": true,
-    "supports_system_messages": true
+    ]
   },
   "openrouter/qwen/qwen3-30b-a3b-thinking-2507": {
     "mode": "chat",
@@ -1234889,13 +1234884,13 @@
     "base_model": "kimi"
   },
   "together_ai/thinkingmachines/inkling": {
-    "deprecation_date": "2026-11-06",
+    "deprecation_date": "2026-12-09",
     "deprecation_source": "https://docs.together.ai/docs/deprecations",
     "max_input_tokens": 524288,
     "max_output_tokens": 524288,
     "mode": "chat",
     "source": "https://api.together.ai/v1/models",
-    "successor_model": "together_ai/meta-models/Muse-Spark-Open-816B-A42B",
+    "successor_model": "together_ai/thinkingmachines/Inkling-2-Small",
     "supports_function_calling": true,
     "supports_parallel_function_calling": true,
     "supports_prompt_caching": true,
@@ -1234908,8 +1234903,7 @@
       "notes": "Audio input, vision and variable reasoning effort documented at https://www.together.ai/models/inkling, read 2026-11-17."
     },
     "provider": "together_ai",
-    "base_model": "thinkingmachines/inkling",
-    "is_deprecated": true
+    "base_model": "thinkingmachines/inkling"
   },
   "together_ai/glm-latest": {
     "alias_of": "together_ai/zai-org/GLM-5.3",
@@ -1283331,6 +1283325,29 @@
     "provider": "azure",
     "base_model": "dall-e-3"
   },
+  "openrouter/antdigital/lingdt-decision-fast-1.0:free": {
+    "provider": "openrouter",
+    "base_model": "lingdt-decision-fast-1.0:free",
+    "mode": "decisions",
+    "max_input_tokens": 32768,
+    "max_output_tokens": 29491,
+    "max_tokens": 29491,
+    "supports_decisions": true
+  },
+  "openrouter/inclusionai/lingsante-3.1-air-vl": {
+    "provider": "openrouter",
+    "base_model": "lingsante-3.1-air-vl",
+    "mode": "chat",
+    "max_input_tokens": 131072,
+    "max_output_tokens": 32768,
+    "max_tokens": 32768,
+    "supports_function_calling": true,
+    "supports_tool_choice": true,
+    "supports_reasoning": true,
+    "supports_response_schema": true,
+    "supports_vision": true,
+    "supports_prompt_caching": true
+  },
   "openrouter/bytedance-seed/seed-tts-3-0": {
     "provider": "openrouter",
     "base_model": "seed-tts-3-0",
@@ -1283699,9 +1283716,9 @@
     "max_output_tokens": 3686,
     "max_tokens": 3686
   },
-  "openrouter/inclusionai/ling-3.2-flash:free": {
+  "openrouter/inclusionai/ling-3.2-flash": {
     "provider": "openrouter",
-    "base_model": "ling-3.2-flash:free",
+    "base_model": "ling-3.2-flash",
     "mode": "chat",
     "max_input_tokens": 1048576,
     "max_output_tokens": 262144,
@@ -1283710,7 +1283727,8 @@
     "supports_tool_choice": true,
     "supports_reasoning": true,
     "supports_response_schema": true,
-    "supports_vision": true
+    "supports_vision": true,
+    "supports_prompt_caching": true
   },
   "openrouter/heygen/heygen-decision-1-turbo": {
     "provider": "openrouter",
@@ -1284211,8 +1284229,8 @@
     "base_model": "particle-1",
     "mode": "chat",
     "max_input_tokens": 1048576,
-    "max_output_tokens": 131072,
-    "max_tokens": 131072,
+    "max_output_tokens": 943718,
+    "max_tokens": 943718,
     "supports_function_calling": true,
     "supports_tool_choice": true,
     "supports_reasoning": true,
@@ -1284225,8 +1284243,8 @@
     "base_model": "particle-1:free",
     "mode": "chat",
     "max_input_tokens": 1048576,
-    "max_output_tokens": 131072,
-    "max_tokens": 131072,
+    "max_output_tokens": 943718,
+    "max_tokens": 943718,
     "supports_function_calling": true,
     "supports_tool_choice": true,
     "supports_reasoning": true,
@@ -1285761,15 +1285779,6 @@
     "max_output_tokens": 28800,
     "max_tokens": 28800
   },
-  "openrouter/microsoft/mai-image-2.5-pro": {
-    "provider": "openrouter",
-    "base_model": "mai-image-2.5-pro",
-    "mode": "image_generation",
-    "max_input_tokens": 4096,
-    "max_output_tokens": 1024,
-    "max_tokens": 1024,
-    "supports_vision": true
-  },
   "openrouter/krea/krea-2-large": {
     "provider": "openrouter",
     "base_model": "krea-2-large",
@@ -1285912,15 +1285921,6 @@
     "supports_tool_choice": true,
     "supports_reasoning": true,
     "supports_response_schema": true,
-    "supports_vision": true
-  },
-  "openrouter/microsoft/mai-image-2.5": {
-    "provider": "openrouter",
-    "base_model": "mai-image-2.5",
-    "mode": "image_generation",
-    "max_input_tokens": 4096,
-    "max_output_tokens": 1024,
-    "max_tokens": 1024,
     "supports_vision": true
   },
   "openrouter/minimax/minimax-m3:batch": {
@@ -1291793,6 +1291793,85 @@
       "mx-central-1"
     ]
   },
+  "vertex_ai/deepseek-ai/deepseek-v4.1-flash-1017-maas": {
+    "base_model": "deepseek-v4.1-flash",
+    "mode": "chat",
+    "source": "https://models.dev/api.json",
+    "supports_prompt_caching": true,
+    "max_input_tokens": 1000000,
+    "max_output_tokens": 384000,
+    "max_tokens": 384000,
+    "supported_modalities": [
+      "text",
+      "image"
+    ],
+    "supported_output_modalities": [
+      "text"
+    ],
+    "supports_vision": true,
+    "supports_function_calling": true,
+    "supports_response_schema": true,
+    "supports_reasoning": true,
+    "provider": "vertex_ai"
+  },
+  "cloudflare/workers-ai/@cf/thinkingmachines/inkling-2-small": {
+    "base_model": "cloudflare/workers-ai/",
+    "mode": "chat",
+    "source": "https://models.dev/api.json",
+    "supports_prompt_caching": true,
+    "max_input_tokens": 1048576,
+    "max_output_tokens": 1048576,
+    "max_tokens": 1048576,
+    "supported_modalities": [
+      "text",
+      "image"
+    ],
+    "supported_output_modalities": [
+      "text"
+    ],
+    "supports_vision": true,
+    "supports_function_calling": true,
+    "supports_response_schema": true,
+    "supports_reasoning": true,
+    "reasoning_effort_levels": [
+      "none",
+      "minimal",
+      "low",
+      "medium",
+      "high",
+      "max"
+    ],
+    "provider": "cloudflare"
+  },
+  "workers-ai/workers-ai/@cf/thinkingmachines/inkling-2-small": {
+    "base_model": "cloudflare/workers-ai/",
+    "mode": "chat",
+    "source": "https://models.dev/api.json",
+    "supports_prompt_caching": true,
+    "max_input_tokens": 1048576,
+    "max_output_tokens": 1048576,
+    "max_tokens": 1048576,
+    "supported_modalities": [
+      "text",
+      "image"
+    ],
+    "supported_output_modalities": [
+      "text"
+    ],
+    "supports_vision": true,
+    "supports_function_calling": true,
+    "supports_response_schema": true,
+    "supports_reasoning": true,
+    "reasoning_effort_levels": [
+      "none",
+      "minimal",
+      "low",
+      "medium",
+      "high",
+      "max"
+    ],
+    "provider": "workers-ai"
+  },
   "cloudflare/workers-ai/@cf/daily-co/phonellm-mini-alpha-2": {
     "base_model": "cloudflare/workers-ai/",
     "mode": "chat",
@@ -1291921,14 +1292000,13 @@
     ],
     "provider": "workers-ai"
   },
-  "cloudflare/workers-ai/@cf/thinkingmachines/inkling-2-small": {
-    "base_model": "cloudflare/workers-ai/",
-    "mode": "chat",
+  "azure/cohere-embed-v-4-0": {
+    "base_model": "embed-v-4-0",
+    "mode": "embedding",
     "source": "https://models.dev/api.json",
-    "supports_prompt_caching": true,
-    "max_input_tokens": 1048576,
-    "max_output_tokens": 1048576,
-    "max_tokens": 1048576,
+    "max_input_tokens": 128000,
+    "max_output_tokens": 1536,
+    "max_tokens": 1536,
     "supported_modalities": [
       "text",
       "image"
@@ -1291937,47 +1292015,9 @@
       "text"
     ],
     "supports_vision": true,
-    "supports_function_calling": true,
-    "supports_response_schema": true,
-    "supports_reasoning": true,
-    "reasoning_effort_levels": [
-      "none",
-      "minimal",
-      "low",
-      "medium",
-      "high",
-      "max"
-    ],
-    "provider": "cloudflare"
-  },
-  "workers-ai/workers-ai/@cf/thinkingmachines/inkling-2-small": {
-    "base_model": "cloudflare/workers-ai/",
-    "mode": "chat",
-    "source": "https://models.dev/api.json",
-    "supports_prompt_caching": true,
-    "max_input_tokens": 1048576,
-    "max_output_tokens": 1048576,
-    "max_tokens": 1048576,
-    "supported_modalities": [
-      "text",
-      "image"
-    ],
-    "supported_output_modalities": [
-      "text"
-    ],
-    "supports_vision": true,
-    "supports_function_calling": true,
-    "supports_response_schema": true,
-    "supports_reasoning": true,
-    "reasoning_effort_levels": [
-      "none",
-      "minimal",
-      "low",
-      "medium",
-      "high",
-      "max"
-    ],
-    "provider": "workers-ai"
+    "supports_function_calling": false,
+    "supports_reasoning": false,
+    "provider": "azure"
   },
   "azure/fw-kimi-k3.1-pro": {
     "base_model": "fw-kimi-k3.1-pro",
@@ -1292004,25 +1292044,6 @@
       "high",
       "max"
     ],
-    "provider": "azure"
-  },
-  "azure/cohere-embed-v-4-0": {
-    "base_model": "embed-v-4-0",
-    "mode": "embedding",
-    "source": "https://models.dev/api.json",
-    "max_input_tokens": 128000,
-    "max_output_tokens": 1536,
-    "max_tokens": 1536,
-    "supported_modalities": [
-      "text",
-      "image"
-    ],
-    "supported_output_modalities": [
-      "text"
-    ],
-    "supports_vision": true,
-    "supports_function_calling": false,
-    "supports_reasoning": false,
     "provider": "azure"
   },
   "replicate/topazlabs/image-upscale": {
